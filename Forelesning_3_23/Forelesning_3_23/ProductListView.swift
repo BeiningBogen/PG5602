@@ -7,18 +7,33 @@
 
 import SwiftUI
 
+enum UserLevel {
+    case user
+    case admin
+    case employee
+}
+
 struct ProductListView: View {
     /// mac versjon?
     /// Content view?
     ///
 //    let products = ["Bukse", "T-skjorte", "Sko"]
     
-    init(products: [Product]) {
+    init(products: [Product], isAdmin: Bool) {
         self.products = products
+        self.isAdmin = isAdmin
     }
     
     
+    let isAdmin: Bool
     @State var products: [Product]
+    
+    @State var isPresentingAddProductView: Bool = false
+    
+    /// Textfield attributes
+    @State var newProductName: String = ""
+    
+//    @AppStorage var hasSeenOnboarding = false
     
 //    @Published
 //    @ObservedObject
@@ -33,22 +48,44 @@ struct ProductListView: View {
                         ListItemView(product: product)
                     }
                 } // Foreach
-                Button("Legg til produkt") {
-                    let newProduct = Product.init(name: "Sokker", description: "small, gule", price: 230)
-                    print(products.count) // printer 2
-                    products.append(newProduct)
+                if isAdmin {
+                    Button("Legg til produkt") {
+                        let newProduct = Product.init(name: "Sokker", description: "small, gule", price: 230)
+                        print(products.count) // printer 2
+                        products.append(newProduct)
+                        
+                        
+                        isPresentingAddProductView = true
+                        
+                    } // Button
+                } else {
+                    // not admin
+                    Text("Du er en vanlig bruker")
                 }
-                
-                
-            } // List
-            
+            }.sheet(isPresented: $isPresentingAddProductView) {
+                VStack(alignment: .trailing) {
+                    HStack {
+                        Text("Legg til nytt produkt")
+                            .font(.title)
+                            .padding(30)
+                        Spacer()
+                    } // title hstack
+                    
+                    TextField("Produktnavn", text: $newProductName)
+                    
+                    
+                    
+                    
+                    Spacer()
+                }
+            }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView(products: Product.demoProducts)
+        ProductListView(products: Product.demoProducts, isAdmin: true)
     }
 }
 

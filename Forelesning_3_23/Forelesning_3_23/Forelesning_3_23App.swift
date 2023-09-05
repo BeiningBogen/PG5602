@@ -12,7 +12,8 @@ struct Forelesning_3_23App: App {
     var body: some Scene {
         WindowGroup {
 //            let httpGetProducts =
-            ProductListView(products: Product.demoProducts)
+            ProductListView(products: Product.demoProducts, isAdmin: true)
+            
         }
     }
 }
