@@ -11,7 +11,8 @@ import SwiftUI
 struct Forelesning_3_23App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            let httpGetProducts =
+            ProductListView(products: Product.demoProducts)
         }
     }
 }

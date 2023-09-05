@@ -7,18 +7,21 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProductListView: View {
     /// mac versjon?
     /// Content view?
     ///
 //    let products = ["Bukse", "T-skjorte", "Sko"]
     
-    let products = [
-        Product.init(name: "Bukse", description: "Grå, str 32", price: 500),
-        Product.init(name: "T-skjorte", description: "hvit, medium. Laget av egyptisk bomull", price: 800)
-    ]
+    init(products: [Product]) {
+        self.products = products
+    }
     
-//    let productDescriptions = ["Grå bukse, str medium"]
+    
+    @State var products: [Product]
+    
+//    @Published
+//    @ObservedObject
     
     var body: some View {
         NavigationStack {
@@ -30,14 +33,22 @@ struct ContentView: View {
                         ListItemView(product: product)
                     }
                 } // Foreach
+                Button("Legg til produkt") {
+                    let newProduct = Product.init(name: "Sokker", description: "small, gule", price: 230)
+                    print(products.count) // printer 2
+                    products.append(newProduct)
+                }
+                
+                
             } // List
+            
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProductListView(products: Product.demoProducts)
     }
 }
 

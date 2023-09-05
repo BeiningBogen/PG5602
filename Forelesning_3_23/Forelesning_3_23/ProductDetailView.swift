@@ -11,13 +11,13 @@ struct ProductDetailView: View {
     let product: Product
     
     init(product: Product) {
+        print(product)
         self.product = product
     }
     
     var body: some View {
         VStack {
             Text(product.name)
-            
             Text(product.description)
         }.foregroundColor(.red)
         

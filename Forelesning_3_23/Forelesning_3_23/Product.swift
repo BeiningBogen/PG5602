@@ -19,6 +19,25 @@ struct Product: Identifiable {
 }
 
 
-func test() {
-    let product = Product(name: "buKse", description: "", price: 34)
+extension Product {
+    
+    static let demoProducts = [
+        Product.init(name: "Bukse", description: "Grå, str 32", price: 500),
+        Product.init(name: "T-skjorte", description: "hvit, medium. Laget av egyptisk bomull", price: 800)
+        
+    ]
+    
+    static func testReturnProducts() -> [Product] {
+        return [
+            Product.init(name: "Genser", description: "Brun med mønster på magen, str 34", price: 890),
+            Product.init(name: "Olabukse", description: "str 34/34", price: 1230)
+        ]
+    }
+    
+}
+
+func aMethod() {
+    
+    Product.testReturnProducts()
+    
 }
