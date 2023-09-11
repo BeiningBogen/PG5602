@@ -13,7 +13,6 @@ struct Forelesning_3_23App: App {
         WindowGroup {
 //            let httpGetProducts =
             ProductListView(products: Product.demoProducts, isAdmin: true)
-            
         }
     }
 }

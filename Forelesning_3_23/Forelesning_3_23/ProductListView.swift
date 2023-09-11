@@ -17,7 +17,7 @@ struct ProductListView: View {
     /// mac versjon?
     /// Content view?
     ///
-//    let products = ["Bukse", "T-skjorte", "Sko"]
+    //    let products = ["Bukse", "T-skjorte", "Sko"]
     
     init(products: [Product], isAdmin: Bool) {
         self.products = products
@@ -30,13 +30,33 @@ struct ProductListView: View {
     
     @State var isPresentingAddProductView: Bool = false
     
+    @State var isShowingAlert: Bool = false
+    
     /// Textfield attributes
     @State var newProductName: String = ""
+    @State var newProductPrice: String = ""
+    @State var newProductDescription: String = ""
     
-//    @AppStorage var hasSeenOnboarding = false
     
-//    @Published
-//    @ObservedObject
+    
+    //    @AppStorage var hasSeenOnboarding = false
+    
+    //    @Published
+    //    @ObservedObject
+    
+    
+    
+    func addProduct() {
+        print("user still tapped button")
+        if let productPrice = Int(newProductPrice) {
+            let product = Product(name: newProductName, description: newProductDescription, price: productPrice)
+            products.append(product)
+        } else {
+            print("feil format _\(newProductPrice)_")
+        }
+        
+    }
+    
     
     var body: some View {
         NavigationStack {
@@ -53,52 +73,38 @@ struct ProductListView: View {
                         let newProduct = Product.init(name: "Sokker", description: "small, gule", price: 230)
                         print(products.count) // printer 2
                         products.append(newProduct)
-                        
-                        
                         isPresentingAddProductView = true
                         
-                    } // Button
+                    }// Button
                 } else {
-                    // not admin
-                    Text("Du er en vanlig bruker")
-                }
-            }.sheet(isPresented: $isPresentingAddProductView) {
-                VStack(alignment: .trailing) {
-                    HStack {
-                        Text("Legg til nytt produkt")
-                            .font(.title)
-                            .padding(30)
-                        Spacer()
-                    } // title hstack
-                    
-                    TextField("Produktnavn", text: $newProductName)
-                    
-                    
-                    
-                    
-                    Spacer()
+                        // not admin
+                        Text("Du er en vanlig bruker")
+                    }
+                }.sheet(isPresented: $isPresentingAddProductView) {
+                    AddProductView() { product in
+                        print(product)
+                    }
                 }
             }
         }
     }
-}
-
-struct ProductListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductListView(products: Product.demoProducts, isAdmin: true)
-    }
-}
-
-struct ListItemView: View {
     
-    let product: Product
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("\(product.name)")
-            Text(product.description)
-                .foregroundColor(.gray)
-        }.padding()
-            .foregroundColor(.brown)
+    struct ProductListView_Previews: PreviewProvider {
+        static var previews: some View {
+            ProductListView(products: Product.demoProducts, isAdmin: true)
+        }
     }
-}
+    
+    struct ListItemView: View {
+        
+        let product: Product
+        
+        var body: some View {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("\(product.name)")
+                Text(product.description)
+                    .foregroundColor(.gray)
+            }.padding()
+                .foregroundColor(.brown)
+        }
+    }
