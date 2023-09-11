@@ -8,18 +8,32 @@
 import SwiftUI
 
 struct AddProductView: View {
+    var didAddProduct: ((Product) -> ())
+    
+    init(didAddProduct: @escaping ((Product) -> Void) ) {
+        self.didAddProduct = didAddProduct
+    }
     
     /// Textfield attributes
     @State var newProductName: String = ""
     @State var newProductPrice: String = ""
     @State var newProductDescription: String = ""
     
-    var didAddProduct: ((Product) -> ())
+    @State var isShowingErrorAlert: Bool = false
     
-//    var myname: String
+    //    var myname: String
     
-    func addProduct() {
+    func addProduct() -> () {
         
+        if let productPrice = Int(newProductPrice) {
+            let product = Product(name: newProductName, description: newProductDescription, price: productPrice
+            )
+            didAddProduct(product)
+            
+        } else {
+            isShowingErrorAlert = true
+        }
+        return ()
     }
     
     var body: some View {
@@ -36,11 +50,12 @@ struct AddProductView: View {
             TextField("Beskrivelse", text: $newProductDescription)
             TextField("Pris", text: $newProductPrice)
             
-            Button {
+            
+            Button() {
                 // user tapped button
                 print("user tapped button")
                 addProduct()
-                
+                return
             } label: {
                 VStack {
                     Text("Lagre")
@@ -48,7 +63,14 @@ struct AddProductView: View {
                 }
             }
             Spacer()
+        }.alert("Det skjedde noe feil",
+                isPresented: $isShowingErrorAlert) {
+            Text("dette var actions")
+        } message: {
+            Text("Dette var message")
+                .foregroundColor(.red)
         }
+
     }
 }
 

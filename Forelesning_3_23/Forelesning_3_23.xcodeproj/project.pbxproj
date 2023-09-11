@@ -17,6 +17,7 @@
 		EC40E8F32AA5F81C007A6567 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */; };
 		EC40E8F52AA5F8DF007A6567 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8F42AA5F8DF007A6567 /* Product.swift */; };
 		EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25762AAF282900001D37 /* AddProductView.swift */; };
+		EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25782AAF31B200001D37 /* MyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		EC40E8F42AA5F8DF007A6567 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EC7F25762AAF282900001D37 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		EC7F25782AAF31B200001D37 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				EC40E8C82AA5E6CE007A6567 /* Forelesning_3_23App.swift */,
 				EC40E8CA2AA5E6CE007A6567 /* ProductListView.swift */,
 				EC7F25762AAF282900001D37 /* AddProductView.swift */,
+				EC7F25782AAF31B200001D37 /* MyButton.swift */,
 				EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */,
 				EC40E8F42AA5F8DF007A6567 /* Product.swift */,
 				EC40E8CC2AA5E6CF007A6567 /* Assets.xcassets */,
@@ -271,6 +274,7 @@
 				EC40E8C92AA5E6CE007A6567 /* Forelesning_3_23App.swift in Sources */,
 				EC40E8F32AA5F81C007A6567 /* ProductDetailView.swift in Sources */,
 				EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */,
+				EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

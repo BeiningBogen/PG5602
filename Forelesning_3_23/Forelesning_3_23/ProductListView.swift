@@ -77,34 +77,35 @@ struct ProductListView: View {
                         
                     }// Button
                 } else {
-                        // not admin
-                        Text("Du er en vanlig bruker")
-                    }
-                }.sheet(isPresented: $isPresentingAddProductView) {
-                    AddProductView() { product in
-                        print(product)
-                    }
+                    // not admin
+                    Text("Du er en vanlig bruker")
+                }
+            }.sheet(isPresented: $isPresentingAddProductView) {
+                AddProductView() { product in
+                    products.append(product)
+                    isPresentingAddProductView = false
                 }
             }
         }
     }
-    
-    struct ProductListView_Previews: PreviewProvider {
-        static var previews: some View {
-            ProductListView(products: Product.demoProducts, isAdmin: true)
-        }
+}
+
+struct ProductListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductListView(products: Product.demoProducts, isAdmin: true)
     }
+}
+
+struct ListItemView: View {
     
-    struct ListItemView: View {
-        
-        let product: Product
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("\(product.name)")
-                Text(product.description)
-                    .foregroundColor(.gray)
-            }.padding()
-                .foregroundColor(.brown)
-        }
+    let product: Product
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("\(product.name)")
+            Text(product.description)
+                .foregroundColor(.gray)
+        }.padding()
+            .foregroundColor(.brown)
     }
+}
