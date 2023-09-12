@@ -18,6 +18,8 @@ struct Product: Identifiable {
     
 }
 
+var shoppingCart = [Product]()
+
 
 extension Product {
     

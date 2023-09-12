@@ -63,7 +63,9 @@ struct AddProductView: View {
                 }
             }
             Spacer()
-        }.alert("Det skjedde noe feil",
+        }
+        
+        .alert("Det skjedde noe feil",
                 isPresented: $isShowingErrorAlert) {
             Text("dette var actions")
         } message: {
