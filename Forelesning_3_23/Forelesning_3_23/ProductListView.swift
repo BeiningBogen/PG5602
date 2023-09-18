@@ -19,11 +19,12 @@ struct ProductListView: View {
     ///
     //    let products = ["Bukse", "T-skjorte", "Sko"]
     
-    init(products: [Product], isAdmin: Bool) {
+    init(products: [Product], isAdmin: Bool, shoppingCart: Binding<[Product]>) {
         self.products = products
         self.isAdmin = isAdmin
+        self.shoppingCart = shoppingCart
     }
-    
+    var shoppingCart: Binding<[Product]>
     
     let isAdmin: Bool
     @State var products: [Product]
@@ -76,7 +77,7 @@ struct ProductListView: View {
                                 minusButtonTapped: {
                                     print("Minus button tapped")
                                     var hasRemoved = false
-                                    shoppingCart.removeAll { filteredProduct in
+                                    shoppingCart.wrappedValue.removeAll { filteredProduct in
                                         if filteredProduct.id == product.id,
                                            hasRemoved == false {
                                             hasRemoved = true
@@ -88,7 +89,7 @@ struct ProductListView: View {
                                 },
                                 plusButtonTapped: {
                                     print("Plus button tapped")
-                                    shoppingCart.append(product)
+                                    shoppingCart.wrappedValue.append(product)
                                     print(shoppingCart)
                                 })
                             .padding()
@@ -127,7 +128,10 @@ struct ProductListView: View {
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView(products: Product.demoProducts, isAdmin: false)
+        ProductListView(products: Product.demoProducts, isAdmin: false, shoppingCart:
+                
+                .constant([])
+        )
     }
 }
 

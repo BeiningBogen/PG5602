@@ -17,9 +17,48 @@ struct ProductDetailView: View {
     
     var body: some View {
         VStack {
-            Text(product.name)
+            HStack {
+                Text(product.name)
+                    .font(.largeTitle)
+                    .bold()
+                    .fontWeight(nil)
+                    .padding(.top, 40)
+                    .padding(.leading, 40)
+                Spacer()
+            } // HStack - Title
+            
+            Image("productImage")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200)
+            
+            
             Text(product.description)
-        }.foregroundColor(.red)
+                .padding(
+                    EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0)
+                )
+            
+            Spacer()
+            Text("Før \(product.price + Int.random(in: 10...400)) kr ")
+                .strikethrough()
+                .padding(.top)
+            
+            Text("Nå \(product.price) kr ")
+                .padding(.vertical)
+            
+            Button {
+                // TODO: buy product
+                print("bought \(product.name)")
+            } label: {
+                ZStack {
+                    Circle()
+                        .frame(width: 100)
+                        .foregroundColor(.yellow)
+                    Text("Kjøp")
+                }
+            }
+
+        }
         
     }
 }

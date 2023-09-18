@@ -19,6 +19,8 @@
 		EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25762AAF282900001D37 /* AddProductView.swift */; };
 		EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25782AAF31B200001D37 /* MyButton.swift */; };
 		EC7F257B2AB0740300001D37 /* UpdateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F257A2AB0740300001D37 /* UpdateProductView.swift */; };
+		ECE7CE062AB86D1F0037ADE7 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7CE052AB86D1F0037ADE7 /* ShoppingCart.swift */; };
+		ECE7CE082AB86DB90037ADE7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7CE072AB86DB90037ADE7 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		EC7F25762AAF282900001D37 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		EC7F25782AAF31B200001D37 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		EC7F257A2AB0740300001D37 /* UpdateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductView.swift; sourceTree = "<group>"; };
+		ECE7CE052AB86D1F0037ADE7 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
+		ECE7CE072AB86DB90037ADE7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				EC40E8C82AA5E6CE007A6567 /* Forelesning_3_23App.swift */,
+				ECE7CE072AB86DB90037ADE7 /* SettingsView.swift */,
+				ECE7CE052AB86D1F0037ADE7 /* ShoppingCart.swift */,
 				EC40E8CA2AA5E6CE007A6567 /* ProductListView.swift */,
 				EC7F257A2AB0740300001D37 /* UpdateProductView.swift */,
 				EC7F25762AAF282900001D37 /* AddProductView.swift */,
@@ -275,10 +281,12 @@
 				EC40E8CB2AA5E6CE007A6567 /* ProductListView.swift in Sources */,
 				EC40E8F52AA5F8DF007A6567 /* Product.swift in Sources */,
 				EC40E8C92AA5E6CE007A6567 /* Forelesning_3_23App.swift in Sources */,
+				ECE7CE082AB86DB90037ADE7 /* SettingsView.swift in Sources */,
 				EC7F257B2AB0740300001D37 /* UpdateProductView.swift in Sources */,
 				EC40E8F32AA5F81C007A6567 /* ProductDetailView.swift in Sources */,
 				EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */,
 				EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */,
+				ECE7CE062AB86D1F0037ADE7 /* ShoppingCart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +452,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,6 +481,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
