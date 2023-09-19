@@ -8,8 +8,43 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State var isShowingOpenURLAlert = false
+    
+    @AppStorage(AppStorageKeys.username.rawValue) var username: String?
+    
+    func onAppear() { }
+    
     var body: some View {
-        Text("Settings view!")
+        NavigationView  {
+            List {
+                NavigationLink {
+                    ProfileView()
+                } label: {
+                    HStack {
+                        Text("Min profil")
+                        Spacer()
+                        if let username = username {
+                            Text(username)
+                                .foregroundColor(.gray)
+                        } else {
+                            Text("Du må logge inn").foregroundColor(.gray)
+                        }
+                    }
+                }
+                
+                Button.init("Kontakt oss") {
+                    isShowingOpenURLAlert = true
+                }
+            }
+            .navigationTitle("Innstillinger")
+        }.alert("Denne linken tar deg ut av appen", isPresented: $isShowingOpenURLAlert) {
+                Button("OK") {
+                    let url = URL.init(string: "https://kappahl.no/kontakt")!
+                    UIApplication.shared.open(url)
+                }
+                Button("Avbryt") { }
+        }
     }
 }
 

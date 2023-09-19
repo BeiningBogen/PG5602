@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ShoppingCart: View {
+    
     var body: some View {
-        Text("Shopping cart!")
+        NavigationView  {
+            VStack { }
+            .navigationTitle("Handlekurv")
+        }
     }
 }
 
