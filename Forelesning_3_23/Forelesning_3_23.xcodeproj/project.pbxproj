@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC03BF6B2AC1985500EADDF8 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC03BF6A2AC1985500EADDF8 /* KeychainSwift */; };
 		EC40E8C92AA5E6CE007A6567 /* Forelesning_3_23App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8C82AA5E6CE007A6567 /* Forelesning_3_23App.swift */; };
 		EC40E8CB2AA5E6CE007A6567 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8CA2AA5E6CE007A6567 /* ProductListView.swift */; };
 		EC40E8CD2AA5E6CF007A6567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC40E8CC2AA5E6CF007A6567 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC03BF6B2AC1985500EADDF8 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +169,9 @@
 			dependencies = (
 			);
 			name = Forelesning_3_23;
+			packageProductDependencies = (
+				EC03BF6A2AC1985500EADDF8 /* KeychainSwift */,
+			);
 			productName = Forelesning_3_23;
 			productReference = EC40E8C52AA5E6CE007A6567 /* Forelesning_3_23.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +244,9 @@
 				Base,
 			);
 			mainGroup = EC40E8BC2AA5E6CE007A6567;
+			packageReferences = (
+				EC03BF692AC1985500EADDF8 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = EC40E8C62AA5E6CE007A6567 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -611,6 +619,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC03BF692AC1985500EADDF8 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC03BF6A2AC1985500EADDF8 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC03BF692AC1985500EADDF8 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC40E8BD2AA5E6CE007A6567 /* Project object */;
 }

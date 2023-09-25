@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import KeychainSwift
+
 
 enum AppStorageKeys: String {
     case username
+    case password
 }
 
 struct ProfileView: View {
     
-//    @AppStorage(AppStorageKeys.username.rawValue) var username: String?
+    //    @AppStorage(AppStorageKeys.username.rawValue) var username: String?
     
     @State var username: String?
+    @State var password = ""
     
     @State var isLoggedIn: Bool = false
     
@@ -25,16 +29,30 @@ struct ProfileView: View {
             isLoggedIn = true
             self.username = username
         }
+        let keychain = KeychainSwift()
+        if let password = keychain.get(AppStorageKeys.password.rawValue) {
+            self.password = password
+        }
+        
         print(username as Any)
     }
     
     func createUserTapped() {
+        let keychain = KeychainSwift()
+        keychain.set(password, forKey: AppStorageKeys.password.rawValue)
+        
         UserDefaults.standard.setValue(username, forKey: AppStorageKeys.username.rawValue)
         isLoggedIn = true
     }
     
     func deleteUserTapped() {
         UserDefaults.standard.removeObject(forKey: AppStorageKeys.username.rawValue)
+        let keychain = KeychainSwift()
+        
+        password = ""
+        keychain.delete(AppStorageKeys.password.rawValue)
+        keychain.clear()
+        
         username = nil
         isLoggedIn = false
     }
@@ -42,30 +60,34 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            TextField("Brukernavn", text:
-                        Binding(get: {
-                if let username = username {
-                    return username
+            Form {
+                TextField("Brukernavn", text:
+                            Binding(get: {
+                    if let username = username {
+                        return username
+                    }
+                    return ""
+                }, set: { newValue, transaction in
+                    username = newValue
+                }))
+                .autocorrectionDisabled(true)
+                .textInputAutocapitalization(.never)
+                
+                SecureField("Passord", text: $password)
+                
+                if isLoggedIn {
+                    Button("Slett bruker") {
+                        deleteUserTapped()
+                    }.padding()
                 }
-                return ""
-            }, set: { newValue, transaction in
-                username = newValue
-            }))
-            .border(.black, width: 1)
-            .padding(.horizontal, 50)
-            .textFieldStyle(.roundedBorder)
-            
+                
+            }.onAppear {
+                onAppear()
+            }
             Button("Opprett bruker") {
+            
                 createUserTapped()
             }
-            
-            if isLoggedIn {
-                Button("Slett bruker") {
-                    deleteUserTapped()
-                }.padding()
-            }
-        }.onAppear {
-            onAppear()
         }
     }
 }
