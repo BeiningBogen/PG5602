@@ -39,16 +39,24 @@ struct ProductListView: View {
     @State var newProductPrice: String = ""
     @State var newProductDescription: String = ""
     
+    @State var userLoginStatus: String = ""
     
-    
-    //    @AppStorage var hasSeenOnboarding = false
-    
-    //    @Published
-    //    @ObservedObject
-    
-    
+    /// Called when view appears
+    func onAppear() {
+        print("on appear product list")
+        
+        // not admin
+        if KeychainSwift().get(AppStorageKeys.password.rawValue) != nil,
+           let username = UserDefaults().object(forKey: AppStorageKeys.username.rawValue) as? String
+        {
+            userLoginStatus = "Logget inn bruker: \(username)"
+        } else {
+            userLoginStatus = "Vennligst logg inn i appen"
+        }
+    }
     
     func addProduct() {
+        print()
         print("user still tapped button")
         if let productPrice = Int(newProductPrice) {
             let product = Product(name: newProductName, description: newProductDescription, price: productPrice)
@@ -114,15 +122,8 @@ struct ProductListView: View {
                         
                     }// Button
                 } else {
-                    // not admin
-                    if KeychainSwift().get(AppStorageKeys.password.rawValue) != nil,
-                       
-                        let username = UserDefaults().object(forKey: AppStorageKeys.username.rawValue) as? String
-                    {
-                        Text("Logget inn bruker: \(username)")
-                    } else {
-                        Text("Du er en vanlig bruker, Vennligst logg inn i appen!")
-                    }
+                    Text(userLoginStatus)
+
                 }
             }.sheet(isPresented: $isPresentingAddProductView) {
                 AddProductView() { product in
@@ -130,6 +131,10 @@ struct ProductListView: View {
                     isPresentingAddProductView = false
                 }
             }
+        }.onAppear {
+            onAppear()
+        }.onDisappear {
+            
         }
     }
 }

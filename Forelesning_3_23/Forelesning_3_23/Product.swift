@@ -8,17 +8,38 @@
 import Foundation
 
 
-struct Product: Identifiable {
+struct Product: Identifiable, Codable {
     
     let id: UUID = UUID()
     
     let name: String
     let description: String
     let price: Int
+//    /
+//    product_price
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.description = try container.decode(String.self, forKey: .description)
+//        self.price = try container.decode(Int.self, forKey: .price)
+//    }
     
 }
 
-//var shoppingCart = [Product]()
+extension Product {
+    
+    
+    static var sampleJSON: String {
+         """
+        {
+            "name": "Bukse",
+            "description": "Grå, str 32",
+            "price": 500
+        }
+        """
+    }
+}
 
 
 extension Product {

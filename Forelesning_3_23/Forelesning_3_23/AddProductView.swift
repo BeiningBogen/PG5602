@@ -24,12 +24,10 @@ struct AddProductView: View {
     //    var myname: String
     
     func addProduct() -> () {
-        
         if let productPrice = Int(newProductPrice) {
             let product = Product(name: newProductName, description: newProductDescription, price: productPrice
             )
             didAddProduct(product)
-            
         } else {
             isShowingErrorAlert = true
         }
