@@ -8,6 +8,10 @@
 import Foundation
 
 
+struct Student {
+    let firstName: String
+}
+
 struct Product: Identifiable, Codable {
     
     let id: UUID = UUID()
@@ -15,16 +19,15 @@ struct Product: Identifiable, Codable {
     let name: String
     let description: String
     let price: Int
-//    /
-//    product_price
     
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        self.name = try container.decode(String.self, forKey: .name)
-//        self.description = try container.decode(String.self, forKey: .description)
-//        self.price = try container.decode(Int.self, forKey: .price)
-//    }
+    let images: [ProductImage]
     
+    enum CodingKeys: String, CodingKey {
+        case name
+        case description = "desc"
+        case price
+        case images = "product_images"
+    }
 }
 
 extension Product {
@@ -34,8 +37,12 @@ extension Product {
          """
         {
             "name": "Bukse",
-            "description": "Grå, str 32",
-            "price": 500
+            "desc": "Grå, str 32",
+            "price": 500,
+            "product_images": [{
+                "url": "https://google.com",
+                "description": "Buksa i grønn versjon"
+            }]
         }
         """
     }
@@ -45,22 +52,17 @@ extension Product {
 extension Product {
     
     static let demoProducts = [
-        Product.init(name: "Bukse", description: "Grå, str 32", price: 500),
-        Product.init(name: "T-skjorte", description: "hvit, medium. Laget av egyptisk bomull", price: 800)
+        Product.init(name: "Bukse", description: "Grå, str 32", price: 500, images: []),
+        Product.init(name: "T-skjorte", description: "hvit, medium. Laget av egyptisk bomull", price: 800, images: [])
         
     ]
     
-    static func testReturnProducts() -> [Product] {
-        return [
-            Product.init(name: "Genser", description: "Brun med mønster på magen, str 34", price: 890),
-            Product.init(name: "Olabukse", description: "str 34/34", price: 1230)
-        ]
-    }
+//    static func testReturnProducts() -> [Product] {
+//        return [
+//            Product.init(name: "Genser", description: "Brun med mønster på magen, str 34", price: 890),
+//            Product.init(name: "Olabukse", description: "str 34/34", price: 1230)
+//        ]
+//    }
     
 }
 
-func aMethod() {
-    
-    Product.testReturnProducts()
-    
-}

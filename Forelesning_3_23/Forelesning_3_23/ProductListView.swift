@@ -47,6 +47,9 @@ struct ProductListView: View {
         
         // not admin
         if KeychainSwift().get(AppStorageKeys.password.rawValue) != nil,
+           
+            
+            
            let username = UserDefaults().object(forKey: AppStorageKeys.username.rawValue) as? String
         {
             userLoginStatus = "Logget inn bruker: \(username)"
@@ -59,7 +62,7 @@ struct ProductListView: View {
         print()
         print("user still tapped button")
         if let productPrice = Int(newProductPrice) {
-            let product = Product(name: newProductName, description: newProductDescription, price: productPrice)
+            let product = Product(name: newProductName, description: newProductDescription, price: productPrice, images: [])
             products.append(product)
         } else {
             print("feil format _\(newProductPrice)_")
@@ -115,11 +118,7 @@ struct ProductListView: View {
                 
                 if isAdmin {
                     Button("Legg til produkt") {
-                        let newProduct = Product.init(name: "Sokker", description: "small, gule", price: 230)
-                        print(products.count) // printer 2
-                        products.append(newProduct)
                         isPresentingAddProductView = true
-                        
                     }// Button
                 } else {
                     Text(userLoginStatus)

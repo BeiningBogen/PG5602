@@ -65,6 +65,6 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView(product: .init(name: "Tennissko", description: "hvite, str 45", price: 999))
+        ProductDetailView(product: .init(name: "Tennissko", description: "hvite, str 45", price: 999, images: []))
     }
 }
