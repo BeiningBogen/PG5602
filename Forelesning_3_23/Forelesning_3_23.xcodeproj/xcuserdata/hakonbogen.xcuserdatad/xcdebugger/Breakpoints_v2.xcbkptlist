@@ -84,5 +84,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0175E30E-021A-4F72-8D5D-B3CB56703CF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Forelesning_3_23/Forelesning_3_23App.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "shoppingCartOnAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0175E30E-021A-4F72-8D5D-B3CB56703CF7 - 64ebcf8252254619"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Forelesning_3_23.Forelesning_3_23App.shoppingCartOnAppear() -&gt; ()"
+                  moduleName = "Forelesning_3_23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/Forelesning_3_23App.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1144">
+               </Location>
+               <Location
+                  uuid = "0175E30E-021A-4F72-8D5D-B3CB56703CF7 - 64ebcf8252254619"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Forelesning_3_23.Forelesning_3_23App.shoppingCartOnAppear() -&gt; ()"
+                  moduleName = "Forelesning_3_23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/Forelesning_3_23App.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1476">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

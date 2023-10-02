@@ -9,9 +9,18 @@ import SwiftUI
 
 struct ShoppingCart: View {
     
+    var shoppingCart: Binding<[Product]>
+    init(shoppingCart: Binding<[Product]>) {
+        self.shoppingCart = shoppingCart
+    }
+    
     var body: some View {
         NavigationView  {
-            VStack { }
+            List {
+                ForEach(shoppingCart) { product in
+                    Text("\(product.wrappedValue.name) \(product.wrappedValue.price) kr")
+                }
+            }
             .navigationTitle("Handlekurv")
         }
     }
@@ -19,6 +28,11 @@ struct ShoppingCart: View {
 
 struct ShoppingCart_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingCart()
+        ShoppingCart(shoppingCart: .constant(
+            [
+                Product(name: "Sokker", description: "Gule", price: 500, images: [])
+            ]
+        )
+        )
     }
 }
