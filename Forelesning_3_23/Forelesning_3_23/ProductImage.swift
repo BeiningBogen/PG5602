@@ -13,3 +13,25 @@ struct ProductImage: Codable {
     let url: String
     
 }
+
+
+//Hvordan forbereder undervisningen din studentene dine for fremtidig karriere?
+
+
+
+
+//Hvilke egenskaper lærer studentene dine, og hvordan brukes de i praksis?
+
+
+
+
+//Hvordan bør studentene kommunisere sine ferdigheter i et jobbintervju?
+
+
+
+
+//Hvordan/hvilke ting bør man inkludere i en jobbsøknad/CV for å best kommunisere ferdighetene?
+
+
+
+

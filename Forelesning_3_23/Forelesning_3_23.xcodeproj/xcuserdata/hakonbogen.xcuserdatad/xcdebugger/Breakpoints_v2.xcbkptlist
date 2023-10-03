@@ -30,8 +30,8 @@
             filePath = "Forelesning_3_23/ProductListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -112,6 +112,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
+            landmarkName = "onAppear()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99973025-DA49-48B7-87E3-36F051396658"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Forelesning_3_23/ProductListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "onAppear()"
             landmarkType = "7">
          </BreakpointContent>
