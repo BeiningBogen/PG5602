@@ -59,7 +59,6 @@ struct ProductListView: View {
     }
     
     func addProduct() {
-        print()
         print("user still tapped button")
         if let productPrice = Int(newProductPrice) {
             let product = Product(name: newProductName, description: newProductDescription, price: productPrice, images: [])
@@ -90,7 +89,7 @@ struct ProductListView: View {
                                     print("Minus button tapped")
                                     var hasRemoved = false
                                     shoppingCart.wrappedValue.removeAll { filteredProduct in
-                                        if filteredProduct.id == product.id,
+                                        if filteredProduct.name == product.name,
                                            hasRemoved == false {
                                             hasRemoved = true
                                             return true
@@ -102,7 +101,6 @@ struct ProductListView: View {
                                 plusButtonTapped: {
                                     print("Plus button tapped")
                                     shoppingCart.wrappedValue.append(product)
-                                    print(shoppingCart)
                                 })
                             .padding()
                             .frame(width: 140)

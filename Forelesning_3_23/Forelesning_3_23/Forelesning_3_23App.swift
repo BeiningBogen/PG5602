@@ -17,9 +17,30 @@ struct Forelesning_3_23App: App {
     /// Read from disk
     func onAppear() {
         
-        FileManager()
-        JSONDecoder()
-        JSONEncoder()
+        let fileManager = FileManager.default
+        do {
+            let fileURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                .appendingPathComponent("data.json")
+            
+            let data = try Data.init(contentsOf: fileURL)
+            let decoder = JSONDecoder()
+            self.shoppingCart = try decoder.decode([Product].self, from: data)
+            print(data)
+            
+            
+            
+          
+            
+            /// NB flere måter å skrive ting på i Swift:
+//            Array<String>  ==   [String]
+//            Dictionary<String, Any>  == [String : Any]
+//            () == Void
+            
+            
+            
+        } catch let error {
+            print(error)
+        }
         
     }
     /// Save to disk

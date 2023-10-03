@@ -11,7 +11,6 @@ struct ProductDetailView: View {
     let product: Product
     
     init(product: Product) {
-        print(product)
         self.product = product
     }
     

@@ -27,6 +27,7 @@ struct Product: Identifiable, Codable {
         case description = "desc"
         case price
         case images = "product_images"
+        case id
     }
 }
 

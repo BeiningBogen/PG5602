@@ -1,0 +1,9 @@
+{
+      "name" : "Genser",
+      "desc" : "Grå, str 231",
+      "price" : 421,
+      "product_images" : [{
+           "url": "google.com",
+           "description":  "fin genser"
+      }]
+}
