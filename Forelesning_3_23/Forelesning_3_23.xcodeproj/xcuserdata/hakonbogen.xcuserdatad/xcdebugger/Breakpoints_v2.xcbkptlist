@@ -30,8 +30,8 @@
             filePath = "Forelesning_3_23/ProductListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -114,6 +114,54 @@
             endingLineNumber = "25"
             landmarkName = "onAppear()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA639AB6-EAC6-431F-B1E8-13B33FDD1F6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Forelesning_3_23/ProductListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "onAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CA639AB6-EAC6-431F-B1E8-13B33FDD1F6E - 6cc629662609ced0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Forelesning_3_23.ProductListView.onAppear() -&gt; ()"
+                  moduleName = "Forelesning_3_23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/ProductListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "2848">
+               </Location>
+               <Location
+                  uuid = "CA639AB6-EAC6-431F-B1E8-13B33FDD1F6E - 49125397de082ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Forelesning_3_23.ProductListView.onAppear() -&gt; ()"
+                  moduleName = "Forelesning_3_23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/ProductListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
