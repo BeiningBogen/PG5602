@@ -50,17 +50,25 @@ struct ProductListView: View {
            
             
             
-           let username = UserDefaults().object(forKey: AppStorageKeys.username.rawValue) as? String
+            let username = UserDefaults().object(forKey: AppStorageKeys.username.rawValue) as? String
         {
             userLoginStatus = "Logget inn bruker: \(username)"
         } else {
             userLoginStatus = "Vennligst logg inn i appen"
         }
         
-        let urlRequest = URLRequest(url: URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/master/products.json")!)
         
+        
+        getWithClosures()
+        
+        
+        
+    }
+    
+    func getWithClosures() {
+        
+        let urlRequest = URLRequest(url: URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/master/products.json")!)
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            
             let httpResponse = response as? HTTPURLResponse
             print(httpResponse?.statusCode)
             
@@ -81,19 +89,14 @@ struct ProductListView: View {
                 }
                 print(products)
                 
-                
-                
-                
-                
-                
             } else {
                 print("No data received")
             }
             
         }
         task.resume()
-        
     }
+    
     
     func addProduct() {
         print("user still tapped button")
