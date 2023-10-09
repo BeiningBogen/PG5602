@@ -20,6 +20,8 @@ struct ProductListView: View {
     ///
     //    let products = ["Bukse", "T-skjorte", "Sko"]
     
+    let apiClient = APIClient.demo
+    
     init(products: [Product], isAdmin: Bool, shoppingCart: Binding<[Product]>) {
         self.products = products
         self.isAdmin = isAdmin
@@ -56,30 +58,10 @@ struct ProductListView: View {
         } else {
             userLoginStatus = "Vennligst logg inn i appen"
         }
-        
-        
-        
-        getWithClosures()
-        
         Task {
-            var urlRequest = URLRequest.init(url: URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/master/products.json")!)
-            urlRequest.httpMethod = "GET"
             do {
+                let products = try await apiClient.getProducts()
                 
-                let (data, response) = await try URLSession.shared.data(for: urlRequest)
-                
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 else {
-                    print(response as? HTTPURLResponse)
-                    return
-                }
-                
-                let stringResponse = String.init(data: data, encoding: .utf8)
-                print(stringResponse!)
-                
-                let products = try JSONDecoder().decode(Product.self, from: data)
-                print(statusCode)
-                print(products)
-                    
                 DispatchQueue.main.async {
                     self.products = products
                 }
@@ -88,9 +70,7 @@ struct ProductListView: View {
                 print(error)
             }
         }
-        
-        
-    }
+    } // End onAppear
     
     func getWithClosures() {
         
