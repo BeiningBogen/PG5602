@@ -31,8 +31,15 @@ extension APIClient {
         let url = URL(string:  "https://raw.githubusercontent.com/BeiningBogen/PG5602/master/products.json")!
         var urlRequest = URLRequest.init(url: url)
         urlRequest.httpMethod = "POST"
-        let data = try JSONEncoder().encode(products)
-        urlRequest.httpBody = data
+        
+        let body = try JSONEncoder().encode(products)
+        urlRequest.httpBody = body
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode != 200 {
+            throw APIClientError.statusCode(statusCode)
+        }
+        
     }
     )
     
@@ -42,5 +49,26 @@ extension APIClient {
         let product2 = Product.init(name: "Merketøfler", description: "grå kule tøfler,Gucci, str 43", price: 99000, images: [ProductImage]())
         
         return [product, product2]
+    }, purchaseProducts: { products in
+//        throw APIClientError.stolenCard
+        return
     })
+    
+    static func error(_ error: APIClientError) -> APIClient {
+        APIClient {
+            throw error
+        } purchaseProducts: { _ in
+            throw error
+        }
+    }
+    
+}
+
+enum APIClientError : Error {
+    case failed(underlying: Error)
+    case statusCode(Int)
+    case notEnoughFunds
+    case stolenCard
+    
+//    case none
 }

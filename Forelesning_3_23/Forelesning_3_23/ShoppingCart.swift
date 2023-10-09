@@ -9,6 +9,23 @@ import SwiftUI
 
 struct ShoppingCart: View {
     
+    let apiClient = APIClient.live
+    
+    @State var isShowingError: Bool = false
+    
+    @State var shownError: APIClientError? {
+//        didSet {
+//
+//        }
+        willSet {
+            if let _ = newValue {
+                isShowingError = true
+            } else {
+                isShowingError = false
+            }
+        }
+    }
+    
     var shoppingCart: Binding<[Product]>
     @State var totalSum = 0
     
@@ -23,6 +40,21 @@ struct ShoppingCart: View {
             totalSum += product.price
         }
         print(totalSum)
+    }
+    
+    func didTapPurchase() {
+        Task {
+            do {
+                try await apiClient.purchaseProducts(shoppingCart.wrappedValue)
+                shoppingCart.wrappedValue = []
+                shownError = nil
+            } catch let error {
+                print(error)
+                shownError = error as? APIClientError
+            }
+            
+            
+        }
     }
     
     var body: some View {
@@ -43,9 +75,24 @@ struct ShoppingCart: View {
                         
                     }.bold()
                 }
+                Button {
+                    didTapPurchase()
+                } label: {
+                    Spacer()
+                    Text("Kjøp \(shoppingCart.count) produkter")
+                        .padding(.vertical)
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                .buttonStyle(.bordered)
+                .padding()
+                .tint(.green)
+
                 
             }
             .navigationTitle("Handlekurv")
+        }.sheet(isPresented: $isShowingError) {
+            Text("Noe feil skjedde!")
         }.onAppear {
             onAppear()
         }
