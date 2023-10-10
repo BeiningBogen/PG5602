@@ -9,22 +9,20 @@ import SwiftUI
 
 struct ShoppingCart: View {
     
-    let apiClient = APIClient.live
+    let apiClient = APIClient.error(.stolenCard)
     
     @State var isShowingError: Bool = false
     
-    @State var shownError: APIClientError? {
+    @State var shownError: APIClientError?
+//    {
 //        didSet {
-//
+//            if let _ = shownError {
+//                isShowingError = true
+//            } else {
+//                isShowingError = false
+//            }
 //        }
-        willSet {
-            if let _ = newValue {
-                isShowingError = true
-            } else {
-                isShowingError = false
-            }
-        }
-    }
+//    }
     
     var shoppingCart: Binding<[Product]>
     @State var totalSum = 0
@@ -47,10 +45,12 @@ struct ShoppingCart: View {
             do {
                 try await apiClient.purchaseProducts(shoppingCart.wrappedValue)
                 shoppingCart.wrappedValue = []
-                shownError = nil
+//                shownError = nil
             } catch let error {
                 print(error)
-                shownError = error as? APIClientError
+                
+                shownError = error as! APIClientError
+                isShowingError = true
             }
             
             
@@ -93,6 +93,20 @@ struct ShoppingCart: View {
             .navigationTitle("Handlekurv")
         }.sheet(isPresented: $isShowingError) {
             Text("Noe feil skjedde!")
+            
+            switch shownError {
+                case .stolenCard:
+                    WebpageView(url: URL.init(string: "https://politiet.no")!)
+                case .notEnoughFunds:
+                    Text("Du har ikke nok penger på kortet")
+                case .statusCode(let statusCode):
+                    Text("Prøv igjen eller kontakt support")
+                case .failed(underlying: let error):
+                    Text("Prøv igjen eller kontakt support")
+                default:
+                    Text("Prøv igjen eller kontakt support")
+            }
+            
         }.onAppear {
             onAppear()
         }

@@ -110,8 +110,8 @@
             filePath = "Forelesning_3_23/APIClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "live"
             landmarkType = "24">
          </BreakpointContent>
@@ -126,6 +126,22 @@
             filePath = "Forelesning_3_23/ShoppingCart.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "didTapPurchase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F0B8841-6F03-4C65-A3B8-06A9FB59DE20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Forelesning_3_23/ShoppingCart.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "didTapPurchase()"
@@ -135,127 +151,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29A58F33-97CB-4157-BE40-850894265B2D"
+            uuid = "89989A28-99FD-49E2-A523-2FF73023E856"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Forelesning_3_23/ShoppingCart.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "didTapPurchase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82480FC6-6C7C-4BD6-9D1E-5D3B170D4DCE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forelesning_3_23/APIClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "live"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "82480FC6-6C7C-4BD6-9D1E-5D3B170D4DCE - 22297add6c5a3bed"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 (Swift.Array&lt;Forelesning_3_23.Product&gt;) async throws -&gt; () in variable initialization expression of static Forelesning_3_23.APIClient.live : Forelesning_3_23.APIClient"
-                  moduleName = "Forelesning_3_23"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "804">
-               </Location>
-               <Location
-                  uuid = "82480FC6-6C7C-4BD6-9D1E-5D3B170D4DCE - 5059762634f05df3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 (Swift.Array&lt;Forelesning_3_23.Product&gt;) async throws -&gt; () in variable initialization expression of static Forelesning_3_23.APIClient.live : Forelesning_3_23.APIClient"
-                  moduleName = "Forelesning_3_23"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "82480FC6-6C7C-4BD6-9D1E-5D3B170D4DCE - 9878d3f00a3d77ef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 (Swift.Array&lt;Forelesning_3_23.Product&gt;) async throws -&gt; () in variable initialization expression of static Forelesning_3_23.APIClient.live : Forelesning_3_23.APIClient"
-                  moduleName = "Forelesning_3_23"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "82480FC6-6C7C-4BD6-9D1E-5D3B170D4DCE - 335f877e7910d590"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #2 (Swift.Array&lt;Forelesning_3_23.Product&gt;) async throws -&gt; () in variable initialization expression of static Forelesning_3_23.APIClient.live : Forelesning_3_23.APIClient"
-                  moduleName = "Forelesning_3_23"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hakonbogen/Developer/PG5602/Forelesning_3_23/Forelesning_3_23/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "93E8F931-483A-4F21-A529-0BAD8458034B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forelesning_3_23/APIClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "live"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B33E3A4D-B830-401A-9256-8BB3616700E2"
+            uuid = "9035EC4B-4A1E-4074-AC18-0776D9D71F47"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Forelesning_3_23/ShoppingCart.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "didTapPurchase()"
-            landmarkType = "7">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "ShoppingCart"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

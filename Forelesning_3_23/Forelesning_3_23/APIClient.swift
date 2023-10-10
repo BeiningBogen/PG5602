@@ -14,6 +14,19 @@ struct APIClient {
     var purchaseProducts: (([Product]) async throws -> ())
     
     
+//    func getProducts() -> [Product] {
+//        if isRunninsTest {
+//
+//
+//        } else {
+//
+//        }
+//    }
+//
+//    func purchaseProducts(products: [Product]) -> Void {
+//
+//    }
+    
 }
 
 extension APIClient {
@@ -50,7 +63,8 @@ extension APIClient {
         
         return [product, product2]
     }, purchaseProducts: { products in
-//        throw APIClientError.stolenCard
+        
+//        Task.sleep(for: Duration(secondsComponent: 15, attosecondsComponent: 0))
         return
     })
     
