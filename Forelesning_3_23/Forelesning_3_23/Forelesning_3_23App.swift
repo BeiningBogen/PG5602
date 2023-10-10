@@ -69,7 +69,7 @@ struct Forelesning_3_23App: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ProductListView(products: Product.demoProducts, isAdmin: false, shoppingCart: $shoppingCart)
+                ProductListView(products: Product.demoProducts, isAdmin: true, shoppingCart: $shoppingCart)
 //                    .badge(99)
                     .tabItem {
                         Label("Produkter", systemImage: "tray.and.arrow.up.fill")

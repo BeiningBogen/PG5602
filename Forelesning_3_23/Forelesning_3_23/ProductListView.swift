@@ -131,7 +131,6 @@ struct ProductListView: View {
                         Spacer()
                         
                         if isAdmin == false {
-                            
                             UpdateProductView(
                                 minusButtonTapped: {
                                     print("Minus button tapped")
@@ -153,7 +152,6 @@ struct ProductListView: View {
                             .padding()
                             .frame(width: 140)
                         } else {
-                            
                         }
                         
                         
