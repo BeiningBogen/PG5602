@@ -19,6 +19,8 @@ struct AddProductView: View {
     @State var newProductPrice: String = ""
     @State var newProductDescription: String = ""
     
+    @State var image: Image? = Image("productImage")
+    
     @State var isShowingErrorAlert: Bool = false
     
     @State var isShowingPhotoPickerView = false
@@ -41,7 +43,7 @@ struct AddProductView: View {
     }
     
     var body: some View {
-        VStack(alignment: .trailing) {
+        VStack {
             HStack {
                 Text("Legg til nytt produkt")
                     .font(.title)
@@ -49,10 +51,30 @@ struct AddProductView: View {
                 Spacer()
             } // title hstack
             
-            TextField("Produktnavn", text: $newProductName)
+            if let image = image {
+                
+//                HStack {
+//                    Spacer()
+                    image
+                        .resizable()
+                        .modifier(CoolStyle())
+//                    Spacer()
+//                }
+                
+//                    .aspectRatio(contentMode: .fit)
+//                    .border(.black)
+//                    .cornerRadius(10)
+//                    .frame(width: 200)
+            }
             
-            TextField("Beskrivelse", text: $newProductDescription)
-            TextField("Pris", text: $newProductPrice)
+            Group {
+                TextField("Produktnavn", text: $newProductName)
+                
+                TextField("Beskrivelse", text: $newProductDescription)
+                TextField("Pris", text: $newProductPrice)
+            }
+            .modifier(CoolTextFieldStyle())
+            .padding()
             
             
             Button() {
@@ -80,6 +102,8 @@ struct AddProductView: View {
         }.sheet(isPresented: $isShowingPhotoPickerView, content: {
             PhotoPickerView(sourceType: .photoLibrary) { image in
                 print(image)
+                self.image = Image(uiImage: image)
+                isShowingPhotoPickerView = false
             }
                 
         })

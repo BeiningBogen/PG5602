@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//PhotoPickerView.Coordinator
+
 struct PhotoPickerView: UIViewControllerRepresentable {
     
     let sourceType: UIImagePickerController.SourceType
