@@ -34,7 +34,6 @@ final class Forelesning_3_23Tests: XCTestCase {
         } catch let error {
             XCTFail(error.localizedDescription)
         }
-        //        let product = Product.ID
     }
     
     func testInvalidJSON() {
