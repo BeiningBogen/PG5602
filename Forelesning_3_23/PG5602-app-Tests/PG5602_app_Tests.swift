@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import Forelesning_3_23
+@testable import pg6502_app
 
-final class Forelesning_3_23Tests: XCTestCase {
+final class PG5602_app_Tests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

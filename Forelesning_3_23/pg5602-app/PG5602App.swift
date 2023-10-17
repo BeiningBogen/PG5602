@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Forelesning_3_23App: App {
+struct PG5602App: App {
     
     @State var numberOfItemsInShoppingCart: Int = 3
     
