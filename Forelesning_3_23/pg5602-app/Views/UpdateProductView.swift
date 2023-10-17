@@ -49,8 +49,8 @@ struct UpdateProductView: View {
                 // tapped - button
             }
                 
-        }.font(.title)
-            .padding()
+        }
+        .font(.title)
     }
 }
 

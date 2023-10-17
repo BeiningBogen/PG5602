@@ -122,13 +122,14 @@ struct ProductListView: View {
         NavigationStack {
             ScrollView {
                 ForEach(products) { product in
-                    HStack {
+                    
+                    VStack {
+                        Divider()
                         NavigationLink {
                             ProductDetailView(product: product)
                         } label: {
                             ListItemView(product: product)
                         } // NavigationLink
-                        Spacer()
                         
                         if isAdmin == false {
                             UpdateProductView(
@@ -151,11 +152,8 @@ struct ProductListView: View {
                                 })
                             .padding()
                             .frame(width: 140)
-                        } else {
+                            
                         }
-                        
-                        
-                        
                     } // HStack
                 } // Foreach
                 
@@ -185,7 +183,7 @@ struct ProductListView: View {
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
         ProductListView(products: Product.demoProducts, isAdmin: false, shoppingCart:
-                
+                            
                 .constant([])
         )
     }
@@ -196,11 +194,24 @@ struct ListItemView: View {
     let product: Product
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("\(product.name)")
-            Text(product.description)
-                .foregroundColor(.gray)
-        }.padding()
+        HStack {
+            Image(uiImage: product.heroImage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 100, height: 100)
+                .cornerRadius(15)
+                .clipped()
+            
+            VStack(alignment: .leading) {
+                Text("\(product.name)")
+                    .font(.largeTitle)
+                Text(product.description)
+                    .foregroundColor(.gray)
+            }
+            .padding()
             .foregroundColor(.brown)
+            Spacer()
+        }
+        .padding(.horizontal)
     }
 }

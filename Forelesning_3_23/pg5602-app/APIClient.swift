@@ -57,11 +57,9 @@ extension APIClient {
     )
     
     static let demo = APIClient(getProducts: {
+    
+        return Product.demoProducts
         
-        let product = Product.init(name: "Tøfler", description: "grå kule tøfler, str 42", price: 902, images: [ProductImage]())
-        let product2 = Product.init(name: "Merketøfler", description: "grå kule tøfler,Gucci, str 43", price: 99000, images: [ProductImage]())
-        
-        return [product, product2]
     }, purchaseProducts: { products in
         
 //        Task.sleep(for: Duration(secondsComponent: 15, attosecondsComponent: 0))
