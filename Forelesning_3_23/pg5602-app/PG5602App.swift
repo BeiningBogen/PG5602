@@ -14,6 +14,8 @@ struct PG5602App: App {
     
     @State var shoppingCart = [Product]()
     
+    @StateObject var dataController = DataController()
+    
     /// Read from disk
     func onAppear() {
         
@@ -82,6 +84,12 @@ struct PG5602App: App {
                     }.onAppear {
                         shoppingCartOnAppear()
                     }
+                
+                StoreView()
+                    .tabItem {
+                        Label("Butikker", systemImage: "dollarsign")
+                    }
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
                 
                 SettingsView()
                     .tabItem {
