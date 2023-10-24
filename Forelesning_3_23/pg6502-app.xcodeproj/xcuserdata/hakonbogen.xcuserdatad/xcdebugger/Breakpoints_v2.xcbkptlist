@@ -192,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "init()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2867127C-C473-491D-B4F5-FCCFE58B210E - dd1daa968df2e806"
@@ -240,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "init()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8463994D-F074-4D52-A076-63E467127E8D - ec80a8ce56875b04"
@@ -274,6 +274,38 @@
                   offsetFromSymbolStart = "92">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "961D9BA1-00A1-410C-B866-445A2CE84522"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pg5602-app/Views/StoreView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FB1CA20-85DD-43BB-9F6A-BC86755E6DE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pg5602-app/Views/StoreView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

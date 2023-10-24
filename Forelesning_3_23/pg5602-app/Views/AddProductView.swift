@@ -18,7 +18,7 @@ struct AddProductView: View {
     @State var newProductName: String = ""
     @State var newProductPrice: String = ""
     @State var newProductDescription: String = ""
-    
+   
     @State var image: Image? = Image("productImage")
     
     @State var isShowingErrorAlert: Bool = false

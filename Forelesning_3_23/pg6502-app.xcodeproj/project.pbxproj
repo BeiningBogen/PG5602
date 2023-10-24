@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC03BF6B2AC1985500EADDF8 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC03BF6A2AC1985500EADDF8 /* KeychainSwift */; };
 		EC3352212AC2F9D700AE3645 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3352202AC2F9D700AE3645 /* ProductImage.swift */; };
+		EC3D72742AE7D1D0001F066D /* AddStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D72732AE7D1D0001F066D /* AddStoreView.swift */; };
 		EC40E8C92AA5E6CE007A6567 /* PG5602App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8C82AA5E6CE007A6567 /* PG5602App.swift */; };
 		EC40E8CB2AA5E6CE007A6567 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8CA2AA5E6CE007A6567 /* ProductListView.swift */; };
 		EC40E8CD2AA5E6CF007A6567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC40E8CC2AA5E6CF007A6567 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		EC3352202AC2F9D700AE3645 /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
+		EC3D72732AE7D1D0001F066D /* AddStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreView.swift; sourceTree = "<group>"; };
 		EC40E8C52AA5E6CE007A6567 /* pg6502-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pg6502-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC40E8C82AA5E6CE007A6567 /* PG5602App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PG5602App.swift; sourceTree = "<group>"; };
 		EC40E8CA2AA5E6CE007A6567 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
@@ -91,7 +93,6 @@
 		EC40E8BC2AA5E6CE007A6567 = {
 			isa = PBXGroup;
 			children = (
-				ECD41B682AE686010047B282 /* StoreView.swift */,
 				EC40E8C72AA5E6CE007A6567 /* pg5602-app */,
 				EC40E8D82AA5E6CF007A6567 /* PG5602-app-Tests */,
 				EC40E8C62AA5E6CE007A6567 /* Products */,
@@ -167,6 +168,8 @@
 		ECF3606A2ADE9CBD00FDD661 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ECD41B682AE686010047B282 /* StoreView.swift */,
+				EC3D72732AE7D1D0001F066D /* AddStoreView.swift */,
 				EC7F25762AAF282900001D37 /* AddProductView.swift */,
 				EC8549CD2AD56ADE00683F2E /* PhotoPickerView.swift */,
 				EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */,
@@ -322,6 +325,7 @@
 				EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */,
 				ECE7CE062AB86D1F0037ADE7 /* ShoppingCart.swift in Sources */,
 				EC85498F2AD40AB600683F2E /* APIClient.swift in Sources */,
+				EC3D72742AE7D1D0001F066D /* AddStoreView.swift in Sources */,
 				ECF360692ADE9C2E00FDD661 /* CoolStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

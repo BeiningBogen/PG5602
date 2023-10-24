@@ -89,16 +89,16 @@ struct PG5602App: App {
                     .tabItem {
                         Label("Butikker", systemImage: "dollarsign")
                     }
-                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                   
                 
                 SettingsView()
                     .tabItem {
-                        Label.init("Innstillinger", systemImage: "pencil")
+                        Label.init("Innstillinger", systemImage:    "pencil")
                     }
                 
             }.onAppear {
                 onAppear()
-            }
+            }.environment(\.managedObjectContext,       dataController.container.viewContext)
             
         }
     }
