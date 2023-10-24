@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import MapKit
 
 struct StoreView: View {
     
@@ -20,6 +21,8 @@ struct StoreView: View {
     
     var body: some View {
         VStack {
+            Map(coordinateRegion: .constant(.init(center: .init(latitude: 10, longitude: 10), span: .init(latitudeDelta: 1, longitudeDelta: 1))))
+                
             
             Text("Hello, World!")
             ForEach(stores) { store in
@@ -61,7 +64,7 @@ struct StoreView: View {
                 
             }
         }.sheet(isPresented: $isShowingAddStoreView) {
-            AddStoreView()
+            AddStoreView(isPresented: $isShowingAddStoreView)
                 .onDisappear {
                     print(isShowingAddStoreView)
                 }

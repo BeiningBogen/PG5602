@@ -11,9 +11,17 @@ import CoreData
 
 struct AddStoreView: View {
     
+    var isPresented: Binding<Bool>
+    
+    init(isPresented: Binding<Bool>) {
+        self.isPresented = isPresented
+    }
+    
     enum FormError: String, Error {
         case missingName
         case missingLongitude
+        case longitudeWrongFormat
+        case latitudeWrongFormat
         case missingLatitude
         case missingOpeningHours
         
@@ -27,9 +35,15 @@ struct AddStoreView: View {
                     return "Lengdegrad"
                 case .missingOpeningHours:
                     return "Åpningstider"
+                case .longitudeWrongFormat:
+                    return "Lengdegrad har feil format"
+                case .latitudeWrongFormat:
+                    return "Breddegrad har feil format"
             }
         }
     }
+    
+    @Environment(\.managedObjectContext) var moc
     
     @State var storeName = ""
     @State var longitude = ""
@@ -55,6 +69,7 @@ struct AddStoreView: View {
             errors.append(.missingLongitude)
         }
         
+        
         if latitude.isEmpty {
             errors.append(.missingLatitude)
         }
@@ -62,8 +77,34 @@ struct AddStoreView: View {
             errors.append(.missingOpeningHours)
         }
         
+        guard let longitude = Float(longitude) else {
+            errors.append(.longitudeWrongFormat)
+            isShowingError = true
+            validationErrors = errors
+            return
+        }
+        
+        guard let latitude = Float(latitude) else {
+            errors.append(.latitudeWrongFormat)
+            isShowingError = true
+            validationErrors = errors
+            return
+        }
+        
         if errors.isEmpty {
             // save store
+            let entityDescription = NSEntityDescription.entity(forEntityName: "Store", in: moc)!
+            let store = Store(entity: entityDescription, insertInto: moc)
+            store.name = storeName
+            store.longitude = longitude
+            store.latitude = latitude
+            store.openingHours = openingHours
+            
+            moc.saveAndPrintError()
+            
+            isPresented.wrappedValue = false
+            // close view
+            
         } else {
             // show error
             isShowingError = true
@@ -73,6 +114,7 @@ struct AddStoreView: View {
     
     var body: some View {
         Form {
+            
             Section("Opprett butikk") {
                 TextField("Name", text: $storeName)
                 TextField("Longitude", text: $longitude)
@@ -89,12 +131,13 @@ struct AddStoreView: View {
                     Text("Manglende felter: "),
                   message: Text("\(validationErrors.text)"))
         }
+        .padding(.top)
     }
 }
 
 struct AddStoreView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStoreView()
+        AddStoreView(isPresented: .constant(true))
     }
 }
 
