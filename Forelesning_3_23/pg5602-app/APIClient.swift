@@ -64,7 +64,7 @@ extension APIClient {
             switch statusCode {
                 case 200...299:
                     // OK
-                    return try JSONDecoder().decode([Store].self, from: data)
+//                    return try JSONDecoder().decode([Store].self, from: data)
                     break
                 case 400...499:
                     // my fault
@@ -76,6 +76,7 @@ extension APIClient {
                     break
             }
         }
+        return []
     }
     )
     
@@ -88,12 +89,12 @@ extension APIClient {
 //        Task.sleep(for: Duration(secondsComponent: 15, attosecondsComponent: 0))
         return
     }, getStores: {
-        var store = Store()
-        store.name = "Testbutikk 1"
-        store.longitude = 10.342423
-        store.latitude = 9.32423132
-        store.openingHours = "man-lør 10:00-17:00"
-        return [store]
+//        var store = Store()
+//        store.name = "Testbutikk 1"
+//        store.longitude = 10.342423
+//        store.latitude = 9.32423132
+//        store.openingHours = "man-lør 10:00-17:00"
+        return []
     })
     
     static func error(_ error: APIClientError) -> APIClient {
@@ -118,18 +119,18 @@ enum APIClientError : Error {
 }
 
 
-extension Store: Decodable {
+//extension Store: Decodable {
+//
+//    enum CodingKeys: CodingKey {
+//        case name
+//        case latitude
+//    }
     
-    enum CodingKeys: CodingKey {
-        case name
-        case latitude
-    }
-    
-    public required convenience init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name)
-        self.latitude = try container.decodeIfPresent(Float.self, forKey: .latitude)
-    }
+//    public required convenience init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+//        self.latitude = try container.decodeIfPresent(Float.self, forKey: .latitude)
+//    }
     
     
-}
+//}

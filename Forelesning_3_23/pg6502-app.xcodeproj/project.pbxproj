@@ -16,6 +16,8 @@
 		EC40E8D02AA5E6CF007A6567 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC40E8CF2AA5E6CF007A6567 /* Preview Assets.xcassets */; };
 		EC40E8DA2AA5E6CF007A6567 /* PG5602_app_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8D92AA5E6CF007A6567 /* PG5602_app_Tests.swift */; };
 		EC40E8F32AA5F81C007A6567 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */; };
+		EC76907E2AF11C0B00EFFE61 /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76907C2AF11C0B00EFFE61 /* Store+CoreDataClass.swift */; };
+		EC76907F2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76907D2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift */; };
 		EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25762AAF282900001D37 /* AddProductView.swift */; };
 		EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25782AAF31B200001D37 /* MyButton.swift */; };
 		EC7F257B2AB0740300001D37 /* UpdateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F257A2AB0740300001D37 /* UpdateProductView.swift */; };
@@ -55,6 +57,8 @@
 		EC40E8D92AA5E6CF007A6567 /* PG5602_app_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PG5602_app_Tests.swift; sourceTree = "<group>"; };
 		EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		EC40E8F42AA5F8DF007A6567 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		EC76907C2AF11C0B00EFFE61 /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EC76907D2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EC7F25762AAF282900001D37 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		EC7F25782AAF31B200001D37 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		EC7F257A2AB0740300001D37 /* UpdateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		ECF3606C2ADE9E0000FDD661 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EC76907C2AF11C0B00EFFE61 /* Store+CoreDataClass.swift */,
+				EC76907D2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift */,
 				EC40E8F42AA5F8DF007A6567 /* Product.swift */,
 				EC3352202AC2F9D700AE3645 /* ProductImage.swift */,
 				ECD41B632AE680AD0047B282 /* Model.xcdatamodeld */,
@@ -322,10 +328,12 @@
 				EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */,
 				ECD41B692AE686010047B282 /* StoreView.swift in Sources */,
 				ECD41B672AE681EE0047B282 /* DataController.swift in Sources */,
+				EC76907F2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift in Sources */,
 				EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */,
 				ECE7CE062AB86D1F0037ADE7 /* ShoppingCart.swift in Sources */,
 				EC85498F2AD40AB600683F2E /* APIClient.swift in Sources */,
 				EC3D72742AE7D1D0001F066D /* AddStoreView.swift in Sources */,
+				EC76907E2AF11C0B00EFFE61 /* Store+CoreDataClass.swift in Sources */,
 				ECF360692ADE9C2E00FDD661 /* CoolStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

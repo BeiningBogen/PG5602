@@ -59,6 +59,8 @@ struct PG5602App: App {
                                                       appropriateFor: nil,
                                                       create: false)
                 .appendingPathComponent("data.json")
+            let uiImage = UIImage()
+            
             try data.write(to: fileURL)
             
             
