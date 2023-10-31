@@ -24,9 +24,6 @@ struct StoreView: View {
     @State var isShowingSheet = false
     @State var sheetState = SheetState.none
     
-    @State var isShowingAddStoreView = false
-    @State var isShowingOpeningHoursView = false
-    
     var body: some View {
         
         VStack {
@@ -34,7 +31,7 @@ struct StoreView: View {
 //            Map(coordinateRegion: .constant(.init(center: .init(latitude: 10, longitude: 10), span: .init(latitudeDelta: 1, longitudeDelta: 1))))
                 
             Map(mapRect:
-                    .constant(.init()),
+                    .constant(.world),
                 annotationItems: stores) { store in
                 
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(store.latitude), longitude: CLLocationDegrees(store.longitude))) {
@@ -84,7 +81,10 @@ struct StoreView: View {
             }
             Button("Add new store") {
                 sheetState = .addStore
-                isShowingSheet = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    print(sheetState)
+                    isShowingSheet = true
+                }
             }
             .buttonStyle(.bordered)
         }.onAppear {
@@ -96,16 +96,16 @@ struct StoreView: View {
         }.sheet(isPresented: $isShowingSheet) {
             switch sheetState {
                 case .addStore:
-                    AddStoreView(isPresented: $isShowingAddStoreView)
-                        .onDisappear {
-                            print(isShowingAddStoreView)
-                        }
+                    AddStoreView(isPresented: $isShowingSheet)
                 case .openingHours(store: let store):
                     Text("\(store.openingHours ?? "Ukjent")")
+                        .presentationDetents([.height(150)])
                     
                 case .none:
                     EmptyView()
             }
+        }.task {
+            //
         }
     }
 }
