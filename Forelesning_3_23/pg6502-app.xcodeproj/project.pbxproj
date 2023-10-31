@@ -18,6 +18,7 @@
 		EC40E8F32AA5F81C007A6567 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC40E8F22AA5F81C007A6567 /* ProductDetailView.swift */; };
 		EC76907E2AF11C0B00EFFE61 /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76907C2AF11C0B00EFFE61 /* Store+CoreDataClass.swift */; };
 		EC76907F2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76907D2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift */; };
+		EC7690812AF12A3C00EFFE61 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7690802AF12A3C00EFFE61 /* StoreTests.swift */; };
 		EC7F25772AAF282900001D37 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25762AAF282900001D37 /* AddProductView.swift */; };
 		EC7F25792AAF31B200001D37 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F25782AAF31B200001D37 /* MyButton.swift */; };
 		EC7F257B2AB0740300001D37 /* UpdateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F257A2AB0740300001D37 /* UpdateProductView.swift */; };
@@ -59,6 +60,7 @@
 		EC40E8F42AA5F8DF007A6567 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EC76907C2AF11C0B00EFFE61 /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EC76907D2AF11C0B00EFFE61 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EC7690802AF12A3C00EFFE61 /* StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		EC7F25762AAF282900001D37 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		EC7F25782AAF31B200001D37 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		EC7F257A2AB0740300001D37 /* UpdateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				EC40E8D92AA5E6CF007A6567 /* PG5602_app_Tests.swift */,
+				EC7690802AF12A3C00EFFE61 /* StoreTests.swift */,
 			);
 			path = "PG5602-app-Tests";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC40E8DA2AA5E6CF007A6567 /* PG5602_app_Tests.swift in Sources */,
+				EC7690812AF12A3C00EFFE61 /* StoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

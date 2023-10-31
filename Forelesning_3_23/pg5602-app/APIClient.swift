@@ -58,25 +58,18 @@ extension APIClient {
     }, getStores: {
         var urlRequest = URLRequest.init(url: URL(string: "https://example.com/stores")!)
         urlRequest.httpMethod = "GET"
-        urlRequest.allHTTPHeaderFields = ["Accept": "application/json", "content-type": "application/json"]
+        urlRequest.allHTTPHeaderFields = ["accept": "application/json", "content-type": "application/json"]
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         if let statusCode = (response as? HTTPURLResponse)?.statusCode {
             switch statusCode {
                 case 200...299:
                     // OK
-//                    return try JSONDecoder().decode([Store].self, from: data)
-                    break
-                case 400...499:
-                    // my fault
-                    break
-                case 500...599:
-                    // servers fault
-                    break
+                    return try JSONDecoder().decode([Store].self, from: data)
                 default:
-                    break
+                    throw APIClientError.statusCode(statusCode)
             }
         }
-        return []
+        throw APIClientError.unknown
     }
     )
     
@@ -114,6 +107,7 @@ enum APIClientError : Error {
     case statusCode(Int)
     case notEnoughFunds
     case stolenCard
+    case unknown
     
 //    case none
 }

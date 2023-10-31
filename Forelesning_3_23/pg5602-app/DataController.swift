@@ -24,4 +24,12 @@ class DataController: ObservableObject {
         }
             
     }
+    
+    static let shared = DataController()
+}
+
+
+func testStuff() {
+    DataController.shared
+//    UIApplication.shared
 }
