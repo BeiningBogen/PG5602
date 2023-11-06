@@ -10,6 +10,7 @@ import CoreData
 
 
 class DataController: ObservableObject {
+    
     let container = NSPersistentContainer(name: "Model")
         
     init() {
