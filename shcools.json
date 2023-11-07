@@ -1,4 +1,4 @@
-
+[
 {
     "name" : "høyskolen kristiania",
     "students" :  [
@@ -7,3 +7,5 @@
         }
     ]
 }
+
+]
