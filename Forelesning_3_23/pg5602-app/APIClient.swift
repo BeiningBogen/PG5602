@@ -15,6 +15,8 @@ struct APIClient {
     
     var getStores: (() async throws -> [Store])
     
+    var updateAddress: (_ address: String, _ postalCode: String) async throws -> ()
+    
     
 //    func getProducts() -> [Product] {
 //        if isRunninsTest {
@@ -70,8 +72,19 @@ extension APIClient {
             }
         }
         throw APIClientError.unknown
+    }) { address, postalCode in
+        
+        struct UpdateAddressParameter: Encodable {
+            let address: String
+            let postalCode: String
+        }
+        
+        var urlRequest = URLRequest.init(url: URL(string: "https://example.com/address")!)
+        urlRequest.httpMethod = "PUT"
+        let parameter = UpdateAddressParameter(address: address, postalCode: postalCode)
+        urlRequest.httpBody = try JSONEncoder().encode(parameter)
+        
     }
-    )
     
     static let demo = APIClient(getProducts: {
     
@@ -88,6 +101,8 @@ extension APIClient {
 //        store.latitude = 9.32423132
 //        store.openingHours = "man-lør 10:00-17:00"
         return []
+    }, updateAddress: { _, _ in
+        
     })
     
     static func error(_ error: APIClientError) -> APIClient {
@@ -96,6 +111,8 @@ extension APIClient {
         } purchaseProducts: { _ in
             throw error
         } getStores: {
+            throw error
+        } updateAddress: { address, postalCode in
             throw error
         }
     }

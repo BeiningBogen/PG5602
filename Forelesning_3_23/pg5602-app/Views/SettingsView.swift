@@ -36,6 +36,11 @@ struct SettingsView: View {
                 Button.init("Kontakt oss") {
                     isShowingOpenURLAlert = true
                 }
+                NavigationLink {
+                    ShippingAddressView()
+                } label: {
+                    Text("Leverings-adresse")
+                }
             }
             .navigationTitle("Innstillinger")
         }.alert("Denne linken tar deg ut av appen", isPresented: $isShowingOpenURLAlert) {

@@ -10,6 +10,13 @@ import SwiftUI
 struct ProductDetailView: View {
     let product: Product
     
+    // animation variables
+    @State var scale: CGFloat = 1
+    @State var rotationAngle: CGFloat = 0
+    @State var imageOpacity: CGFloat = 1
+    @State var imageBlur: CGFloat = 40
+    @State var textPadding: CGFloat = 40
+    
     init(product: Product) {
         self.product = product
     }
@@ -21,7 +28,7 @@ struct ProductDetailView: View {
                     .font(.largeTitle)
                     .bold()
                     .fontWeight(nil)
-                    .padding(.top, 40)
+                    .padding(.top, textPadding)
                     .padding(.leading, 40)
                 Spacer()
             } // HStack - Title
@@ -30,6 +37,8 @@ struct ProductDetailView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200)
+                .opacity(imageOpacity)
+                .blur(radius: imageBlur)
             
             
             Text(product.description)
@@ -47,7 +56,22 @@ struct ProductDetailView: View {
             
             Button {
                 // TODO: buy product
+                
+                withAnimation(.linear(duration: 2).repeatForever()) {
+                    
+                    scale = 1.2
+                    rotationAngle = 100
+                    imageOpacity = 0
+                    textPadding = 400
+                    
+                }
+//
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+//                    scale = 1
+//                    rotationAngle -= 5
+//                }
                 print("bought \(product.name)")
+                
             } label: {
                 ZStack {
                     Circle()
@@ -56,7 +80,17 @@ struct ProductDetailView: View {
                     Text("Kjøp")
                 }
             }
+            .rotationEffect(
+                Angle(degrees: rotationAngle)
+            )
+            .scaleEffect(scale)
+//            .animation(.linear, value: scale)
 
+        }
+        .onAppear {
+            withAnimation(.linear(duration: 1)) {
+                imageBlur = 0
+            }
         }
         
     }
