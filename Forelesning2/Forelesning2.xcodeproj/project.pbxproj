@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063E1C1B2C7F5A86002C3D4A /* RectangeWithExtrudedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E1C1A2C7F5A86002C3D4A /* RectangeWithExtrudedCircle.swift */; };
+		063E1C1D2C7F5B14002C3D4A /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E1C1C2C7F5B14002C3D4A /* CircleImage.swift */; };
+		063E1C1F2C7F6217002C3D4A /* MainActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E1C1E2C7F6216002C3D4A /* MainActionButtonStyle.swift */; };
 		EC585F3D2C7DD030004AF55E /* Forelesning2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC585F3C2C7DD030004AF55E /* Forelesning2App.swift */; };
 		EC585F3F2C7DD030004AF55E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC585F3E2C7DD030004AF55E /* ContentView.swift */; };
 		EC585F412C7DD031004AF55E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC585F402C7DD031004AF55E /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063E1C1A2C7F5A86002C3D4A /* RectangeWithExtrudedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangeWithExtrudedCircle.swift; sourceTree = "<group>"; };
+		063E1C1C2C7F5B14002C3D4A /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		063E1C1E2C7F6216002C3D4A /* MainActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionButtonStyle.swift; sourceTree = "<group>"; };
 		EC585F392C7DD030004AF55E /* Forelesning2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forelesning2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC585F3C2C7DD030004AF55E /* Forelesning2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forelesning2App.swift; sourceTree = "<group>"; };
 		EC585F3E2C7DD030004AF55E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 			children = (
 				EC585F3C2C7DD030004AF55E /* Forelesning2App.swift */,
 				EC585F3E2C7DD030004AF55E /* ContentView.swift */,
+				063E1C1A2C7F5A86002C3D4A /* RectangeWithExtrudedCircle.swift */,
+				063E1C1C2C7F5B14002C3D4A /* CircleImage.swift */,
+				063E1C1E2C7F6216002C3D4A /* MainActionButtonStyle.swift */,
 				EC585F402C7DD031004AF55E /* Assets.xcassets */,
 				EC585F422C7DD031004AF55E /* Preview Content */,
 			);
@@ -139,6 +148,9 @@
 			files = (
 				EC585F3F2C7DD030004AF55E /* ContentView.swift in Sources */,
 				EC585F3D2C7DD030004AF55E /* Forelesning2App.swift in Sources */,
+				063E1C1F2C7F6217002C3D4A /* MainActionButtonStyle.swift in Sources */,
+				063E1C1D2C7F5B14002C3D4A /* CircleImage.swift in Sources */,
+				063E1C1B2C7F5A86002C3D4A /* RectangeWithExtrudedCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

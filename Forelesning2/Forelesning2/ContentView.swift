@@ -8,24 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State private var displayFirstPicture = false
+
     var body: some View {
         VStack {
-            Text("Hello")
+            HStack {
+                stateButton
+//                Toggle("Toggle Title", isOn: $displayFirstPicture)
+            }
 
-            roundedImage(.NasaPictures.crabMultiChandra4123)
+//            AsyncImage(url: )
+//                .resizable()
+//                .frame(width: 300, height: 300)
 
-            roundedImage(.NasaPictures.perseidsStonehengeDury2780)
+//            AsyncImage(
+//                url: URL(string: "https://apod.nasa.gov/apod/imag/2408/Tulip_Shastry_1080.jpg")) { image in
+//                    image.resizable()
+//                } placeholder: {
+//                    ProgressView()
+//                }
+//                .frame(width: 300, height: 300)
 
-//            Image("NasaPictures/Crab_MultiChandra_4123")
+            AsyncImage(url: URL(string: "https://apod.nasa.gov/apod/image/2408/Tulip_Shastry_1080.jpg")) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image.resizable()
+                case .failure(let error):
+                    Text("Image failed")
+                }
+            }
 
 
 
+//            CircleImage(
+//                displayFirstPicture
+//                ? .NasaPictures.crabMultiChandra4123
+//                : .NasaPictures.perseidsStonehengeDury2780
+//            )
 
 //            Rectangle()
 //                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .foregroundColor(Color.red)
 //
-//            CustomShape()
+//            RectangeWithExtrudedCircle()
 //                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .foregroundColor(Color.red)
 
@@ -38,53 +66,22 @@ struct ContentView: View {
 //            Ellipse()
 //                .frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //
-//            Capsule()
-//                .frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Capsule()
+                .frame(width: 150, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(.top, 30)
         }
+        .padding()
     }
 
-    private func roundedImage(_ resource: ImageResource) -> some View {
-        return Image(resource)
-            .resizable()
-            .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .overlay {
-                Circle().stroke(.green, lineWidth: 3)
-            }
-            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 10, x: 50, y: 30)
+    @ViewBuilder
+    private var stateButton: some View {
+        Button("Button Title") {
+            print("button tapped")
+            displayFirstPicture.toggle()
+        }
+        .buttonStyle(MainActionButtonStyle())
     }
-}
 
-struct CustomShape: Shape {
-
-    // 0,0 --------------- x,0
-    //  |
-    //  |
-    //  |
-    //  |
-    //  |
-    //  |
-    // 0,y ---------------- x,y
-
-
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        UIBezierPath()
-        path.move(to: .zero)
-        path.addLine(to: CGPoint(x: rect.width, y: 0))
-        path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        path.addLine(to: CGPoint(x: 0, y: rect.height))
-        path.addLine(to: CGPoint(x: 0, y: 0))
-        path.move(to: CGPoint(x: rect.width/2, y: rect.height/2))
-        path.addArc(
-            center: CGPoint(x: rect.width/2, y: rect.height/2),
-            radius: 30,
-            startAngle: Angle.degrees(0),
-            endAngle: Angle.degrees(360),
-            clockwise: true
-        )
-        return path
-    }
 
 }
 
