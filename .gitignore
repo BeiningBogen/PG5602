@@ -1,0 +1,85 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Swiftgen generated
+TEMPLATE/App/Shared/UI/Resources/L10n.swift
+TEMPLATE/App/Shared/UI/Resources/Assets.swift
+
+## Build generated
+build/
+DerivedData
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.DS_Store
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.xcarchive
+*.app.dSYM.zip
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+
+/Pods
+
+##Fastlane
+# fastlane specific
+fastlane/report.xml
+
+# deliver temporary files
+fastlane/Preview.html
+
+# scan/snapshot temporary files (default values)
+/metrics
+/tests_derived_data
+/screenshots
+
+#fastlane plugins
+Pluginfile_fastlane
+Gemfile_fastlane
+Gemfile_fastlane.lock
+
+#fastlane build artifacts
+/build
+/derived_data
+/fastlane/test_output
+
+#metadata
+/fastlane/**/metadata/**/*
+/fastlane/**/screenshots/**/*
+
+##AppCode
+.idea/
+
+##Bundle
+.bundle/config
+
+##TargetEnvironment
+Modules/**/*Environment+current.swift
+BuildSettings/**/TargetEnvironment.xcconfig
+
+#Github Action
+.bundle/
+vendor/
+Packages/
+ci_derived_data/
