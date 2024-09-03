@@ -18,7 +18,7 @@ struct ContactCell: View {
                 Text(contact.phoneNumber)
             }
             Spacer()
-            Image(systemName: contact.isFavorite ? "star.fill" : "star" )
+            Image(systemName: contact.isFavorite ? "star.fill" : "star")
         }
     }
 

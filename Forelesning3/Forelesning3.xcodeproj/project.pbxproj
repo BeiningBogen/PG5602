@@ -18,6 +18,7 @@
 		06EB3B592C870010001E3513 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B582C870010001E3513 /* ContactCell.swift */; };
 		06EB3B5B2C870269001E3513 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B5A2C870269001E3513 /* ContactList.swift */; };
 		06EB3B5D2C8702F7001E3513 /* ImagesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B5C2C8702F7001E3513 /* ImagesScrollView.swift */; };
+		06EB3B5F2C870F29001E3513 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B5E2C870F29001E3513 /* ContactDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		06EB3B582C870010001E3513 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		06EB3B5A2C870269001E3513 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		06EB3B5C2C8702F7001E3513 /* ImagesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesScrollView.swift; sourceTree = "<group>"; };
+		06EB3B5E2C870F29001E3513 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				06EB3B542C85F373001E3513 /* SomeSfSymbols.swift */,
 				06EB3B562C85F45B001E3513 /* Contact.swift */,
 				06EB3B582C870010001E3513 /* ContactCell.swift */,
+				06EB3B5E2C870F29001E3513 /* ContactDetail.swift */,
 				06EB3B2D2C85F216001E3513 /* Assets.xcassets */,
 				06EB3B2F2C85F216001E3513 /* Forelesning3.entitlements */,
 				06EB3B302C85F216001E3513 /* Preview Content */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EB3B5F2C870F29001E3513 /* ContactDetail.swift in Sources */,
 				06EB3B592C870010001E3513 /* ContactCell.swift in Sources */,
 				06EB3B5D2C8702F7001E3513 /* ImagesScrollView.swift in Sources */,
 				06EB3B572C85F45B001E3513 /* Contact.swift in Sources */,

@@ -12,8 +12,10 @@ struct Forelesning3App: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContactList()
-                    .tabItem { Text("First") }
+                NavigationStack {
+                    ContactList()
+                }
+                .tabItem { Text("First") }
                 ImagesScrollView()
                     .tabItem { Text("Second") }
             }
