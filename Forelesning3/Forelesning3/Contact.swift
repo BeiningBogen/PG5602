@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct Contact {
+struct Contact: Identifiable {
+
+    let id: UUID = UUID()
     let image: SomeSfSymbols
     let name: String
     let phoneNumber: String
-    let isFavorite: Bool = false
+    var isFavorite: Bool = false
 
     static let mocks = [
         Contact(

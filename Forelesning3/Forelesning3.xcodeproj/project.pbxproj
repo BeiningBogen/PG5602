@@ -15,6 +15,9 @@
 		06EB3B482C85F216001E3513 /* Forelesning3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B472C85F216001E3513 /* Forelesning3UITestsLaunchTests.swift */; };
 		06EB3B552C85F373001E3513 /* SomeSfSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B542C85F373001E3513 /* SomeSfSymbols.swift */; };
 		06EB3B572C85F45B001E3513 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B562C85F45B001E3513 /* Contact.swift */; };
+		06EB3B592C870010001E3513 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B582C870010001E3513 /* ContactCell.swift */; };
+		06EB3B5B2C870269001E3513 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B5A2C870269001E3513 /* ContactList.swift */; };
+		06EB3B5D2C8702F7001E3513 /* ImagesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EB3B5C2C8702F7001E3513 /* ImagesScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		06EB3B472C85F216001E3513 /* Forelesning3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forelesning3UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		06EB3B542C85F373001E3513 /* SomeSfSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeSfSymbols.swift; sourceTree = "<group>"; };
 		06EB3B562C85F45B001E3513 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		06EB3B582C870010001E3513 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		06EB3B5A2C870269001E3513 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		06EB3B5C2C8702F7001E3513 /* ImagesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				06EB3B292C85F215001E3513 /* Forelesning3App.swift */,
+				06EB3B5C2C8702F7001E3513 /* ImagesScrollView.swift */,
+				06EB3B5A2C870269001E3513 /* ContactList.swift */,
 				06EB3B542C85F373001E3513 /* SomeSfSymbols.swift */,
 				06EB3B562C85F45B001E3513 /* Contact.swift */,
+				06EB3B582C870010001E3513 /* ContactCell.swift */,
 				06EB3B2D2C85F216001E3513 /* Assets.xcassets */,
 				06EB3B2F2C85F216001E3513 /* Forelesning3.entitlements */,
 				06EB3B302C85F216001E3513 /* Preview Content */,
@@ -262,9 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EB3B592C870010001E3513 /* ContactCell.swift in Sources */,
+				06EB3B5D2C8702F7001E3513 /* ImagesScrollView.swift in Sources */,
 				06EB3B572C85F45B001E3513 /* Contact.swift in Sources */,
 				06EB3B2A2C85F215001E3513 /* Forelesning3App.swift in Sources */,
 				06EB3B552C85F373001E3513 /* SomeSfSymbols.swift in Sources */,
+				06EB3B5B2C870269001E3513 /* ContactList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
