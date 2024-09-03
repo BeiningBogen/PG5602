@@ -14,7 +14,8 @@ struct ContactList: View {
     @State var presentSettingsSheet = false
     @State var displayOnlyFavoriteContacts = false
     @State var presentAlert = false
-    @State var contactToBeArchived: Contact?
+    @State var contactToBeArchivedOption1: Contact?
+    @State var contactToBeArchivedOption2: Contact?
 
     var body: some View {
         List {
@@ -33,10 +34,11 @@ struct ContactList: View {
                             }
                             .swipeActions(edge: .leading, allowsFullSwipe: false) {
                                 Button("Archive opt 1") {
+                                    contactToBeArchivedOption1 = contact
                                     presentAlert = true
                                 }.tint(.gray)
                                 Button("Archive opt 2") {
-                                    contactToBeArchived = contact
+                                    contactToBeArchivedOption2 = contact
                                 }.tint(.red)
                             }
                     })
@@ -60,19 +62,30 @@ struct ContactList: View {
             .padding()
         // Option 1, alert presented via a Binding<Bool>
         }.alert("Simple alert", isPresented: $presentAlert) {
-            Button("Ok", role: .cancel) { }
+            Button("Confirm archiving", role: .destructive) {
+                archive(contactToBeArchivedOption1)
+                contactToBeArchivedOption1 = nil
+            }
+            Button("Cancel", role: .cancel) { }
         // Option 2, alert presented via a Binding<Item?>
-        }.alert(item: $contactToBeArchived) { contact in
+        }.alert(item: $contactToBeArchivedOption2) { contact in
             Alert(
                 title: Text("Are you sure?"),
                 primaryButton: Alert.Button.destructive(Text("Yes"), action: {
-                    archivedContacts.append(contact)
-                    if let foundIndex = (contacts.firstIndex { $0.id == contact.id }) {
-                        contacts.remove(at: foundIndex)
-                    }
+                    archive(contact)
                 }),
                 secondaryButton: .cancel()
             )
+        }
+    }
+
+    // MARK: - Private
+
+    private func archive(_ contact: Contact?) {
+        guard let contact else { return }
+        archivedContacts.append(contact)
+        if let foundIndex = (contacts.firstIndex { $0.id == contact.id }) {
+            contacts.remove(at: foundIndex)
         }
     }
 
