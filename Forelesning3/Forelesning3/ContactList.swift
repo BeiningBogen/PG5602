@@ -13,6 +13,7 @@ struct ContactList: View {
     @State var archivedContacts: [Contact] = []
     @State var presentSettingsSheet = false
     @State var displayOnlyFavoriteContacts = false
+    @State var presentAlert = false
     @State var contactToBeArchived: Contact?
 
     var body: some View {
@@ -31,10 +32,12 @@ struct ContactList: View {
                                 }.tint(.green)
                             }
                             .swipeActions(edge: .leading, allowsFullSwipe: false) {
-                                Button("Archive") {
-                                    contactToBeArchived = contact
-                                    print("Archive tapped")
+                                Button("Archive opt 1") {
+                                    presentAlert = true
                                 }.tint(.gray)
+                                Button("Archive opt 2") {
+                                    contactToBeArchived = contact
+                                }.tint(.red)
                             }
                     })
                 }
@@ -55,21 +58,21 @@ struct ContactList: View {
                 isOn: $displayOnlyFavoriteContacts
             )
             .padding()
-//        }.alert(item: $contactToBeArchived, content: { contact in
-//            Alert(title: Text("Are you sure?"), primaryButton:
-//                    Button("Confirm", role: .destructive, action: {
-//
-//            },
-//                  secondaryButton: Alert.Button("Cancel", role: .cancel) {
-//                contactToBeArchived = nil
-//            }
-//            )
-//
-////                    archivedContacts.append(contact)
-////                    if let foundIndex = contacts.firstIndex { $0.id == contact.id } {
-////                        contacts.remove(at: foundIndex)
-////                    }
-//                }
+        // Option 1, alert presented via a Binding<Bool>
+        }.alert("Simple alert", isPresented: $presentAlert) {
+            Button("Ok", role: .cancel) { }
+        // Option 2, alert presented via a Binding<Item?>
+        }.alert(item: $contactToBeArchived) { contact in
+            Alert(
+                title: Text("Are you sure?"),
+                primaryButton: Alert.Button.destructive(Text("Yes"), action: {
+                    archivedContacts.append(contact)
+                    if let foundIndex = (contacts.firstIndex { $0.id == contact.id }) {
+                        contacts.remove(at: foundIndex)
+                    }
+                }),
+                secondaryButton: .cancel()
+            )
         }
     }
 
