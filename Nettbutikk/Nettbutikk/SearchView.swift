@@ -7,14 +7,41 @@
 
 import SwiftUI
  
-struct Contact {
+struct ListElement: Identifiable, Equatable, Hashable {
+    
+    public var id: Self { return self }
     
     let name: String
+    let systemImageName: String
+    
+}
+
+enum ClothingCategory: String, CaseIterable, Identifiable {
+    
+    var id: String { return rawValue }
+    
+    
+    case dame = "Dame"
+    case herre = "Herre"
+    case baby = "Baby"
+    
 }
 
 struct SearchView: View {
     
     @State var textfieldText: String = ""
+    
+    @State var listElements = [ListElement]()
+    
+    @State var selectedClothingCategory: ClothingCategory = .dame {
+        didSet {
+            print(selectedClothingCategory)
+        }
+    }
+    
+    func didTap(clothingCategory: ClothingCategory) {
+        selectedClothingCategory = clothingCategory
+    }
     
     var body: some View {
         
@@ -47,24 +74,38 @@ struct SearchView: View {
     var menu: some View {
         HStack {
             Spacer()
-            Button(action: {
-                print("trykka dame")
-            }, label: {
-                Text("Dame")
-            })
             
-            Spacer()
-            Button(action: {
-                print("trykka herre")
-            }, label: {
-                Text("Herre")
-            })
-            Spacer()
+            ForEach(ClothingCategory.allCases) { clothingCategory in
+                Button(action: {
+                    didTap(clothingCategory: clothingCategory)
+                }, label: {
+//                    if selectedClothingCategory == clothingCategory {
+//                        Text("\(clothingCategory.rawValue)")
+//                            .fontWeight(.bold)
+//                    } else {
+//                        Text("\(clothingCategory.rawValue)")
+//                    }
+                    
+                    
+                    Text("\(clothingCategory.rawValue)")
+                        .fontWeight(
+                            selectedClothingCategory == clothingCategory ? .bold : .regular
+                        )
+                        .font(1 * 1 == 1  ? .body : .largeTitle)
+                    
+                })
+                
+                Spacer()
+            }
+           
         }
     }
     
     var productList: some View {
         List {
+            ForEach(listElements) { listElement in
+                
+            }
             Label("Nordisk stil", systemImage: "heart")
             Label("Nyheter", systemImage: "star")
             Label("Klær", systemImage: "figure.mixed.cardio")

@@ -14,16 +14,29 @@ enum ClothingType: String, CaseIterable, Identifiable {
         return rawValue
     }
     
-    
     case klær = "Klær"
     case sko = "Sko"
     case accessories = "Accessories"
     case streetwear = "Streetwear"
+
     
 }
 
 
 struct HomeView: View {
+    
+    @State var isShowingSheet = false
+    
+    @State var selectedClothingType: ClothingType = .klær
+    
+    func didTap(clothingType: ClothingType) {
+        print("Tapped \(clothingType)")
+        
+        selectedClothingType = clothingType
+        isShowingSheet = true
+    }
+    
+    
     var body: some View {
         
         VStack {
@@ -60,24 +73,18 @@ struct HomeView: View {
                         HStack {
                             ForEach(ClothingType.allCases) {
                                 clothingType in
-                            
+                                
+                                Button(action: {
+                                    didTap(clothingType: clothingType)
+                                }, label: {
+                                   
+                                    Text("\(clothingType.rawValue)")
+                                })
                             }
-//                            Button(action: {
-//                                print("Trykka knappen klær")
-//                            }, label: {
-//                                Text("Klær")
-//                            })
-//                            
-//                            Button(action: {
-//                                print("Trykka knappen sko")
-//                                
-//                            }, label: {
-//                                Text("Sko")
-//                            })
-                            
                         }
                         .fontWeight(.bold)
                     }
+                    .padding(.leading)
                 }
                 .foregroundStyle(.white)
             }
@@ -86,6 +93,11 @@ struct HomeView: View {
             
             
         }
+        .sheet(isPresented: $isShowingSheet, content: {
+            
+            Text("Is showing \(selectedClothingType)")
+            
+        })
         
     } // body
     
