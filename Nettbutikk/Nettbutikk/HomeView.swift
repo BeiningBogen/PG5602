@@ -8,6 +8,21 @@
 import Foundation
 import SwiftUI
 
+enum ClothingType: String, CaseIterable, Identifiable {
+    
+    public var id: String {
+        return rawValue
+    }
+    
+    
+    case klær = "Klær"
+    case sko = "Sko"
+    case accessories = "Accessories"
+    case streetwear = "Streetwear"
+    
+}
+
+
 struct HomeView: View {
     var body: some View {
         
@@ -15,32 +30,56 @@ struct HomeView: View {
             
             ZStack {
                 Color.orange
-                VStack {
-                    Text("Kickstart høsten")
-                    Text("Spar opptil 50% på tusenvis av varer")
+                HStack {
+                    
+                    VStack(alignment: .leading) {
+                        Text("Kickstart høsten")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        
+                        Text("Spar opptil 50% på tusenvis av varer")
+                            .font(.title)
+                    }
+                    .padding(.leading)
+                    Spacer()
+                    
                 }
             }
+            .foregroundStyle(.white)
+            .frame(height: 160)
             
             
             
             ZStack {
-                Text("Oppdag mer:")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Button(action: {
-                            print("Trykka knappen klær")
-                        }, label: {
-                            Text("Klær")
-                        })
-                        
-                        Button(action: {
-                            print("Trykka knappen sko")
+                Color("secondaryOrange")
+                
+                VStack {
+                    Text("Oppdag mer:")
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(ClothingType.allCases) {
+                                clothingType in
                             
-                        }, label: {
-                            Text("Sko")
-                        })
+                            }
+//                            Button(action: {
+//                                print("Trykka knappen klær")
+//                            }, label: {
+//                                Text("Klær")
+//                            })
+//                            
+//                            Button(action: {
+//                                print("Trykka knappen sko")
+//                                
+//                            }, label: {
+//                                Text("Sko")
+//                            })
+                            
+                        }
+                        .fontWeight(.bold)
                     }
                 }
+                .foregroundStyle(.white)
             }
             
             productCategoryList

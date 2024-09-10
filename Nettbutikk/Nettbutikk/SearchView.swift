@@ -14,7 +14,7 @@ struct Contact {
 
 struct SearchView: View {
     
-    @State var textfieldText: String = "Jakke"
+    @State var textfieldText: String = ""
     
     var body: some View {
         
@@ -25,6 +25,7 @@ struct SearchView: View {
            
            
             menu
+            Divider()
             
             productList
             
@@ -33,18 +34,32 @@ struct SearchView: View {
     }
     
     var search: some View {
-        TextField(text: $textfieldText) {
-            Label("Søk", systemImage: "magnifyingglass")
+        HStack {
+            Image(systemName: "magnifyingglass")
+            TextField(text: $textfieldText) {
+                Text("Søk")
+            }
         }
+        .padding(.leading)
+        .padding(.bottom)
     }
     
     var menu: some View {
         HStack {
+            Spacer()
             Button(action: {
                 print("trykka dame")
             }, label: {
                 Text("Dame")
             })
+            
+            Spacer()
+            Button(action: {
+                print("trykka herre")
+            }, label: {
+                Text("Herre")
+            })
+            Spacer()
         }
     }
     
@@ -54,6 +69,7 @@ struct SearchView: View {
             Label("Nyheter", systemImage: "star")
             Label("Klær", systemImage: "figure.mixed.cardio")
         }
+        .listStyle(.plain)
     }
 }
 

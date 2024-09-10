@@ -16,6 +16,10 @@ struct ContentView: View {
                         Label("Shopping", systemImage: "heart.fill")
                         // Label("Shopping", image: "baby")
                     }
+                SearchView()
+                    .tabItem {
+                        Label("Søk", systemImage: "magnifyingglass")
+                    }
                 
                     
                 
