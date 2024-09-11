@@ -7,15 +7,6 @@
 
 import SwiftUI
  
-struct ListElement: Identifiable, Equatable, Hashable {
-    
-    public var id: Self { return self }
-    
-    let name: String
-    let systemImageName: String
-    
-}
-
 enum ClothingCategory: String, CaseIterable, Identifiable {
     
     var id: String { return rawValue }
@@ -31,16 +22,26 @@ struct SearchView: View {
     
     @State var textfieldText: String = ""
     
-    @State var listElements = [ListElement]()
-    
+    @State var searchCategories = SearchCategory.defaultCategories
+
     @State var selectedClothingCategory: ClothingCategory = .dame {
         didSet {
             print(selectedClothingCategory)
         }
     }
-    
+
+    @State var searchSuggestions = [String]()
+
     func didTap(clothingCategory: ClothingCategory) {
         selectedClothingCategory = clothingCategory
+        switch selectedClothingCategory {
+        case .dame:
+            searchCategories = SearchCategory.defaultCategories
+        case .herre:
+            searchCategories = SearchCategory.defaultCategories
+        case .baby:
+            searchCategories = SearchCategory.barnCategories
+        }
     }
     
     var body: some View {
@@ -53,9 +54,13 @@ struct SearchView: View {
            
             menu
             Divider()
-            
-            productList
-            
+
+            if searchSuggestions.isEmpty {
+                categoriesList
+            } else {
+                searchSuggestionsList
+            }
+
             Spacer()
         }
     }
@@ -65,12 +70,26 @@ struct SearchView: View {
             Image(systemName: "magnifyingglass")
             TextField(text: $textfieldText) {
                 Text("Søk")
+            }.onSubmit {
+                print("The search text is \(textfieldText)")
+                Task {
+                    // Do some "API" call to get the actual suggestions list
+                    searchSuggestions = await fetchSuggestions(for: textfieldText)
+                    // While we do that -> Loader
+                    // Afterwards display the fetched list
+    //                searchSuggestions = [textfieldText, textfieldText + "_suffix"]
+                }
             }
         }
         .padding(.leading)
         .padding(.bottom)
     }
-    
+
+    func fetchSuggestions(for searchText: String) async -> [String] {
+        try? await Task.sleep(for: .seconds(3))
+        return [textfieldText, textfieldText + "_suffix"]
+    }
+
     var menu: some View {
         HStack {
             Spacer()
@@ -101,17 +120,27 @@ struct SearchView: View {
         }
     }
     
-    var productList: some View {
+    var categoriesList: some View {
         List {
-            ForEach(listElements) { listElement in
-                
+            ForEach(searchCategories) { searchCategory in
+                Label(
+                    searchCategory.name,
+                    systemImage: searchCategory.systemImageName
+                )
             }
-            Label("Nordisk stil", systemImage: "heart")
-            Label("Nyheter", systemImage: "star")
-            Label("Klær", systemImage: "figure.mixed.cardio")
         }
         .listStyle(.plain)
     }
+
+    var searchSuggestionsList: some View {
+        List {
+            ForEach(searchSuggestions, id: \.self) { searchSuggestion in
+                Text(searchSuggestion)
+            }
+        }
+        .listStyle(.plain)
+    }
+
 }
 
 #Preview {
