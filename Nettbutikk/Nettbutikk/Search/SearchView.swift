@@ -32,6 +32,8 @@ struct SearchView: View {
 
     @State var searchSuggestions = [String]()
 
+    @State var isLoading = false
+
     func didTap(clothingCategory: ClothingCategory) {
         selectedClothingCategory = clothingCategory
         switch selectedClothingCategory {
@@ -55,7 +57,9 @@ struct SearchView: View {
             menu
             Divider()
 
-            if searchSuggestions.isEmpty {
+            if isLoading {
+                ProgressView()
+            } else if searchSuggestions.isEmpty {
                 categoriesList
             } else {
                 searchSuggestionsList
@@ -72,9 +76,11 @@ struct SearchView: View {
                 Text("Søk")
             }.onSubmit {
                 print("The search text is \(textfieldText)")
+                isLoading = true
                 Task {
                     // Do some "API" call to get the actual suggestions list
                     searchSuggestions = await fetchSuggestions(for: textfieldText)
+                    isLoading = false
                     // While we do that -> Loader
                     // Afterwards display the fetched list
     //                searchSuggestions = [textfieldText, textfieldText + "_suffix"]
