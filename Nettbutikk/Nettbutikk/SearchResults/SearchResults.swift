@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct SearchResults: View {
-    
+
+    @State var products = [Product]()
+    private let searchRepository = SearchRepository()
+
     var body: some View {
         ScrollView {
             subcategories
             filters
             productsGrid
+        }.onAppear {
+            print("view appeared")
+            // request products according to search parameters
+            Task {
+                products = await searchRepository.fetchSearchResults()
+                // fetch some products
+                // update view
+            }
         }
         .padding()
     }
@@ -44,8 +55,6 @@ struct SearchResults: View {
         }
     }
 
-    private var product = Product(brand: "Brand", name: "Name", price: 20, delivery: "Delivery")
-
     var productsGrid: some View {
         LazyVGrid(columns: [
             GridItem(.flexible(), spacing: 20),
@@ -53,14 +62,14 @@ struct SearchResults: View {
         ],
                   spacing: 20,
                   content: {
-            SearchResultsProductCell(product: product)
-            SearchResultsProductCell(product: product)
-            SearchResultsProductCell(product: product)
+            ForEach(products, id: \.self) { product in
+                SearchResultsProductCell(product: product)
+            }
 
             Section {
-                SearchResultsProductCell(product: product)
-                SearchResultsProductCell(product: product)
-                SearchResultsProductCell(product: product)
+                ForEach(products, id: \.self) { product in
+                    SearchResultsProductCell(product: product)
+                }
             } header: {
                 Text("Some header")
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)

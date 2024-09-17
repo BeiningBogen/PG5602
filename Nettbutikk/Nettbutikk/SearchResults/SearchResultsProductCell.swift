@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Product {
-    // let picture: Url / Asset
-    let brand: String
-    let name: String
-    let price: Int
-    let delivery: String
-}
-
 struct SearchResultsProductCell: View {
 
     var product: Product
@@ -27,8 +19,8 @@ struct SearchResultsProductCell: View {
             Text(product.name)
 //            NumberFormatter() + NSNumberFormatterCurrencyStyle
             Text("\(product.price)")
-            Text(product.delivery)
-                .font(.footnote)
+//            Text(product.delivery)
+//                .font(.footnote)
         }
         .background(.green)
     }
@@ -56,5 +48,5 @@ struct SearchResultsProductCell: View {
 }
 
 #Preview {
-    SearchResultsProductCell(product: Product(brand: "Brand", name: "Name", price: 20, delivery: "Delivery"))
+    SearchResultsProductCell(product: .mock)
 }

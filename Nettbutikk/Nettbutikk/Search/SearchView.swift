@@ -92,7 +92,7 @@ struct SearchView: View {
     }
 
     func fetchSuggestions(for searchText: String) async -> [String] {
-        try? await Task.sleep(for: .seconds(3))
+        try? await Task.sleep(for: .seconds(1))
         return [textfieldText, textfieldText + "_suffix"]
     }
 
@@ -141,7 +141,11 @@ struct SearchView: View {
     var searchSuggestionsList: some View {
         List {
             ForEach(searchSuggestions, id: \.self) { searchSuggestion in
-                Text(searchSuggestion)
+                NavigationLink {
+                    SearchResults()
+                } label: {
+                    Text(searchSuggestion)
+                }
             }
         }
         .listStyle(.plain)

@@ -1,4 +1,4 @@
-[
+{"results": [
   {
     "brand": "Nike",
     "name": "Air Max",
@@ -28,3 +28,4 @@
     "fastDelivery": true
   }
 ]
+}
