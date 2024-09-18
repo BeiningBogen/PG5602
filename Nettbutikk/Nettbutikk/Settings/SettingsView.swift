@@ -9,32 +9,18 @@ import SwiftUI
 
 struct SettingsView: View {
 
-    @State var userSettings = UserSettings(preferedClothingCategory: .dame)
+    @State var userSettings: UserSettings
     private let userSettingsRepository = UserSettingsRepository()
 
     var body: some View {
+        let _ = Self._printChanges()
         HStack {
-            Button("Dame") {
-                userSettings.preferedClothingCategory = .dame
-                userSettingsRepository.save(userSettings: userSettings)
-            }.background(userSettings.preferedClothingCategory == .dame ? Color.gray : Color.clear)
-
-            Button("Herre") {
-                userSettings.preferedClothingCategory = .herre
-                userSettingsRepository.save(userSettings: userSettings)
-            }.background(userSettings.preferedClothingCategory == .herre ? Color.gray : Color.clear)
-
-            Button("Barn") {
-                userSettings.preferedClothingCategory = .baby
-                userSettingsRepository.save(userSettings: userSettings)
-            }.background(userSettings.preferedClothingCategory == .baby ? Color.gray : Color.clear)
-
-        }.onAppear {
-            userSettings = userSettingsRepository.get()
+            SettingsPreferedClothingCategoryCell(
+                selectedClothingCategory: userSettings.preferedClothingCategory) { clothingCategory in
+                    print("tapped: \(clothingCategory)")
+                    userSettings = UserSettings(preferedClothingCategory: clothingCategory)
+                    userSettingsRepository.save(userSettings: userSettings)
+                }
         }
     }
-}
-
-#Preview {
-    SettingsView()
 }

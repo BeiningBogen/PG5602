@@ -1,5 +1,6 @@
 {"results": [
   {
+      "id": 0,
     "brand": "Nike",
     "name": "Air Max",
     "price": 1000,
@@ -7,6 +8,7 @@
     "fastDelivery": true
   },
   {
+      "id": 1,
     "brand": "Adidas",
     "name": "Sneakers",
     "price": 800,
@@ -14,6 +16,7 @@
     "fastDelivery": false
   },
   {
+      "id": 2,
     "brand": "Asics",
     "name": "Athletics shoes",
     "price": 1500,
@@ -21,6 +24,7 @@
     "fastDelivery": false
   },
   {
+      "id": 3,
     "brand": "Some Brand",
     "name": "Some product",
     "price": 5000,

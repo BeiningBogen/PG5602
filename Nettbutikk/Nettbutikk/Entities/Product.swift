@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct Product: Hashable, Decodable {
+struct Product: Hashable, Codable {
     // let picture: Url / Asset
+    let id: Int
     let brand: String
     let name: String
     let price: Int
     let fastDelivery: Bool
 
-    static let mock = Product(brand: "Brand", name: "Name", price: 20, fastDelivery: false)
+    static let mock = Product(id: 0, brand: "Brand", name: "Name", price: 20, fastDelivery: false)
 }
 
 

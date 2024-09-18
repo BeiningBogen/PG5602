@@ -17,6 +17,7 @@ struct SearchRepository {
         }
         do {
             let decodeProducts = try JSONDecoder().decode(SearchResponse.self, from: jsonData)
+//            return try JSONDecoder().decode([Product].self, from: jsonData)
             return decodeProducts.results
         } catch {
             print(error)

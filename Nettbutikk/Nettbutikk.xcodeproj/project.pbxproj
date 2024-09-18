@@ -17,6 +17,9 @@
 		06EDBA042C9997450005689D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA032C9997450005689D /* SettingsView.swift */; };
 		06EDBA062C999CAB0005689D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA052C999CAB0005689D /* UserSettings.swift */; };
 		06EDBA082C999E510005689D /* UserSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA072C999E510005689D /* UserSettingsRepository.swift */; };
+		06EDBA0A2C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA092C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift */; };
+		06EDBA0C2C9AE4A60005689D /* FavoriteProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA0B2C9AE4A60005689D /* FavoriteProductsRepository.swift */; };
+		06EDBA0F2C9AE9C60005689D /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA0E2C9AE9C60005689D /* FavoritesView.swift */; };
 		EC828A002C88504A00F3613B /* NettbutikkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */; };
 		EC828A022C88504A00F3613B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A012C88504A00F3613B /* ContentView.swift */; };
 		EC828A042C88504B00F3613B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC828A032C88504B00F3613B /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		06EDBA032C9997450005689D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		06EDBA052C999CAB0005689D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		06EDBA072C999E510005689D /* UserSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRepository.swift; sourceTree = "<group>"; };
+		06EDBA092C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPerferedClothingCategoryCell.swift; sourceTree = "<group>"; };
+		06EDBA0B2C9AE4A60005689D /* FavoriteProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductsRepository.swift; sourceTree = "<group>"; };
+		06EDBA0E2C9AE9C60005689D /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		EC8289FC2C88504A00F3613B /* Nettbutikk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nettbutikk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettbutikkApp.swift; sourceTree = "<group>"; };
 		EC828A012C88504A00F3613B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			children = (
 				06EDBA002C9996380005689D /* SearchRepository.swift */,
 				06EDBA072C999E510005689D /* UserSettingsRepository.swift */,
+				06EDBA0B2C9AE4A60005689D /* FavoriteProductsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -136,8 +143,17 @@
 			isa = PBXGroup;
 			children = (
 				06EDBA032C9997450005689D /* SettingsView.swift */,
+				06EDBA092C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		06EDBA0D2C9AE9B60005689D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				06EDBA0E2C9AE9C60005689D /* FavoritesView.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		EC8289F32C88504A00F3613B = {
@@ -169,6 +185,7 @@
 				06EDB9EC2C91C3120005689D /* Search */,
 				06EDB9ED2C91D06F0005689D /* SearchResults */,
 				06EDBA022C99973A0005689D /* Settings */,
+				06EDBA0D2C9AE9B60005689D /* Favorites */,
 				06EDB9FC2C9990660005689D /* Entities */,
 				06EDB9FF2C9996280005689D /* Repositories */,
 				EC828A032C88504B00F3613B /* Assets.xcassets */,
@@ -335,15 +352,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC828A2A2C88518A00F3613B /* HomeView.swift in Sources */,
+				06EDBA0A2C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift in Sources */,
 				06EDBA062C999CAB0005689D /* UserSettings.swift in Sources */,
 				EC828A2C2C8861A100F3613B /* SearchView.swift in Sources */,
 				06EDB9FE2C9990710005689D /* Product.swift in Sources */,
 				06EDB9F32C91D5BC0005689D /* SearchResultsProductCell.swift in Sources */,
 				EC828A022C88504A00F3613B /* ContentView.swift in Sources */,
 				EC828A002C88504A00F3613B /* NettbutikkApp.swift in Sources */,
+				06EDBA0C2C9AE4A60005689D /* FavoriteProductsRepository.swift in Sources */,
 				06EDBA082C999E510005689D /* UserSettingsRepository.swift in Sources */,
 				06EDB9F12C91D34D0005689D /* SearchResultsCategoryCell.swift in Sources */,
 				06EDBA012C9996380005689D /* SearchRepository.swift in Sources */,
+				06EDBA0F2C9AE9C60005689D /* FavoritesView.swift in Sources */,
 				06EDB9EF2C91D0790005689D /* SearchResults.swift in Sources */,
 				06EDB9EB2C91C30D0005689D /* SearchCategory.swift in Sources */,
 				06EDBA042C9997450005689D /* SettingsView.swift in Sources */,

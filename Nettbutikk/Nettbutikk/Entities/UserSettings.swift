@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct UserSettings: Codable {
+class UserSettings: Codable {
     var preferedClothingCategory: ClothingCategory
+
+    init(preferedClothingCategory: ClothingCategory) {
+        self.preferedClothingCategory = preferedClothingCategory
+    }
+
 }

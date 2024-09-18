@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         TabView {
             HomeView()
@@ -21,7 +22,11 @@ struct ContentView: View {
             .tabItem {
                 Label("Søk", systemImage: "magnifyingglass")
             }
-            SettingsView()
+            FavoritesView()
+                .tabItem {
+                    Label("Favorites", systemImage: "heart")
+                }
+            SettingsView(userSettings: UserSettingsRepository().get())
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
