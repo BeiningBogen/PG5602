@@ -22,9 +22,13 @@ struct ContentView: View {
             .tabItem {
                 Label("Søk", systemImage: "magnifyingglass")
             }
-            FavoritesView()
+            FavoritesView(products: [])
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
+                }
+            BasketView()
+                .tabItem {
+                    Label("Basket", systemImage: "basket")
                 }
             SettingsView(userSettings: UserSettingsRepository().get())
                 .tabItem {

@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchResultsProductCell: View {
 
     var product: Product
+//    var isFavorite: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,6 +36,8 @@ struct SearchResultsProductCell: View {
             VStack {
                 Button("favorite") {
                     print("toggle favorite")
+                    // Warning, this works because favorite repository uses shared space in UserDefaults
+                    FavoriteProductsRepository().toggleFavorite(product)
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 Spacer()

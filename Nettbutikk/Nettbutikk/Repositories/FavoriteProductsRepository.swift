@@ -28,13 +28,27 @@ struct FavoriteProductsRepository {
 
     // addToFavorites
 
+    func toggleFavorite(_ product: Product) {
+        let currentFavorites = getProducts()
+        guard currentFavorites.firstIndex(of: product) != nil else {
+            addToFavorites(product)
+            return
+        }
+        removeFromFavorites(product)
+    }
+
     func addToFavorites(_ product: Product) {
         var currentFavorites = getProducts()
         currentFavorites.append(product)
         save(currentFavorites)
     }
 
-    // removeToFavorites
+    func removeFromFavorites(_ product: Product) {
+        var currentFavorites = getProducts()
+        guard let index = currentFavorites.firstIndex(of: product) else { return }
+        currentFavorites.remove(at: index)
+        save(currentFavorites)
+    }
 
     // MARK: - Private
 

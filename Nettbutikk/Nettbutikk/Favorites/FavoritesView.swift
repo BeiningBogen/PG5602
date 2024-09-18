@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct FavoritesView: View {
+
+    @State var products: [Product]
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LazyVStack {
+            ForEach(products) { product in
+                FavoritesCell(product: product)
+            }
+        }.onAppear {
+            products = FavoriteProductsRepository().getProducts()
+        }
     }
 }
 
-#Preview {
-    FavoritesView()
+struct CurrencyMapper {
+
+    func map(int: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "no")
+        return formatter.string(from: NSNumber(value: int)) ?? "--"
+    }
+
 }
+
+//#Preview {
+//    FavoritesView()
+//}
