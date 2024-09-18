@@ -9,16 +9,14 @@ import SwiftUI
 
 struct SettingsView: View {
 
-    @State var userSettings: UserSettings
+    @ObservedObject var userSettings: UserSettings
     private let userSettingsRepository = UserSettingsRepository()
 
     var body: some View {
-        let _ = Self._printChanges()
         HStack {
             SettingsPreferedClothingCategoryCell(
-                selectedClothingCategory: userSettings.preferedClothingCategory) { clothingCategory in
-                    print("tapped: \(clothingCategory)")
-                    userSettings = UserSettings(preferedClothingCategory: clothingCategory)
+                selectedClothingCategory: $userSettings.preferedClothingCategory) { clothingCategory in
+                    userSettings.preferedClothingCategory = clothingCategory
                     userSettingsRepository.save(userSettings: userSettings)
                 }
         }
