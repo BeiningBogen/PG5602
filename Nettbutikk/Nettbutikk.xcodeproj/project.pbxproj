@@ -32,6 +32,7 @@
 		EC828A1D2C88504B00F3613B /* NettbutikkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A1C2C88504B00F3613B /* NettbutikkUITestsLaunchTests.swift */; };
 		EC828A2A2C88518A00F3613B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A292C88518A00F3613B /* HomeView.swift */; };
 		EC828A2C2C8861A100F3613B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A2B2C8861A100F3613B /* SearchView.swift */; };
+		ECDD4CD12CA2E76300331194 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDD4CD02CA2E76300331194 /* ProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		EC828A1C2C88504B00F3613B /* NettbutikkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettbutikkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EC828A292C88518A00F3613B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC828A2B2C8861A100F3613B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		ECDD4CD02CA2E76300331194 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */,
 				EC828A012C88504A00F3613B /* ContentView.swift */,
 				EC828A292C88518A00F3613B /* HomeView.swift */,
+				ECDD4CD02CA2E76300331194 /* ProductView.swift */,
 				06EDB9EC2C91C3120005689D /* Search */,
 				06EDB9ED2C91D06F0005689D /* SearchResults */,
 				06EDBA022C99973A0005689D /* Settings */,
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDD4CD12CA2E76300331194 /* ProductView.swift in Sources */,
 				06EDBA142C9AF6770005689D /* BasketView.swift in Sources */,
 				EC828A2A2C88518A00F3613B /* HomeView.swift in Sources */,
 				06EDBA0A2C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift in Sources */,

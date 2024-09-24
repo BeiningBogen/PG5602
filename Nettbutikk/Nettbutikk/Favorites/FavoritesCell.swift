@@ -27,6 +27,7 @@ struct FavoritesCell: View {
                 Button("Basket") {
                     print("tapped basket")
                 }
+                
             }
         }
     }

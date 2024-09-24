@@ -95,7 +95,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: $isShowingSheet, content: {
             
-            Text("Is showing \(selectedClothingType)")
+            ProductView(selectedClothingType: selectedClothingType)
             
         })
         
@@ -111,7 +111,10 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         Button(action: {
+                            
                             print("trykka baby 0-12 mnd")
+                            
+                            
                         }, label: {
                             ZStack {
                                 VStack {
