@@ -1,4 +1,10 @@
-{
-    "name" : "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
-    "price" : 349.00
-}
+[
+    {
+        "name" : "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
+        "price" : 349.00
+    },
+    {
+        "name" : "Funda jacket - Jeansjakke - black",
+        "price" : 579.00
+    }
+]
