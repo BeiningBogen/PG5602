@@ -29,7 +29,7 @@ enum ClothingType: String, CaseIterable, Identifiable {
                 return URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/refs/heads/master/Nettbutikk/sko.json")!
             
             default:
-                return URL.init(string: "")!
+                return URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/")!
         }
     }
     

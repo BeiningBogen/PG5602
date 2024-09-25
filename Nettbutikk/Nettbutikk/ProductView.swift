@@ -25,18 +25,28 @@ struct ProductView: View {
     
     @State var selectedProduct: MyProduct?
     
+    @State var isShowingError = false
+    
     init(selectedClothingType: ClothingType) {
         self.selectedClothingType = selectedClothingType
     }
     
     var body: some View {
         VStack {
-            if let selectedProduct {
-                Text(selectedProduct.name)
-                Text(selectedProduct.price.description)
-            } else {
-                Text("Ikke valgt produkt")
+            Group {
+                if let selectedProduct {
+                    Text(selectedProduct.name)
+                    Text(selectedProduct.price.description)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                    
+                } else {
+                    Text("Ikke valgt produkt")
+                }
             }
+            .padding(.vertical)
+            .font(.title2)
+            
             
             Text("\(selectedClothingType.rawValue)")
             ScrollView {
@@ -47,19 +57,32 @@ struct ProductView: View {
                         } label: {
                             ZStack {
                                 Color.yellow
-                                Text(product.name)
+                                VStack {
+                                    Spacer()
+                                    Text(product.name)
+                                        .padding(.bottom)
+                                        .font(.title3)
+                                }
                             }
+                            .frame(height: UIScreen.main.bounds.height * 0.4)
                         }
-
-                        
                     }
                 }
             }
-            
         }.onAppear {
             Task {
                 await getProducts()
             }
+        }
+        .sheet(isPresented: $isShowingError) {
+            Text("Something wrong happened")
+                .onAppear {
+                    print("did show error")
+                    return ()
+                }
+//            print("did show error")
+            // () == Void
+//            return
         }
         
     }
@@ -75,8 +98,7 @@ struct ProductView: View {
             let response = try await URLSession.shared.data(for: urlRequest)
             
             let data = response.0
-            
-            print(String(data: data, encoding: .utf8))
+            data.prettyPrint()
             
             let products = try JSONDecoder().decode([MyProduct].self, from: data)
             print(products)
@@ -84,6 +106,8 @@ struct ProductView: View {
             self.products = products
             
         } catch {
+            isShowingError = true
+//            Sentry.logError(error)
             print(error)
         }
     }
@@ -93,5 +117,5 @@ struct ProductView: View {
 
 
 #Preview {
-    ProductView(selectedClothingType: .allCases.randomElement()!)
+    ProductView(selectedClothingType: .klær)
 }
