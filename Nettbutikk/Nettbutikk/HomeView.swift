@@ -19,6 +19,19 @@ enum ClothingType: String, CaseIterable, Identifiable {
     case accessories = "Accessories"
     case streetwear = "Streetwear"
 
+
+    var url: URL {
+        switch self {
+            case .klær:
+                return URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/refs/heads/master/Nettbutikk/products.json")!
+                
+            case .sko:
+                return URL.init(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/refs/heads/master/Nettbutikk/sko.json")!
+            
+            default:
+                return URL.init(string: "")!
+        }
+    }
     
 }
 
