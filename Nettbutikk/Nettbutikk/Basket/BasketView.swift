@@ -10,7 +10,6 @@ import SwiftUI
 struct BasketView: View {
     
     @State var isPulsing = false
-    @State var text = ""
     
     var body: some View {
         VStack {
