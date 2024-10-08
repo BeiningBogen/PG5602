@@ -1,10 +1,16 @@
 [
     {
-        "name" : "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
-        "price" : 349.00
+        "id": 1,
+        "brand": "Brand Placeholder",
+        "name": "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
+        "price": 349,
+        "fast_delivery": true
     },
     {
-        "name" : "Funda jacket - Jeansjakke - black",
-        "price" : 579.00
+        "id": 2,
+        "brand": "Brand Placeholder",
+        "name": "Funda jacket - Jeansjakke - black",
+        "price": 579,
+        "fast_delivery": false
     }
 ]
