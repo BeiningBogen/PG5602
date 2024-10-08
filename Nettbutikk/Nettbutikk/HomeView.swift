@@ -61,6 +61,7 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         Text("Kickstart høsten")
                             .rainbowStyle()
+//                            .pulseEffect()
 //                            .modifier(RainbowModifier())
                             
                         
