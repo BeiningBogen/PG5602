@@ -36,6 +36,7 @@
 		EC98BB6D2CA420AE00391B64 /* URLRequest+Nettbutikk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98BB6C2CA420AE00391B64 /* URLRequest+Nettbutikk.swift */; };
 		EC98BB6F2CA428E400391B64 /* Data+Prettyprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98BB6E2CA428E400391B64 /* Data+Prettyprint.swift */; };
 		ECDD4CD12CA2E76300331194 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDD4CD02CA2E76300331194 /* ProductView.swift */; };
+		ECE30CAA2CB55AB50064047A /* View+Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE30CA92CB55AB50064047A /* View+Backgrounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		EC98BB6C2CA420AE00391B64 /* URLRequest+Nettbutikk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Nettbutikk.swift"; sourceTree = "<group>"; };
 		EC98BB6E2CA428E400391B64 /* Data+Prettyprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Prettyprint.swift"; sourceTree = "<group>"; };
 		ECDD4CD02CA2E76300331194 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		ECE30CA92CB55AB50064047A /* View+Backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Backgrounds.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				06EDBA132C9AF6770005689D /* BasketView.swift */,
+				ECE30CA92CB55AB50064047A /* View+Backgrounds.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				06EDBA082C999E510005689D /* UserSettingsRepository.swift in Sources */,
 				06EDB9F12C91D34D0005689D /* SearchResultsCategoryCell.swift in Sources */,
 				EC868FA22CAD558800E66C08 /* View+Viewmodifiers.swift in Sources */,
+				ECE30CAA2CB55AB50064047A /* View+Backgrounds.swift in Sources */,
 				06EDBA012C9996380005689D /* SearchRepository.swift in Sources */,
 				06EDBA0F2C9AE9C60005689D /* FavoritesView.swift in Sources */,
 				06EDB9EF2C91D0790005689D /* SearchResults.swift in Sources */,

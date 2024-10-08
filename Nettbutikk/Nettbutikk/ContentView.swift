@@ -26,11 +26,14 @@ struct ContentView: View {
                     .tabItem {
                         Label("Favorites", systemImage: "heart")
                     }
+                
                 BasketView()
                     .tabItem {
-                        Label("Basket", systemImage: "basket")
+                        Label("Cart", systemImage: "basket")
                     }
-
+                    .toolbarBackground(.white, for: .tabBar)
+                    .toolbarBackground(.visible, for: .tabBar)
+                    
                 SettingsView(userSettings: UserSettingsRepository().get())
                     .tabItem {
                         Label("Settings", systemImage: "gear")
