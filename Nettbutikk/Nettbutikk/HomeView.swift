@@ -60,8 +60,9 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Kickstart høsten")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .rainbowStyle()
+//                            .modifier(RainbowModifier())
+                            
                         
                         Text("Spar opptil 50% på tusenvis av varer")
                             .font(.title)
@@ -69,11 +70,11 @@ struct HomeView: View {
                     .padding(.leading)
                     Spacer()
                     
-                }
+                }.measure()
             }
             .foregroundStyle(.white)
             .frame(height: 160)
-            
+            .measure()
             
             
             ZStack {
@@ -100,9 +101,11 @@ struct HomeView: View {
                     .padding(.leading)
                 }
                 .foregroundStyle(.white)
+                
             }
             
             productCategoryList
+                .measure()
             
             
         }

@@ -10,30 +10,32 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Shopping", systemImage: "heart.fill")
-                    // Label("Shopping", image: "baby")
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Shopping", systemImage: "heart.fill")
+                        // Label("Shopping", image: "baby")
+                    }
+                NavigationStack {
+                    SearchView()
                 }
-            NavigationStack {
-                SearchView()
-            }
-            .tabItem {
-                Label("Søk", systemImage: "magnifyingglass")
-            }
-            FavoritesView(products: [])
                 .tabItem {
-                    Label("Favorites", systemImage: "heart")
+                    Label("Søk", systemImage: "magnifyingglass")
                 }
-            BasketView()
-                .tabItem {
-                    Label("Basket", systemImage: "basket")
-                }
-            SettingsView(userSettings: UserSettingsRepository().get())
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
+                FavoritesView(products: [])
+                    .tabItem {
+                        Label("Favorites", systemImage: "heart")
+                    }
+                BasketView()
+                    .tabItem {
+                        Label("Basket", systemImage: "basket")
+                    }
+
+                SettingsView(userSettings: UserSettingsRepository().get())
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+      
         }
     }
 }
