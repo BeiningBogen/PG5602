@@ -11,18 +11,28 @@ struct BasketView: View {
     
     @State var isPulsing = false
     
+    @State var isRotating = false
+
     var body: some View {
         VStack {
             Image(systemName: "cart")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100) // 320
+            
                 .scaleEffect(isPulsing ? 1.2 : 1)
                 .animation(
                     Animation.easeInOut(duration: 1)
-                        .repeatForever(autoreverses: true)
-                    ,
+                        .repeatForever(autoreverses: true),
                     value: isPulsing)
+            
+            
+                .rotationEffect(isRotating ? .degrees(0) : .degrees(360))
+                .animation(
+                    Animation.easeInOut(duration: 1)
+                        .repeatForever(autoreverses: false),
+                    value: isRotating)
+                
             
             
             Text("No items in cart")
@@ -32,6 +42,7 @@ struct BasketView: View {
         .rainbowBackground()
         .onAppear {
             isPulsing = true
+            isRotating = true
         }
     }
 }
