@@ -6,26 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct MyProduct: Decodable, Identifiable, Hashable {
-    
-    var id: Self {
-        return self
-    }
-    
-    let name: String
-    let price: Float
-    
-}
 
 struct ProductView: View {
     
-    @State var selectedClothingType: ClothingType
-    @State var products: [MyProduct] = []
+    // Vi lager en lokal attributt fra en Environment-variabel
+    @Environment(\.modelContext) var modelContext
     
-    @State var selectedProduct: MyProduct?
+    @State var selectedClothingType: ClothingType
+    @State var products: [Product] = []
+    
+    @State var selectedProduct: Product?
     
     @State var isShowingError = false
+
+    @State var amountInCart = 0
     
     init(selectedClothingType: ClothingType) {
         self.selectedClothingType = selectedClothingType
@@ -35,25 +31,86 @@ struct ProductView: View {
         VStack {
             Group {
                 if let selectedProduct {
+                    
                     Text(selectedProduct.name)
                     Text(selectedProduct.price.description)
                         .font(.subheadline)
                         .fontWeight(.bold)
                     
+                    Text("I handlekurven: \(amountInCart)")
+                    
+                    Stepper("Legg til i handlekurv") {
+                        modelContext.insert(selectedProduct)
+                       // amountInCart += 1
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print("Error ved lagring: \(error.localizedDescription)")
+                        }
+                        
+                        print("Trykka legg til")
+                        
+                        var fetchDescriptor = FetchDescriptor<Product>()
+                        
+                        do {
+                          
+                            let result = try modelContext.fetch(fetchDescriptor)
+                            amountInCart = result.count
+                            
+                        } catch {
+                            print("Error ved fetching etter insert \(error.localizedDescription)")
+                        }
+                        
+                    } onDecrement: {
+                        
+                        modelContext.delete(selectedProduct)
+                        
+                        
+                        var fetchDescriptor = FetchDescriptor<Product>()
+                        
+                        do {
+                            let result = try modelContext.fetch(fetchDescriptor)
+                            amountInCart = result.count
+                            
+                        } catch {
+                            print("Error ved fetch etter delete! \(error.localizedDescription)")
+                        }
+                        
+                        
+                        
+                        print("Trykka fjern produkt")
+                    }
+
                 } else {
                     Text("Ikke valgt produkt")
                 }
             }
-            .padding(.vertical)
+            .padding()
             .font(.title2)
             
             
             Text("\(selectedClothingType.rawValue)")
-            ScrollView {
+            Spacer()
+            ScrollView(.horizontal) {
                 HStack {
                     ForEach(products) { product in
                         Button {
                             self.selectedProduct = product
+                            
+                            var fetchDescriptor = FetchDescriptor<Product>()
+                            
+                            do {
+                                let result = try modelContext.fetch(fetchDescriptor)
+                                print(result)
+                                amountInCart = result.count
+                                
+                            } catch {
+                                print("Error ved fetch etter select \(error.localizedDescription)")
+                            }
+                            
+                            
+
+                            
                         } label: {
                             ZStack {
                                 Color.yellow
@@ -100,10 +157,12 @@ struct ProductView: View {
             let data = response.0
             data.prettyPrint()
             
-            let products = try JSONDecoder().decode([MyProduct].self, from: data)
+            let products = try JSONDecoder().decode([Product].self, from: data)
             print(products)
             
             self.products = products
+            selectedProduct = products.first
+//            selectedProduct = products.first
             
         } catch {
             isShowingError = true

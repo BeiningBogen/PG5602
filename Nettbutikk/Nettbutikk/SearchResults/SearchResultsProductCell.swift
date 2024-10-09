@@ -51,5 +51,5 @@ struct SearchResultsProductCell: View {
 }
 
 #Preview {
-    SearchResultsProductCell(product: .mock)
+//    SearchResultsProductCell(product: .mock)
 }
