@@ -162,6 +162,17 @@ struct ProductView: View {
             
             self.products = products
             selectedProduct = products.first
+            
+            var fetchDescriptor = FetchDescriptor<Product>()
+            
+            do {
+                let result = try modelContext.fetch(fetchDescriptor)
+                print(result)
+                amountInCart = result.count
+                
+            } catch {
+                print("Error ved fetch etter select \(error.localizedDescription)")
+            }
 //            selectedProduct = products.first
             
         } catch {
