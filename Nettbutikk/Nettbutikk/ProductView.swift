@@ -20,7 +20,7 @@ struct ProductView: View {
     @State var selectedProduct: Product?
     
     @State var isShowingError = false
-
+    
     @State var amountInCart = 0
     
     init(selectedClothingType: ClothingType) {
@@ -43,7 +43,7 @@ struct ProductView: View {
                         
                         modelContext.insert(Product(id: selectedProduct.id, brand: selectedProduct.brand, name: selectedProduct.name, price: selectedProduct.price, fastDelivery: selectedProduct.fastDelivery))
                         
-                       // amountInCart += 1
+                        // amountInCart += 1
                         do {
                             try modelContext.save()
                         } catch {
@@ -52,47 +52,26 @@ struct ProductView: View {
                         
                         print("Trykka legg til")
                         
-                        var fetchDescriptor = FetchDescriptor<Product>()
-                        
-                        do {
-                          
-                            let result = try modelContext.fetch(fetchDescriptor)
-                            amountInCart = result.count
-                            
-                        } catch {
-                            print("Error ved fetching etter insert \(error.localizedDescription)")
-                        }
+                        amountInCart = Product.allStoredProducts(inContext: modelContext)
+                            .count
                         
                     } onDecrement: {
                         
-                        modelContext.delete(selectedProduct)
                         
+                        // Select * from Products where id == selectedProduct.id
                         
-                        var fetchDescriptor = FetchDescriptor<Product>()
-                        
-                        do {
-                            let result = try modelContext.fetch(fetchDescriptor)
+                        let result = Product.allStoredProducts(withId: selectedProduct.id, inContext: modelContext)
+                        if let product = result.first {
                             
-                            let filteredProducts = result.filter { $0.id == selectedProduct.id }
+                            modelContext.delete(product)
+                            amountInCart = result.count - 1
                             
-                            if let product = filteredProducts.first {
-                                
-                                modelContext.delete(product)
-                                amountInCart = result.count - 1
-                                
-                            } else {
-                                amountInCart = result.count
+                        } else {
+                            amountInCart = result.count
                         }
-                            
-                        } catch {
-                            print("Error ved fetch etter delete! \(error.localizedDescription)")
-                        }
-                        
-                        
-                        
                         print("Trykka fjern produkt")
                     }
-
+                    
                 } else {
                     Text("Ikke valgt produkt")
                 }
@@ -121,7 +100,7 @@ struct ProductView: View {
                             }
                             
                             
-
+                            
                             
                         } label: {
                             ZStack {
@@ -149,9 +128,9 @@ struct ProductView: View {
                     print("did show error")
                     return ()
                 }
-//            print("did show error")
+            //            print("did show error")
             // () == Void
-//            return
+            //            return
         }
         
     }
@@ -162,7 +141,7 @@ struct ProductView: View {
             let url = selectedClothingType.url
             
             let urlRequest = URLRequest.standard(url: url)
-
+            
             
             let response = try await URLSession.shared.data(for: urlRequest)
             
@@ -185,11 +164,11 @@ struct ProductView: View {
             } catch {
                 print("Error ved fetch etter select \(error.localizedDescription)")
             }
-//            selectedProduct = products.first
+            //            selectedProduct = products.first
             
         } catch {
             isShowingError = true
-//            Sentry.logError(error)
+            //            Sentry.logError(error)
             print(error)
         }
     }

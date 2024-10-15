@@ -23,6 +23,7 @@
 		06EDBA112C9AF08B0005689D /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA102C9AF08B0005689D /* FavoritesCell.swift */; };
 		06EDBA142C9AF6770005689D /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA132C9AF6770005689D /* BasketView.swift */; };
 		06EDBA162C9AF6C50005689D /* BasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA152C9AF6C50005689D /* BasketRepository.swift */; };
+		EC1DA1402CBE6FB400206B5B /* Product+SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */; };
 		EC828A002C88504A00F3613B /* NettbutikkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */; };
 		EC828A022C88504A00F3613B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A012C88504A00F3613B /* ContentView.swift */; };
 		EC828A042C88504B00F3613B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC828A032C88504B00F3613B /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		06EDBA102C9AF08B0005689D /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		06EDBA132C9AF6770005689D /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		06EDBA152C9AF6C50005689D /* BasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRepository.swift; sourceTree = "<group>"; };
+		EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+SwiftData.swift"; sourceTree = "<group>"; };
 		EC8289FC2C88504A00F3613B /* Nettbutikk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nettbutikk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettbutikkApp.swift; sourceTree = "<group>"; };
 		EC828A012C88504A00F3613B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				06EDB9FD2C9990710005689D /* Product.swift */,
+				EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */,
 				06EDBA052C999CAB0005689D /* UserSettings.swift */,
 			);
 			path = Entities;
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECDD4CD12CA2E76300331194 /* ProductView.swift in Sources */,
+				EC1DA1402CBE6FB400206B5B /* Product+SwiftData.swift in Sources */,
 				06EDBA142C9AF6770005689D /* BasketView.swift in Sources */,
 				EC828A2A2C88518A00F3613B /* HomeView.swift in Sources */,
 				06EDBA0A2C9AE0DB0005689D /* SettingsPerferedClothingCategoryCell.swift in Sources */,
