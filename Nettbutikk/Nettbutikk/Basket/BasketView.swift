@@ -6,16 +6,65 @@
 //
 
 import SwiftUI
+import SwiftData
+
+struct ProductList: View {
+    @State var products: [Product]
+    init(products: [Product]) {
+        self.products = products
+    }
+    
+    var body: some View  {
+        List {
+            
+        }
+    }
+}
 
 struct BasketView: View {
     
     @State var isRotating = false
     @State private var cartPosition = CGPoint.init(x: 200, y: 200)
     
+    // Select * from PRODUCTS
+    // Hente alle produkter, sortert på navn
+    @Query(sort: \Product.name) var products: [Product]
+    
+    
     var body: some View {
+        
+        if products.isEmpty {
+            emptyState
+        } else {
+            productList
+        }
+        
+    }
+    
+//    func didIncrement() {
+//        
+//    }
+    
+    var productList: some View {
+        List {
+            ForEach(products) { product in
+                HStack {
+                    Text(product.name)
+                    Stepper("Legg til/fjern produt", onIncrement: {
+                        
+                    }, onDecrement: {
+                        
+                    })
+                }
+                
+            }
+        }
+    }
+    
+    var emptyState: some View {
+        
+        
         GeometryReader { geometry in
-            
-            
             VStack {
                 Image(systemName: "cart")
                 
@@ -23,7 +72,7 @@ struct BasketView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100)
-                    
+                
                 
                 // Pulse animation
                     .pulseEffect()
@@ -36,7 +85,7 @@ struct BasketView: View {
                         value: isRotating)
                 
                     .position(cartPosition)
-
+                
                 
                 Text("No items in cart")
                     .wordArt3D()
@@ -53,10 +102,10 @@ struct BasketView: View {
                     cartPosition = location
                     
                 }
-                
             }
         }
     }
+    
 }
 
 #Preview {

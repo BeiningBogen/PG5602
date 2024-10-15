@@ -11,14 +11,6 @@ import SwiftData
 @Model
 class Product: Hashable, Codable, Identifiable {
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func ==(lhs: Product, rhs: Product) -> Bool {
-        lhs.id == rhs.id
-    }
-    
     /// Skriv til JSON:
     func encode(to encoder: any Encoder) throws {
         
@@ -44,6 +36,14 @@ class Product: Hashable, Codable, Identifiable {
         price = try container.decode(Int.self, forKey: .price)
         fastDelivery = try container.decode(Bool.self, forKey: .fastDelivery)
         
+    }
+    
+    init(id: Int, brand: String, name: String, price: Int, fastDelivery: Bool) {
+        self.id = id
+        self.brand = brand
+        self.name = name
+        self.price = price
+        self.fastDelivery = fastDelivery
     }
     
     // let picture: Url / Asset

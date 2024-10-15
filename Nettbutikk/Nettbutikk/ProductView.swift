@@ -40,7 +40,9 @@ struct ProductView: View {
                     Text("I handlekurven: \(amountInCart)")
                     
                     Stepper("Legg til i handlekurv") {
-                        modelContext.insert(selectedProduct)
+                        
+                        modelContext.insert(Product(id: selectedProduct.id, brand: selectedProduct.brand, name: selectedProduct.name, price: selectedProduct.price, fastDelivery: selectedProduct.fastDelivery))
+                        
                        // amountInCart += 1
                         do {
                             try modelContext.save()
@@ -70,7 +72,17 @@ struct ProductView: View {
                         
                         do {
                             let result = try modelContext.fetch(fetchDescriptor)
-                            amountInCart = result.count
+                            
+                            let filteredProducts = result.filter { $0.id == selectedProduct.id }
+                            
+                            if let product = filteredProducts.first {
+                                
+                                modelContext.delete(product)
+                                amountInCart = result.count - 1
+                                
+                            } else {
+                                amountInCart = result.count
+                        }
                             
                         } catch {
                             print("Error ved fetch etter delete! \(error.localizedDescription)")
