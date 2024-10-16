@@ -27,6 +27,14 @@ struct ProductView: View {
         self.selectedClothingType = selectedClothingType
     }
     
+    func didTap(product: Product) {
+        
+        self.selectedProduct = product
+        
+        amountInCart = Product.allStoredProducts(withId: product.id, inContext: modelContext)
+            .count
+    }
+    
     var body: some View {
         VStack {
             Group {
@@ -52,7 +60,7 @@ struct ProductView: View {
                         
                         print("Trykka legg til")
                         
-                        amountInCart = Product.allStoredProducts(inContext: modelContext)
+                        amountInCart = Product.allStoredProducts(withId: selectedProduct.id, inContext: modelContext)
                             .count
                         
                     } onDecrement: {
@@ -85,26 +93,20 @@ struct ProductView: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(products) { product in
+                        
                         Button {
-                            self.selectedProduct = product
                             
-                            var fetchDescriptor = FetchDescriptor<Product>()
+                            didTap(product: product)
                             
-                            do {
-                                let result = try modelContext.fetch(fetchDescriptor)
-                                print(result)
-                                amountInCart = result.count
-                                
-                            } catch {
-                                print("Error ved fetch etter select \(error.localizedDescription)")
-                            }
-                            
-                            
-                            
-                            
+
+
                         } label: {
                             ZStack {
-                                Color.yellow
+                                if selectedProduct?.id == product.id {
+                                    Color.yellow.opacity(0.5)
+                                } else {
+                                    Color.yellow
+                                }
                                 VStack {
                                     Spacer()
                                     Text(product.name)
@@ -154,16 +156,10 @@ struct ProductView: View {
             self.products = products
             selectedProduct = products.first
             
-            var fetchDescriptor = FetchDescriptor<Product>()
+            // Oppdater handlekurven med riktig antall produkter
+            amountInCart = Product.allStoredProducts(withId: selectedProduct?.id, inContext: modelContext).count
             
-            do {
-                let result = try modelContext.fetch(fetchDescriptor)
-                print(result)
-                amountInCart = result.count
-                
-            } catch {
-                print("Error ved fetch etter select \(error.localizedDescription)")
-            }
+           
             //            selectedProduct = products.first
             
         } catch {
@@ -179,4 +175,6 @@ struct ProductView: View {
 
 #Preview {
     ProductView(selectedClothingType: .klær)
+    // Sett riktig database i preview også
+        .modelContainer(sharedModelContainer)
 }

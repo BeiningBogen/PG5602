@@ -13,6 +13,7 @@ struct NettbutikkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            // Sett riktig database
                 .modelContainer(sharedModelContainer)
         }
     }

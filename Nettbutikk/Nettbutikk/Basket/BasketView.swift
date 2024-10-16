@@ -30,6 +30,37 @@ struct BasketView: View {
     // Hente alle produkter, sortert på navn
     @Query(sort: \Product.name) var products: [Product]
     
+    var uniqueProducts: [Product] {
+//        // Lag et Set, som kan inneholde produkter
+//        var seenProducts: Set<Product> = []
+//        
+//        // Går gjennom alle mulige produkter i DB
+//        for product in products {
+//            // Legg til hvert produkt i Set
+//            seenProducts.insert(product)
+//        }
+//        // Konverter Set til Array
+//        return seenProducts.map { product in
+//            return product
+//        }
+        
+        // Lag et Set med alle produkt-IDer
+        var seenIds: Set<Int> = []
+        /// Filtrer alle produkter basert på logikken i closuren:
+        return products.filter { product in
+            // Hvis de sette idene inneholder produktet vi er på nå:
+            if seenIds.contains(product.id) {
+                // fjern produktet fra arrayet
+                return false
+            } else {
+                // Legg til i Set over "identifiserte id-er"
+                seenIds.insert(product.id)
+                // Legg til i Arrayet vi returnerer fra funksjonen (filter)
+                return true
+            }
+        }
+    }
+    
     
     var body: some View {
         
@@ -47,7 +78,7 @@ struct BasketView: View {
     
     var productList: some View {
         List {
-            ForEach(products) { product in
+            ForEach(uniqueProducts) { product in
                 HStack {
                     Text(product.name)
                     Stepper("Legg til/fjern produt", onIncrement: {
@@ -110,6 +141,7 @@ struct BasketView: View {
 
 #Preview {
     BasketView()
+        .modelContainer(sharedModelContainer)
 }
 
 struct PulsingEffect: ViewModifier {
