@@ -30,6 +30,9 @@ struct BasketView: View {
     // Hente alle produkter, sortert på navn
     @Query(sort: \Product.name) var products: [Product]
     
+    // Referanse til databasen vår
+    @Environment(\.modelContext) var modelContext
+    
     var uniqueProducts: [Product] {
 //        // Lag et Set, som kan inneholde produkter
 //        var seenProducts: Set<Product> = []
@@ -81,8 +84,9 @@ struct BasketView: View {
             ForEach(uniqueProducts) { product in
                 HStack {
                     Text(product.name)
-                    Stepper("Legg til/fjern produt", onIncrement: {
-                        
+                    
+                    Stepper("", onIncrement: {
+                        product.storeInDatabase(context: modelContext)
                     }, onDecrement: {
                         
                     })

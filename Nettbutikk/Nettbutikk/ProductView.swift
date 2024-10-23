@@ -49,16 +49,7 @@ struct ProductView: View {
                     
                     Stepper("Legg til i handlekurv") {
                         
-                        modelContext.insert(Product(id: selectedProduct.id, brand: selectedProduct.brand, name: selectedProduct.name, price: selectedProduct.price, fastDelivery: selectedProduct.fastDelivery))
-                        
-                        // amountInCart += 1
-                        do {
-                            try modelContext.save()
-                        } catch {
-                            print("Error ved lagring: \(error.localizedDescription)")
-                        }
-                        
-                        print("Trykka legg til")
+                        selectedProduct.storeInDatabase(context: modelContext)
                         
                         amountInCart = Product.allStoredProducts(withId: selectedProduct.id, inContext: modelContext)
                             .count
@@ -67,16 +58,19 @@ struct ProductView: View {
                         
                         
                         // Select * from Products where id == selectedProduct.id
+                        selectedProduct.deleteFromDatabase(context: modelContext)
                         
                         let result = Product.allStoredProducts(withId: selectedProduct.id, inContext: modelContext)
-                        if let product = result.first {
-                            
-                            modelContext.delete(product)
-                            amountInCart = result.count - 1
-                            
-                        } else {
-                            amountInCart = result.count
-                        }
+                        amountInCart = result.count
+                        
+//                        if let product = result.first {
+//                            
+//                            modelContext.delete(product)
+//                            amountInCart = result.count - 1
+//                            
+//                        } else {
+//                            amountInCart = result.count
+//                        }
                         print("Trykka fjern produkt")
                     }
                     
@@ -95,11 +89,7 @@ struct ProductView: View {
                     ForEach(products) { product in
                         
                         Button {
-                            
                             didTap(product: product)
-                            
-
-
                         } label: {
                             ZStack {
                                 if selectedProduct?.id == product.id {

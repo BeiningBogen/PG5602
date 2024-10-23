@@ -10,6 +10,7 @@ import SwiftData
 
 extension Product {
     
+    //
     static func allStoredProducts(withId id: Int? = nil, inContext context: ModelContext) -> [Product] {
         
         var fetchDescriptor = FetchDescriptor<Product>()
@@ -27,9 +28,6 @@ extension Product {
             fatalError("error in fetch \(fetchDescriptor)")
 //            return [Product]()
         }
-        
-        
-       
     }
     
 //    func delete() {
@@ -37,6 +35,42 @@ extension Product {
 //    }
     
 //    insert
+    func storeInDatabase(context: ModelContext) {
+         
+        // Lag en kopi av self (Produktet), og legg inn i databasen
+        context.insert(Product(id: self.id, brand: self.brand, name: self.name, price: self.price, fastDelivery: self.fastDelivery))
+        do {
+            // Skriv endringer i modelcontext til disk
+            try context.save()
+        } catch {
+            print("Could not store product \(self), error: \(error)")
+        }
+    }
+    // Slett fra databasen
+    // context: Hvilken database vi skal slette fra
+    func deleteFromDatabase(context: ModelContext) {
+        
+        // Hent ut produkt med samme id som self
+        if let product = Product.allStoredProducts(withId: self.id, inContext: context).first {
+            
+            /// Slett produktet fra databasen
+            context.delete(product)
+            
+            do {
+                // Lagre endringer i modelcontext til disk
+                try context.save()
+                
+            } catch {
+                print("Could not delete product from database: \(self), error: \(error)")
+            }
+        } else {
+            print("Could not find product to delete \(self)")
+        }
+        
+//        let product = Product(id: <#T##Int#>, brand: <#T##String#>, name: <#T##String#>, price: <#T##Int#>, fastDelivery: <#T##Bool#>)
+//        product.deleteFromDatabase(context: <#T##ModelContext#>)
+//        product.
+    }
     
 //    update
 }
