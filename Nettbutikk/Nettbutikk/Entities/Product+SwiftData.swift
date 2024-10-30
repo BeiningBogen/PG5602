@@ -67,9 +67,6 @@ extension Product {
             print("Could not find product to delete \(self)")
         }
         
-//        let product = Product(id: <#T##Int#>, brand: <#T##String#>, name: <#T##String#>, price: <#T##Int#>, fastDelivery: <#T##Bool#>)
-//        product.deleteFromDatabase(context: <#T##ModelContext#>)
-//        product.
     }
     
 //    update
