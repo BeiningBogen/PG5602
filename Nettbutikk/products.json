@@ -5,7 +5,7 @@
         "name": "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
         "price": 349,
         "fast_delivery": true,
-        "image": "https://picsum.photos/200/300",
+        "image": "https://picsum.photos/id/230/200/300",
         "suppliers": [
             {
                 "id": 1,
@@ -27,7 +27,7 @@
         "name": "Funda jacket - Jeansjakke - black",
         "price": 579,
         "fast_delivery": false,
-        "image": "https://picsum.photos/300/300",
+        "image": "https://picsum.photos/id/210/300/300",
         "suppliers": [
             {
                 "id": 3,
