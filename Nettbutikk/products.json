@@ -4,13 +4,15 @@
         "brand": "Brand Placeholder",
         "name": "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
         "price": 349,
-        "fast_delivery": true
+        "fast_delivery": true,
+        "image" : "https://picsum.photos/200/300"
     },
     {
         "id": 2,
         "brand": "Brand Placeholder",
         "name": "Funda jacket - Jeansjakke - black",
         "price": 579,
-        "fast_delivery": false
+        "fast_delivery": false,
+        "image" : "https://picsum.photos/300/300"
     }
 ]
