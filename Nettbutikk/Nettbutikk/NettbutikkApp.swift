@@ -22,7 +22,7 @@ struct NettbutikkApp: App {
 var sharedModelContainer: ModelContainer = {
     
     // Hvilke objekter skal være i databasen? Entity = Navnet på des
-    let schema = Schema([Product.self])
+    let schema = Schema([Product.self, Supplier.self])
     
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
     do {

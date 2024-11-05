@@ -35,6 +35,31 @@ struct ProductView: View {
             .count
     }
     
+    func suppliersView(product: Product) -> some View {
+        VStack(alignment: .leading) {
+            
+            Text("Leverandørinfo:")
+                .padding(.bottom)
+            
+            ForEach(product.suppliers) { supplier in
+                HStack {
+                    Text(supplier.name)
+                    Spacer()
+                    Text(supplier.country)
+                    Spacer()
+                    Text(supplier.contactInfo)
+                }.font(.footnote)
+                
+            }
+        }.padding(20)
+            .background {
+                Color.gray
+                    .opacity(0.4)
+                    .cornerRadius(20)
+        }
+        // Text("\(product.suppliers.first?.name)")
+    }
+    
     var body: some View {
         VStack {
             Group {
@@ -62,18 +87,11 @@ struct ProductView: View {
                         
                         let result = Product.allStoredProducts(withId: selectedProduct.id, inContext: modelContext)
                         amountInCart = result.count
-                        
-//                        if let product = result.first {
-//                            
-//                            modelContext.delete(product)
-//                            amountInCart = result.count - 1
-//                            
-//                        } else {
-//                            amountInCart = result.count
-//                        }
                         print("Trykka fjern produkt")
                     }
                     
+                    suppliersView(product: selectedProduct)
+
                 } else {
                     Text("Ikke valgt produkt")
                 }
@@ -92,11 +110,36 @@ struct ProductView: View {
                             didTap(product: product)
                         } label: {
                             ZStack {
-                                if selectedProduct?.id == product.id {
-                                    Color.yellow.opacity(0.5)
-                                } else {
-                                    Color.yellow
+//                                if selectedProduct?.id == product.id {
+//                                    Color.yellow.opacity(0.5)
+//                                } else {
+//                                    Color.yellow
+//                                }
+//                                Image
+                                
+                                AsyncImage(url: product.imageURL) { image in
+                                    
+                                    image.resizable()
+                                        .frame(width: 200, height: 200)
+                                        .clipShape(.rect(cornerRadius: 20))
+                                        .overlay {
+                                            if selectedProduct?.id == product.id {
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .stroke(Color.green, lineWidth: 5)
+                                            }
+                                        }
+                                    
+                                } placeholder: {
+                                    ZStack {
+                                        Color.gray
+                                            .frame(width: 200, height: 200)
+                                            .clipShape(.rect(cornerRadius: 20))
+                                        ProgressView()
+                                    }
+                                    
                                 }
+
+                                
                                 VStack {
                                     Spacer()
                                     Text(product.name)

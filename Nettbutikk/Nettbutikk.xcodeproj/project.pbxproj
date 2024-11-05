@@ -23,6 +23,7 @@
 		06EDBA112C9AF08B0005689D /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA102C9AF08B0005689D /* FavoritesCell.swift */; };
 		06EDBA142C9AF6770005689D /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA132C9AF6770005689D /* BasketView.swift */; };
 		06EDBA162C9AF6C50005689D /* BasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDBA152C9AF6C50005689D /* BasketRepository.swift */; };
+		EC0C29AA2CDA28F800DA622D /* Supplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0C29A92CDA28F800DA622D /* Supplier.swift */; };
 		EC1DA1402CBE6FB400206B5B /* Product+SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */; };
 		EC828A002C88504A00F3613B /* NettbutikkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */; };
 		EC828A022C88504A00F3613B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC828A012C88504A00F3613B /* ContentView.swift */; };
@@ -74,6 +75,7 @@
 		06EDBA102C9AF08B0005689D /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		06EDBA132C9AF6770005689D /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		06EDBA152C9AF6C50005689D /* BasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRepository.swift; sourceTree = "<group>"; };
+		EC0C29A92CDA28F800DA622D /* Supplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier.swift; sourceTree = "<group>"; };
 		EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+SwiftData.swift"; sourceTree = "<group>"; };
 		EC8289FC2C88504A00F3613B /* Nettbutikk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nettbutikk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8289FF2C88504A00F3613B /* NettbutikkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettbutikkApp.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		06EDB9FC2C9990660005689D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				EC0C29A92CDA28F800DA622D /* Supplier.swift */,
 				06EDB9FD2C9990710005689D /* Product.swift */,
 				EC1DA13F2CBE6FB400206B5B /* Product+SwiftData.swift */,
 				06EDBA052C999CAB0005689D /* UserSettings.swift */,
@@ -405,6 +408,7 @@
 				06EDBA082C999E510005689D /* UserSettingsRepository.swift in Sources */,
 				06EDB9F12C91D34D0005689D /* SearchResultsCategoryCell.swift in Sources */,
 				EC868FA22CAD558800E66C08 /* View+Viewmodifiers.swift in Sources */,
+				EC0C29AA2CDA28F800DA622D /* Supplier.swift in Sources */,
 				ECE30CAA2CB55AB50064047A /* View+Backgrounds.swift in Sources */,
 				06EDBA012C9996380005689D /* SearchRepository.swift in Sources */,
 				06EDBA0F2C9AE9C60005689D /* FavoritesView.swift in Sources */,

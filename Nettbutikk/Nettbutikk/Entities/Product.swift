@@ -20,6 +20,7 @@ class Product: Hashable, Codable, Identifiable {
         try container.encode(name, forKey: .name)
         try container.encode(price, forKey: .price)
         try container.encode(fastDelivery, forKey: .fastDelivery)
+        try container.encode(imageURL, forKey: .imageURL)
         
     }
     
@@ -35,15 +36,18 @@ class Product: Hashable, Codable, Identifiable {
         name = try container.decode(String.self, forKey: .name)
         price = try container.decode(Int.self, forKey: .price)
         fastDelivery = try container.decode(Bool.self, forKey: .fastDelivery)
-        
+        imageURL = try container.decodeIfPresent(URL.self, forKey: .imageURL)
+        suppliers = try container.decode([Supplier].self, forKey: .suppliers)
     }
     
-    init(id: Int, brand: String, name: String, price: Int, fastDelivery: Bool) {
+    init(id: Int, brand: String, name: String, price: Int, fastDelivery: Bool, imageURL: URL?, suppliers: [Supplier]) {
         self.id = id
         self.brand = brand
         self.name = name
         self.price = price
         self.fastDelivery = fastDelivery
+        self.imageURL = imageURL
+        self.suppliers = suppliers
     }
     
     // let picture: Url / Asset
@@ -52,6 +56,11 @@ class Product: Hashable, Codable, Identifiable {
     var name: String
     var price: Int
     var fastDelivery: Bool
+    var imageURL: URL?
+    var suppliers: [Supplier]
+    
+    
+//    var image: Image
     
     enum CodingKeys: String, CodingKey {
         
@@ -60,6 +69,8 @@ class Product: Hashable, Codable, Identifiable {
         case name
         case price
         case fastDelivery = "fast_delivery"
+        case imageURL = "image"
+        case suppliers
         
     }
 
