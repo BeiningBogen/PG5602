@@ -5,7 +5,8 @@
         "name": "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
         "price": 349,
         "fast_delivery": true,
-        "image" : "https://picsum.photos/200/300"
+        "image" : "https://picsum.photos/200/300",
+        "countries" : ["norway", "sweden"]
     },
     {
         "id": 2,
@@ -13,6 +14,8 @@
         "name": "Funda jacket - Jeansjakke - black",
         "price": 579,
         "fast_delivery": false,
-        "image" : "https://picsum.photos/300/300"
+        "image" : "https://picsum.photos/300/300",
+        "countries" : ["norway", "sweden", "denmark"]
+
     }
 ]
