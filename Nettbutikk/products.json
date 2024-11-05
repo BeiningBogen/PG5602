@@ -5,8 +5,21 @@
         "name": "JJIEDDIE JJORIGINAL - Jeans relaxed fit",
         "price": 349,
         "fast_delivery": true,
-        "image" : "https://picsum.photos/200/300",
-        "countries" : ["norway", "sweden"]
+        "image": "https://picsum.photos/200/300",
+        "suppliers": [
+            {
+                "id": 1,
+                "name": "Nordic Apparel Co.",
+                "country": "Sweden",
+                "contact_info": "contact@nordicapparel.com"
+            },
+            {
+                "id": 2,
+                "name": "Global Textiles Ltd.",
+                "country": "Germany",
+                "contact_info": "info@globaltextiles.de"
+            }
+        ]
     },
     {
         "id": 2,
@@ -14,8 +27,20 @@
         "name": "Funda jacket - Jeansjakke - black",
         "price": 579,
         "fast_delivery": false,
-        "image" : "https://picsum.photos/300/300",
-        "countries" : ["norway", "sweden", "denmark"]
-
+        "image": "https://picsum.photos/300/300",
+        "suppliers": [
+            {
+                "id": 3,
+                "name": "Urban Wear Supply",
+                "country": "Netherlands",
+                "contact_info": "sales@urbanwear.nl"
+            },
+            {
+                "id": 4,
+                "name": "EcoFashion Ltd.",
+                "country": "Portugal",
+                "contact_info": "support@ecofashion.pt"
+            }
+        ]
     }
 ]
