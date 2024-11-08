@@ -18,6 +18,12 @@ enum ClothingCategory: String, CaseIterable, Identifiable, Codable {
     
 }
 
+struct NettbutikkError: Error, LocalizedError {
+    var errorDescription: String? {
+        return "Noe gikk galt :("
+    }
+}
+
 struct SearchView: View {
     
     @State var textfieldText: String = ""
@@ -33,6 +39,9 @@ struct SearchView: View {
     @State var searchSuggestions = [String]()
 
     @State var isLoading = false
+    
+    @State var error: NettbutikkError?
+    @State var isShowingError = false
 
     private let userSettingsRepository = UserSettingsRepository()
 
@@ -81,6 +90,16 @@ struct SearchView: View {
 //                break
 //            }
         }
+        .alert(isPresented: $isShowingError, error: error) {
+            Button("OK") {
+                isShowingError = false
+            }
+        }
+//        .alert("Noe gikk galt :(", isPresented: $isShowingError) {
+//            Button("OK") {
+//                isShowingError = false
+//            }
+//        }
     }
     
     var search: some View {
@@ -93,8 +112,14 @@ struct SearchView: View {
                 isLoading = true
                 Task {
                     // Do some "API" call to get the actual suggestions list
-                    searchSuggestions = await fetchSuggestions(for: textfieldText)
-                    isLoading = false
+                    do  {
+                        searchSuggestions = try await fetchSuggestions(for: textfieldText)
+                        isLoading = false
+                    } catch {
+//                        self.error = NettbutikkError
+                        isShowingError = true
+                        isLoading = false
+                    }
                     // While we do that -> Loader
                     // Afterwards display the fetched list
     //                searchSuggestions = [textfieldText, textfieldText + "_suffix"]
@@ -105,9 +130,16 @@ struct SearchView: View {
         .padding(.bottom)
     }
 
-    func fetchSuggestions(for searchText: String) async -> [String] {
-        try? await Task.sleep(for: .seconds(1))
-        return [textfieldText, textfieldText + "_suffix"]
+    func fetchSuggestions(for searchText: String) async throws -> [String] {
+      //  let urlRequest = URLRequest(url: URL(string: "https://raw.githubusercontent.com/BeiningBogen/PG5602/refs/heads/master/Nettbutikk/searchresults.json")!)
+        let request = URLRequest.standard(url: URL(string: "ttps://raw.githubusercontent.com/BeiningBogen/PG5602/refs/heads/master/Nettbutikk/searchresults.json")!)
+            
+            let (data, response) = try await URLSession.shared.data(for: request)
+            let searchResults = try JSONDecoder().decode([String].self, from: data)
+            print(searchResults)
+            return searchResults
+     
+        
     }
 
     var menu: some View {

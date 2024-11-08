@@ -24,8 +24,21 @@ final class NettbutikkUITests: XCTestCase {
 
     func testExample() throws {
         // UI tests must launch the application that they test.
+        
         let app = XCUIApplication()
-        app.launch()
+        app.scrollViews.otherElements.buttons["Sko"].tap()
+        
+        let leggTilIHandlekurvStepper = app.steppers["Legg til i handlekurv"]
+        let incrementButton = leggTilIHandlekurvStepper/*@START_MENU_TOKEN@*/.buttons["Increment"]/*[[".buttons[\"Legg til i handlekurv, Increment\"]",".buttons[\"Increment\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        incrementButton.tap()
+        
+        let decrementButton = leggTilIHandlekurvStepper/*@START_MENU_TOKEN@*/.buttons["Decrement"]/*[[".buttons[\"Legg til i handlekurv, Decrement\"]",".buttons[\"Decrement\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        decrementButton.tap()
+        decrementButton.tap()
+        decrementButton.tap()
+        incrementButton.tap()
+       
+        
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

@@ -18,12 +18,17 @@ final class NettbutikkTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSupplierHasFlagURL() throws {
+        
+        let supplier = Supplier.init(id: 3, name: "Klesbutikk", country: "GERMANY", contactInfo: "")
+        XCTAssertNotNil(supplier.flagURL)
+        XCTAssertEqual(supplier.flagURL, URL(string:"https://flagsapi.com/DE/flat/64.png"))
+    }
+    
+    func testSupplierHasNoFlagURL() throws {
+        let supplier = Supplier.init(id: 3, name: "Klesbutikk", country: "N/A", contactInfo: "")
+        XCTAssertNil(supplier.flagURL)
+        
     }
 
     func testPerformanceExample() throws {

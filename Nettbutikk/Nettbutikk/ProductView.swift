@@ -46,6 +46,20 @@ struct ProductView: View {
                     Text(supplier.name)
                     Spacer()
                     Text(supplier.country)
+//                    Image(UIImage(data: ).cgImage, scale: 1, label: "")
+                    
+                    AsyncImage(url: supplier.flagURL) { image in
+                        image.resizable()
+                            .frame(width: 30, height: 30)
+                        
+                    } placeholder: {
+//                        UIImage
+                   
+                        Color.red
+                            .border(.gray)
+                            .frame(width: 30, height: 30)
+                    }
+                        
                     Spacer()
                     Text(supplier.contactInfo)
                 }.font(.footnote)

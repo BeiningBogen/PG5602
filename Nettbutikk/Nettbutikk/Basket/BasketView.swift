@@ -87,8 +87,13 @@ struct BasketView: View {
                     
                     Stepper("", onIncrement: {
                         product.storeInDatabase(context: modelContext)
-                    }, onDecrement: {
                         
+                        let numberOfProducts = Product.allStoredProducts(withId: product.id, inContext: modelContext)
+                        print("Number of products: \(numberOfProducts)")
+                    }, onDecrement: {
+                        product.deleteFromDatabase(context: modelContext)
+                        let numberOfProducts = Product.allStoredProducts(withId: product.id, inContext: modelContext)
+                        print("Number of products: \(numberOfProducts)")
                     })
                 }
                 
