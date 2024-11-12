@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Product: Hashable, Codable, Identifiable {
+class Product: Hashable, Encodable, Decodable, Identifiable {
     
     /// Skriv til JSON:
     func encode(to encoder: any Encoder) throws {
@@ -57,6 +57,7 @@ class Product: Hashable, Codable, Identifiable {
     var price: Int
     var fastDelivery: Bool
     var imageURL: URL?
+    
     var suppliers: [Supplier]
     
     

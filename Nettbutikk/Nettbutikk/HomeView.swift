@@ -47,6 +47,12 @@ struct HomeView: View {
         
         selectedClothingType = clothingType
         isShowingSheet = true
+        
+        // Skrive til disk
+        UserDefaults.standard.set(true, forKey: "isOnboardingDone")
+        
+        // Hente ut fra disk
+        let hasDoneOnboarding = UserDefaults.standard.bool(forKey: "isOnboardingDone")
     }
     
     

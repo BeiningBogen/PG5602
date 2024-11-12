@@ -118,6 +118,7 @@ struct BasketView: View {
                     .pulseEffect()
                 
                 // Rotation animation
+                    
                     .rotationEffect(isRotating ? .degrees(360) : .degrees(0))
                     .animation(
                         Animation.linear(duration: 0.6)
