@@ -1,9 +1,9 @@
 
 
-#PG5602 H2025
+# PG5602 H2025
 
 
-#Oppgave 1
+# Oppgave 1
 - Lag et nytt xcode prosjekt og kjør det
 - Finn hvor viewet er og få preview til å kjøre
 - Lag en ny fil i prosjektet
