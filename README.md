@@ -44,3 +44,150 @@
 - Prøv .shadow(color: .red, radius: 3, x: 2, y: 2)
 - Prøv forskjellig radius og x og y koordinater på skyggen
 - Prøv å legge skygge på andre UI-elementer, feks image, Vstack osv. Fungerer det? Hvorfor/Hvorfor ikke?
+
+
+# Forelesning 2
+
+# Tema HStack & VStack 
+
+## HStack
+**Url:** https://developer.apple.com/documentation/swiftui/hstack
+
+HStack arrangerer views horisontalt (ved siden av hverandre).
+
+```swift
+HStack {
+    Text("Første")
+    Text("Andre")
+    Text("Tredje")
+}
+```
+
+### Spacer()
+**Spacer** tar opp all tilgjengelig plass og skyver andre views bort fra hverandre.
+
+```swift
+HStack {
+    Text("Venstre")
+    Spacer()
+    Text("Høyre")
+}
+```
+
+Du kan også bruke Spacer med fast størrelse:
+```swift
+HStack {
+    Text("Start")
+    Spacer(minLength: 50)
+    Text("Slutt")
+}
+```
+
+## VStack
+**Url:** https://developer.apple.com/documentation/swiftui/vstack
+
+VStack arrangerer views vertikalt (over hverandre).
+
+```swift
+VStack {
+    Text("Øverst")
+    Text("I midten")
+    Text("Nederst")
+}
+```
+
+### Kombinering av HStack og VStack
+Du kan kombinere HStack og VStack for å lage komplekse layouts:
+
+```swift
+VStack {
+    Text("Tittel")
+    
+    HStack {
+        Text("Venstre")
+        Spacer()
+        Text("Høyre")
+    }
+    
+    Text("Bunn")
+}
+```
+
+### Alignment og Spacing
+Både HStack og VStack støtter alignment og spacing:
+
+```swift
+VStack(alignment: .leading, spacing: 10) {
+    Text("Tekst 1")
+    Text("Lengre tekst 2")
+    Text("Kort")
+}
+
+HStack(alignment: .top, spacing: 20) {
+    Text("Høy\ntekst")
+    Text("Lav")
+}
+```
+
+# Oppgave 9 - HStack Grunnleggende
+- Endre din eksisterende ContentView til å bruke en HStack i stedet for VStack
+- Legg inn to Text komponenter ved siden av hverandre med navnet ditt og skolen
+- Kjør preview og se at tekstene nå står ved siden av hverandre
+- Legg til en tredje Text med faget. Hvor plasserer den seg?
+
+# Oppgave 10 - HStack med flere elementer
+- Legg til et SF Symbol ikon mellom navn-teksten og skole-teksten
+- Test forskjellige ikoner: person, graduationcap, star
+- Endre rekkefølgen på elementene i HStack. Hva skjer?
+- Kjør appen i simulator (CMD+R). Ser du alle elementene?
+
+# Oppgave 11 - Introduksjon til Spacer
+- Legg til en Spacer() mellom navnet ditt og skolen
+- Kjør preview. Hvor mye plass tar Spacer?
+- Flytt Spacer til starten av HStack. Hva skjer?
+- Flytt Spacer til slutten av HStack. Hva skjer?
+
+# Oppgave 12 - Spacer med fast størrelse
+- Bytt ut Spacer() med Spacer(minLength: 20)
+- Test forskjellige verdier: 5, 50, 100
+- Legg til to Spacer med forskjellige størrelser i samme HStack
+- Sammenlign med en vanlig Spacer() uten parametere
+
+# Oppgave 13 - VStack Grunnleggende
+- Lag en ny VStack under din eksisterende HStack
+- Legg inn tre Text komponenter vertikalt: "Linje 1", "Linje 2", "Linje 3"
+- Kjør preview og se at tekstene står over hverandre
+- Endre teksten i midterste Text. Oppdateres preview?
+
+# Oppgave 14 - VStack med ikoner og tekst
+- I din VStack, legg til SF Symbol ikoner mellom hver tekst
+- Test ikoner: arrow.up, circle, arrow.down
+- Endre størrelsen på ikonene med .font(.title)
+- Endre fargen på kun ikonene til .blue
+
+# Oppgave 15 - Kombinere HStack og VStack
+- Lag en ny VStack som wrapper rundt alt innholdet
+- Inni denne: legg HStack øverst, deretter VStack under
+- Legg til en ny Text helt nederst med "Ferdig!"
+- Test at alt vises i riktig rekkefølge i preview
+
+# Oppgave 16 - Kompleks layout
+- Lag en "visittkort" layout med:
+  - Øverst: HStack med navn og yrke/studie
+  - I midten: VStack med skole og fag
+  - Nederst: HStack med telefonnummer og e-post (dummy data)
+- Bruk Spacer() for å spre elementene i HStack
+- Test layouten i både preview og simulator
+
+# Oppgave 17 - Alignment i VStack
+- Ta din visittkort VStack og legg til alignment: .leading
+- Se hvordan alle elementene justeres til venstre
+- Test .center og .trailing alignment
+- Hvilken alignment ser best ut for visittkort?
+
+# Oppgave 18 - Spacing i HStack og VStack
+- Legg til spacing: 20 i din hovedVStack
+- Legg til spacing: 10 i dine HStack komponenter
+- Test forskjellige spacing verdier: 5, 15, 30
+- Sammenlign med og uten spacing parametere
+
