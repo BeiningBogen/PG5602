@@ -19,4 +19,11 @@
 - Lag en VStack som omringer de to tekstene sånn at de vises over hverandre
 - Lag en tredje tekst som skriver navnet på faget. Hvor legger denne seg?
 
-- 
+# Oppgave 4
+- Sett fargen på alle tekster til rød
+- Prøv forskjellige farger som .red, .green, .orange
+
+# Oppgave 5
+- Legg til et SF Symbol ikon, graduationcap
+- Endre størrelsen på ikonet ved å endre font
+- Endre til forskjellige ikoner, feks star, heart, person
