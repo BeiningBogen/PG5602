@@ -191,3 +191,69 @@ HStack(alignment: .top, spacing: 20) {
 - Test forskjellige spacing verdier: 5, 15, 30
 - Sammenlign med og uten spacing parametere
 
+
+
+# Forelesning 3 
+
+Oppgave 1: VStack og HStack
+
+  I ContentView.swift:
+  - Lag en ny VStack under den eksisterende HStacken med 3 Text elementer
+  - Legg elementene i en HStack inne i den nye VStack
+  - Bruk Spacer() for å fordele elementene jevnt
+
+  Oppgave 2: Nesting av Stacks
+
+  - Lag en VStack som inneholder 3 HStacker
+  - Hver HStack skal ha et ikon til venstre og tekst til høyre
+  - Bruk Spacer() mellom ikon og tekst
+
+  Oppgave 3: ScrollView Horisontal
+
+  I MyList.swift:
+  - Lag en horisontal ScrollView øverst som viser fagkoder
+  - Bruk ScrollView(.horizontal) med en HStack inni
+  - Vis minst 10 fagkoder som Text elementer
+
+  Oppgave 4: ForEach med Index
+
+  - Modifiser ForEach i MyList.swift til å vise indeks/nummer foran hvert navn
+  - Tips: Bruk Array(names.enumerated()) og id: \.offset
+  - Vis som "1. Håkon", "2. Mari", osv.
+
+  Oppgave 5: List vs ScrollView
+
+  - Lag en ny View som viser samme data med List istedenfor ScrollView
+  - Kommenter ut ScrollView-koden og implementer med List
+  - Legg merke til forskjellene i utseende og oppførsel
+
+  Oppgave 6: Kombinert Layout
+
+  Lag en ny View med:
+  - En VStack som hovedcontainer
+  - Øverst: En tittel i en HStack med ikoner på hver side
+  - Midten: En ScrollView med ForEach som viser 20 elementer
+  - Nederst: En HStack med 3 knapper (bare Text elementer)
+
+  Oppgave 7: ForEach med Flere Arrays
+
+  - Lag to arrays: ett for studenter og ett for lærere
+  - Vis begge i samme ScrollView med overskrifter
+  - Bruk ForEach for hver gruppe
+  - Skill gruppene med passende spacing
+
+  Oppgave 8: Grid-lignende Layout
+
+  Bruk ScrollView, VStack og HStack:
+  - Lag et rutenett med 3 kolonner og flere rader
+  - Hver celle skal inneholde et ikon og tekst under
+  - Tips: ForEach med HStack for hver rad, eller del arrayet i grupper av 3
+
+  Bonus: Spacer Eksperiment
+
+  - Eksperimenter med Spacer() plassering
+  - Lag en HStack med 3 elementer og test:
+    - Spacer bare til venstre
+    - Spacer bare til høyre
+    - Spacer mellom alle elementer
+    - Flere Spacers med minLength
