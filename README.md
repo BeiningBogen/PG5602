@@ -6,7 +6,7 @@ Kursmateriale for PG5602 iOS-utvikling med SwiftUI.
 
 ## 📋 Kursoversikt
 
-Se fullstendig kursplan og pensum: [plan.md](plan.md)
+Se fullstendig kursplan, med forebehold om endringer basert på tilbakemeldinger: [plan.md](plan.md)
 
 ## 📝 Oppgaver
 
