@@ -83,3 +83,7 @@ BuildSettings/**/TargetEnvironment.xcconfig
 vendor/
 Packages/
 ci_derived_data/
+
+# Livekode files (teacher only)
+**/livekode.swift
+livekode/
