@@ -257,3 +257,28 @@ Oppgave 1: VStack og HStack
     - Spacer bare til høyre
     - Spacer mellom alle elementer
     - Flere Spacers med minLength
+
+
+#Forelesning 4 
+
+Oppgave 1: Personlig Toggle
+Lag en app som:
+
+Har en toggle for "Jeg liker kaffe" ☕
+Viser passende emoji og tekst basert på toggle-status
+Endrer bakgrunnsfargen når toggled
+
+Oppgave 2: Mini Kalkulator
+
+Lag en app som: 
+
+Har knapper for +1, +5, +10, -1, -5, -10
+Vise "POSITIV" eller "NEGATIV" basert på verdien
+Disable minus-knapper når count = 0
+
+Oppgave 3: Hilsen-Generator
+Lag en app som:
+
+Har TextField for navn
+Dropdown/Picker for språk (Norsk, Engelsk, Spansk)
+Viser hilsen på valgt språk: "Hei [navn]", "Hello [navn]", "Hola [navn]"
