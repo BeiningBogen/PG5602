@@ -17,4 +17,4 @@ Alle praktiske oppgaver og øvelser: [oppgaver.md](oppgaver.md)
 - `plan.md` - Detaljert kursplan med alle forelesninger og temaer
 - `oppgaver.md` - Samling av alle praktiske oppgaver
 - `Forelesning3/` - Kodeeksempler fra forelesning 3
-- `ActionsTest/` - Testkode for actions og interaksjoner
+- `ActionsTest/` - Testkode for actions og interaksjoner (Forelesning 4)
