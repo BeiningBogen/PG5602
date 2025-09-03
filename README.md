@@ -196,7 +196,7 @@ HStack(alignment: .top, spacing: 20) {
 # Forelesning 3 
 
 Oppgave 1: VStack og HStack
-
+(fortsett fra ContentView i forelesningen, ikke oppgavene over)
   I ContentView.swift:
   - Lag en ny VStack under den eksisterende HStacken med 3 Text elementer
   - Legg elementene i en HStack inne i den nye VStack
