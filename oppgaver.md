@@ -231,3 +231,12 @@ Lag en ny view med ZStack:
 - Bakgrunnsfarge eller gradient
 - Overlay med todo-statistikk (antall totalt, antall i hver kategori)
 - Kombiner med din eksisterende NavigationView
+
+## Oppgave 7: 
+Tenk at du lager appen til mattilsynet, og er på tilsyn. Lag form basert på det
+- Restaurant navn
+- Adresse
+- Picker med valg av smiley-score
+- Inspektør (valg av definerte inspektører fra en gitt liste)
+- Dato for når eventuelle utbedringer må være gjennomført
+
