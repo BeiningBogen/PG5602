@@ -240,3 +240,16 @@ Tenk at du lager appen til mattilsynet, og er på tilsyn. Lag form basert på de
 - Inspektør (valg av definerte inspektører fra en gitt liste)
 - Dato for når eventuelle utbedringer må være gjennomført
 
+# Forelesning 7 
+
+Oppgaver for å fullføre skjermen ProfileView
+
+    1.    Gi bedre mellomrom og struktur mellom elementene.
+    2.    Lag en rad med to knapper under teksten.
+    3.    Legg til en seksjon med ekstra informasjon om brukeren.
+    4.    Sett inn en skillelinje mellom toppseksjonen og informasjonen.
+    5.    Lag en liste eller seksjon nederst som viser innhold relatert til brukeren.
+    6.    Gjør små visuelle forbedringer med farger, skygger eller annen styling.
+
+⸻
+
