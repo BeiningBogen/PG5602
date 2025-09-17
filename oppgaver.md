@@ -253,3 +253,56 @@ Oppgaver for å fullføre skjermen ProfileView
 
 ⸻
 
+# Forelesning 8 - URL & URLSession
+
+### Oppgave 1: Hent posts fra API
+- Lag en app som henter posts fra `https://jsonplaceholder.typicode.com/posts`
+- Lag en Post model med id, title og body
+- Vis posts i en List med kun title
+- Bruk async/await med URLSession
+
+### Oppgave 2: Vis mer post-informasjon
+Utvidet post-visningen:
+- Vis både title (headline) og body (caption, grå)
+- Begrens body til første 50 tegn med "..."
+- Test med forskjellige fontstørrelser
+
+### Oppgave 3: Håndter loading tilstand
+Legg til:
+- @State var isLoading for å vise ProgressView
+- Sett isLoading = true før API-kall
+- Sett isLoading = false etter kallet
+- Test at loading vises
+
+### Oppgave 4: Legg til feilhåndtering
+- @State var errorMessage: String?
+- Vis feilmelding i stedet for liste hvis error
+- "Noe gikk galt" med error.localizedDescription
+- Test med ugyldig URL
+
+### Oppgave 5: Comments API
+Bytt til comments:
+- Bruk `https://jsonplaceholder.typicode.com/comments`
+- Lag Comment model med name, email, body
+- Vis name som headline og email som subheadline
+- Test at JSON dekoding fungerer
+
+### Oppgave 6: Photos API
+Implementer photos:
+- Bruk `https://jsonplaceholder.typicode.com/photos`
+- Lag Photo model med id, title, url, thumbnailUrl
+- Vis kun title i listen foreløpig
+- Håndter at noen felt kan være nil
+
+### Oppgave 7: Switch mellom tilstander
+I stedet for if-else, bruk enum:
+- enum ViewState { case loading, loaded, error(String) }
+- Bruk switch-statement i body
+- Test at alle tilstander fungerer
+
+### Oppgave 8: Refresh funksjonalitet
+- Toolbar med "Oppdater"-knapp
+- .task modifier for å hente ved oppstart  
+- Legg til .onAppear som alternativ til .task
+- Test at data oppdateres ved knapptrykk
+
