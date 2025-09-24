@@ -21,6 +21,8 @@ struct Country: Decodable, Identifiable {
     let population: Int
     let flag: String
     let flags: Flag
+    let capital: [String]?
+    let area: Double
     
     struct Flag: Decodable {
         let png: String

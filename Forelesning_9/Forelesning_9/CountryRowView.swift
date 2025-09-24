@@ -16,11 +16,28 @@ struct CountryRowView: View {
             AsyncImage(url: URL(string: country.flags.png)) { image in
                 image
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 40)
+                    .frame(width: 40, height: 40)
+                    .clipped()
+                
             } placeholder: {
                 Text(country.flag)
             }
-            Text(country.name.common)
+            
+            VStack {
+                Text(country.name.common)
+                // Optional chaining:
+                if let capital = country.capital?.first {
+                    Text(capital)
+                        .foregroundStyle(.secondary)
+                } // end if let
+            } // end vstack
+            
+            Spacer()
+            VStack {
+                Text("Innbyggere: \(country.population)")
+                Text("Areal: \(country.area) km")
+            }
+            
         }
     }
 }
@@ -31,7 +48,7 @@ struct CountryRowView: View {
     let flag = Country.Flag.init(png: "", svg: "", alt: "Firkant med blå og hvite striper med rød rundt")
     let coatOfArms = Country.CoatOfArms(png: nil, svg: nil)
     
-    let country = Country(name: countryName, region: "europe", subregion: "Skandinavia", population: 5400000, flag: "🇳🇴", flags: flag, coatOfArms: coatOfArms)
+    let country = Country(name: countryName, region: "europe", subregion: "Skandinavia", population: 5400000, flag: "🇳🇴", flags: flag, capital: ["Oslo"], area: 350000, coatOfArms: coatOfArms)
     
     List {
         CountryRowView(country: country)
