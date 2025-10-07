@@ -306,3 +306,96 @@ I stedet for if-else, bruk enum:
 - Legg til .onAppear som alternativ til .task
 - Test at data oppdateres ved knapptrykk
 
+
+# Animasjonsoppgaver
+
+## Oppgave 1: Enkel knapp-styrt animasjon
+Lag en view med:
+- En sirkel som endrer størrelse når du trykker på en knapp
+- Sirkelen skal starte på 100x100 punkter
+- Når du trykker skal den vokse til 200x200 punkter
+- Animer endringen med `.animation(.default, value: ...)`
+
+## Oppgave 2: Flere animasjonsknapper
+Lag en view med:
+- Et kvadrat (RoundedRectangle) i midten
+- Tre knapper under: "Snurr", "Voks", "Fade"
+- "Snurr"-knappen roterer kvadratet 360 grader
+- "Voks"-knappen skalerer kvadratet til 1.5x størrelsen og tilbake
+- "Fade"-knappen reduserer opacity til 0.3 og tilbake
+- Bruk `withAnimation` for hver knapp
+
+## Oppgave 3: Sammenligning av animasjonskurver
+Lag en view som demonstrerer forskjellige animasjonskurver:
+- Lag 4-5 sirkler i en vertikal stack
+- Hver sirkel skal ha en annen farge
+- Legg til en knapp som flytter alle sirklene fra venstre til høyre
+- Gi hver sirkel en annen animasjonstype:
+  - Linear
+  - EaseIn
+  - EaseOut
+  - EaseInOut
+  - Spring
+- Dette lager en "race"-effekt som viser hvordan forskjellige kurver oppfører seg
+
+## Oppgave 4: Kombinerte transformasjoner
+Lag en view med:
+- En form i midten (valgfritt)
+- En "Sprette"-knapp som flytter formen opp og ned igjen
+- En "Vibrere"-knapp som roterer formen venstre, høyre, venstre, høyre, og sentrerer den
+- En "Puls"-knapp som skalerer formen større og mindre
+- En "Kombo"-knapp som kombinerer flere animasjoner samtidig
+- En "Reset"-knapp som returnerer alt til startposisjonen
+
+## Oppgave 5: Interaktivt kontrollpanel
+Lag et kontrollpanel med:
+- En form vist i midten
+- Knapper for X-posisjon: "-50" og "+50"
+- Knapper for Y-posisjon: "-50" og "+50"
+- Knapper for rotasjon: "-45°" og "+45°"
+- Knapper for skalering: "0.5x", "1x", "2x"
+- En "Reset"-knapp som returnerer alle verdier til standard
+- Alle endringer skal animeres med spring-animasjon
+
+## Oppgave 6: Form-morphing
+Lag en view som bytter mellom forskjellige former:
+- Vis én form om gangen i midten
+- Lag knapper for: "Sirkel", "Kvadrat", "Pille", "Stjerne"
+- Når du trykker på en knapp skal gjeldende form forsvinne og den nye formen vises
+- Bruk `.transition()` modifiers for å få former til å skalere inn/ut eller fade inn/ut
+- Bonus: Prøv å kombinere transitions som `.scale.combined(with: .opacity)`
+
+## Oppgave 7: Gesture-animasjon
+Lag et element som kan dras:
+- En sirkel som kan dras rundt på skjermen
+- Når du slipper den skal den animere tilbake til midten
+- Sirkelen skal endre farge mens den dras
+- Bruk `DragGesture()` kombinert med `withAnimation`
+
+## Oppgave 8: Gjentakende animasjon
+Lag en view med:
+- En form som kontinuerlig pulserer (vokser og krymper)
+- Bruk `.repeatForever(autoreverses: true)`
+- Legg til en knapp for å starte/stoppe animasjonen
+- Bonus: Prøv å lage en loading-indikator-effekt
+
+## Utfordring: Animasjons-lekeplass
+Kombiner alt du har lært:
+- Lag en enkelt form i midten
+- Legg til 6+ knapper som hver trigger en unik animasjon
+- Prøv å lage interessante kombinasjoner av:
+  - Posisjonsendringer (offset)
+  - Rotasjon
+  - Skalering
+  - Opacity
+  - Fargeendringer
+- Legg til en reset-knapp
+- Få animasjonene til å føles smooth og naturlige
+
+## Tips
+- Bruk `@State`-variabler for å lagre animasjonsverdier
+- Bruk `.animation(.spring(), value: stateVariable)` for implisitte animasjoner
+- Bruk `withAnimation { }` for eksplisitte animasjoner
+- Spring-animasjoner føles ofte mest naturlige: `.spring(response: 0.6, dampingFraction: 0.7)`
+- Du kan forsinke animasjoner: `.animation(.spring().delay(0.5), value: ...)`
+- Eksperimenter med forskjellige durations og timing-kurver   
