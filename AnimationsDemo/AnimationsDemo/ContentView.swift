@@ -52,7 +52,7 @@ struct AnimationTypesView: View {
                 .animation(.spring(response: 0.9, dampingFraction: 0.1), value: offset)
             
             Button("Animate") {
-//                offset = 45
+                //                offset = 45
                 offset = (offset == -150) ? 150 : -150
             }
         }
@@ -70,8 +70,95 @@ struct ExplicitAnimationView: View {
                 .fill(.purple)
                 .frame(width: 100, height: 100)
                 .rotationEffect(.degrees(rotation))
-        
+                .scaleEffect(scale)
+            
+            Button("animate") {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.5)) {
+                    
+                    rotation += 360
+                    scale = scale == 1.0 ? 1.5 : 1.0
+                }
+                //                completion: {
+                //
+                //                }
+            }
+            
         }
+    }
+}
+
+struct MultiplePropertiesView: View {
+    @State private var isAnimated = false
+    
+    var body: some View {
+        VStack(spacing: 40) {
+            RoundedRectangle(cornerRadius: isAnimated ? 50 : 10)
+                .fill(isAnimated ? .orange : .blue)
+                .frame(width: isAnimated ? 200 : 100, height:  isAnimated ? 200 : 100)
+                .rotationEffect(.degrees(isAnimated ? 180 : 0))
+                .animation(.easeInOut(duration: 1), value: isAnimated)
+            
+            Button("Animate") {
+                isAnimated.toggle()
+            }
+            
+        }
+    }
+}
+
+struct TransitionAnimationView: View {
+    
+    @State private var showDetail = false
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Button("Toggle Detail") {
+                withAnimation(.spring) {
+                    showDetail.toggle()
+                }
+            }
+            
+            if showDetail {
+                VStack {
+                    Text("Detail view")
+                        .font(.title)
+                    Text("This appears with transition")
+                        .foregroundStyle(.secondary)
+                }
+                .padding()
+                .background(.blue.opacity(0.2))
+                .cornerRadius(10)
+                .transition(.scale.combined(with: .opacity))
+            }
+        }
+    }
+}
+
+struct GestureAnimationView: View {
+    
+    @State private var offset = CGSize.zero
+    @State private var isDragging = false
+    
+    var body: some View {
+        Circle()
+            .frame(width: 100)
+            .offset(offset)
+            .fill(isDragging ? .green : .blue)
+            .gesture (
+                
+                DragGesture()
+                    .onChanged { value in
+                        
+                        offset = value.translation
+                        isDragging = true
+                    }.onEnded { _ in
+                        
+                        withAnimation(.spring())  {
+                            offset = .zero
+                            isDragging = false
+                        }
+                    }
+            )
     }
 }
 
@@ -89,6 +176,16 @@ struct ContentView: View {
             ExplicitAnimationView()
                 .tabItem {
                     Label("Explicit animation", systemImage: "square")
+                }
+            MultiplePropertiesView()
+                .tabItem { Label("Multiple properties", systemImage: "basketball")}
+            TransitionAnimationView()
+                .tabItem {
+                    Label("Transition", systemImage: "flask")
+                }
+            GestureAnimationView()
+                .tabItem {
+                    Label("Gesture", systemImage: "shoe")
                 }
         }
     }
