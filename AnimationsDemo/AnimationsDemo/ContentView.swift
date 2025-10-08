@@ -141,9 +141,9 @@ struct GestureAnimationView: View {
     
     var body: some View {
         Circle()
+            .fill(isDragging ? .green : .blue)
             .frame(width: 100)
             .offset(offset)
-            .fill(isDragging ? .green : .blue)
             .gesture (
                 
                 DragGesture()
@@ -161,6 +161,35 @@ struct GestureAnimationView: View {
             )
     }
 }
+
+struct RepeatingAnimationView: View {
+    
+    @State private var isPulsing = false
+    
+    var body: some View {
+        
+        VStack(spacing: 40) {
+            Circle()
+                .fill(isPulsing ? .blue : .red)
+                .frame(width: 101)
+                .scaleEffect(isPulsing ? 1.3 : 1.0)
+                .opacity(isPulsing ? 0.5 : 1.0)
+                .animation(
+                    .easeIn(duration: 1)
+                    .repeatForever(autoreverses: true), value: isPulsing
+                )
+            Button("Start animation") {
+                // todo finn ut hvordan man stopper animasjonen!
+                isPulsing.toggle()
+            }
+            
+            
+        }
+        
+    }
+}
+
+
 
 struct ContentView: View {
     var body: some View {
@@ -186,6 +215,11 @@ struct ContentView: View {
             GestureAnimationView()
                 .tabItem {
                     Label("Gesture", systemImage: "shoe")
+                }
+            
+            RepeatingAnimationView()
+                .tabItem {
+                    Label("Repeating", systemImage: "repeat")
                 }
         }
     }
