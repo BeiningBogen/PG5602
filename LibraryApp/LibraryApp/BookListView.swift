@@ -15,11 +15,21 @@ struct BookListView: View {
     
     @State private var isShowingAddBookScreen = false
     
+    func onDeleteBooks(at offsets: IndexSet) {
+        for index in offsets {
+            let book = books[index]
+            modelContext.delete(book)
+            
+            try! modelContext.save()
+        }
+    }
+    
     var body: some View {
         List {
             ForEach(books) { book in
-                Text(book.title)
+                BookRowView(book: book)
             }
+            .onDelete(perform: onDeleteBooks)
         }
         .navigationTitle("My books")
         .toolbar  {
@@ -31,12 +41,11 @@ struct BookListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-
+                
             }
         }.sheet(isPresented: $isShowingAddBookScreen) {
             AddBookView()
         }
-    //    .foregroundStyle(.black)
         
     }
 }
