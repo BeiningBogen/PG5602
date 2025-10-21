@@ -45,16 +45,17 @@ class Enrollment {
 
 @Model
 class Course {
+    
     var id: UUID
     var title: String
     var code: String
-    var credits: Int
+    var credits: Double
     
     @Relationship(deleteRule: .cascade, inverse: \Enrollment.course)
     var enrollments: [Enrollment]
     
     
-    init(title: String, code: String, credits: Int, enrollments: [Enrollment]) {
+    init(title: String, code: String, credits: Double, enrollments: [Enrollment]) {
         self.id = UUID()
         self.title = title
         self.code = code

@@ -15,16 +15,28 @@ struct StudentRegistryApp: App {
             MainTabView()
         }
     }
+    
+    
 }
 
 struct MainTabView: View {
     var body: some View {
         TabView {
             StudentsView()
+                .tabItem {
+                    Label("Students", systemImage: "person.2")
+                }
             
             CoursesView()
+                .tabItem {
+                    Label("Courses", systemImage: "book")
+                }
             
             EnrollmentsView()
+                .tabItem  {
+                    Label("Enrollments", systemImage: "list.bullet")
+                }
+            
         }.modelContainer(for: [Student.self, Course.self, Enrollment.self])
     }
 }
