@@ -398,4 +398,103 @@ Kombiner alt du har lært:
 - Bruk `withAnimation { }` for eksplisitte animasjoner
 - Spring-animasjoner føles ofte mest naturlige: `.spring(response: 0.6, dampingFraction: 0.7)`
 - Du kan forsinke animasjoner: `.animation(.spring().delay(0.5), value: ...)`
-- Eksperimenter med forskjellige durations og timing-kurver   
+- Eksperimenter med forskjellige durations og timing-kurver
+
+---
+
+## 💾 SwiftData - Database Persistering
+
+### Oppgave 1: Grunnleggende SwiftData Setup
+Basert på StudentRegistry prosjektet:
+- Studer Models.swift filen for å forstå @Model klassene
+- Se hvordan Student, Course og Enrollment er relatert
+- Kjør appen og test å legge til en student
+- Verifiser at data lagres ved å restarte appen
+
+### Oppgave 2: StudentDetailView Implementation
+I StudentDetailView.swift:
+- Implementer body viewet basert på kommentarene i koden
+- Vis student informasjon i en Section
+- Vis påmeldte kurs i en egen Section
+- Vis grade hvis den eksisterer, ellers vis "In Progress"
+- Test at preview fungerer
+
+### Oppgave 3: Enroll Student i Course
+- Lag EnrollStudentView som viser available courses for en student
+- Bruk availableCourses computed property som allerede er implementert
+- Legg til funksjonalitet for å enrolle student i valgt kurs
+- Test at studenten kan meldes på flere kurs
+
+### Oppgave 4: Course Management
+- Implementer CoursesView for å vise alle kurs
+- Legg til AddCourseView for å legge til nye kurs
+- Implementer sletting av kurs med .onDelete
+- Test at kurs kan legges til og slettes
+
+### Oppgave 5: Advanced Queries
+- I StudentsView, legg til søkefunksjonalitet med .searchable
+- Filtrer studenter basert på navn eller email
+- Sorter studenter alfabetisk (allerede implementert med @Query)
+- Test søkefunksjonaliteten
+
+### Oppgave 6: Enrollment Management
+- Lag en EnrollmentsView som viser alle påmeldinger
+- Vis student navn, course title og grade (hvis satt)
+- Legg til funksjonalitet for å sette karakterer
+- Filtrer på completerte vs. in-progress påmeldinger
+
+### Oppgave 7: Data Relationships
+- Test og forstå cascade delete reglene i Models.swift
+- Hva skjer når du sletter en student som har påmeldinger?
+- Hva skjer når du sletter et kurs som har påmeldinger?
+- Eksperimenter med forskjellige delete rules
+
+### Oppgave 8: SwiftData Previews
+- Studer hvordan preview data settes opp i StudentsView
+- Lag preview data for CoursesView og EnrollmentsView
+- Sørg for at preview-dataene viser realistiske relasjoner
+- Test at previews fungerer for alle views
+
+### Oppgave 9: Query Modifiers
+- Eksperimenter med @Query modifiers:
+  - Sortering: @Query(sort: \\Student.name)
+  - Filtering: @Query(filter: #Predicate<Student> { $0.name.contains("a") })
+- Lag en view som viser kun studenter med A-karakter
+- Lag en view som viser kurs sortert etter credits
+
+### Oppgave 10: Complex Data Operations
+- Legg til bulk operations: "Delete all students", "Delete all courses"
+- Implementer import/export av dummy data
+- Lag en statistics view som viser:
+  - Totalt antall studenter
+  - Totalt antall kurs
+  - Gjennomsnittlig antall påmeldinger per student
+- Test performance med mange data entries
+
+### Bonus Oppgaver:
+
+#### Oppgave 11: Custom View Modifiers
+Som nevnt i kommentarene i StudentDetailView:
+- Lag custom view modifiers for styling
+- Implementer en "regnbue font" modifier
+- Style alle views med konsistent design
+
+#### Oppgave 12: Advanced SwiftData Features
+- Implementer batch operations
+- Legg til data syncing simulation
+- Implementer undo/redo funksjonalitet
+- Legg til data backup og restore
+
+#### Oppgave 13: Error Handling
+- Legg til proper error handling for database operations
+- Vis brukervennlige feilmeldinger
+- Implementer retry logic for failed operations
+- Test edge cases som network failures
+
+### Tips for SwiftData:
+- @Model klassene må være classes, ikke structs
+- Bruk @Query for automatisk updates når data endres
+- modelContext.insert() for å legge til nye objekter
+- modelContext.delete() for å slette objekter
+- @Relationship definerer foreign keys og delete rules
+- Test alltid cascading deletes grundig
