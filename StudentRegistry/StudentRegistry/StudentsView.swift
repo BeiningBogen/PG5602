@@ -31,7 +31,7 @@ struct StudentsView: View {
                 ForEach(students) { student in
                     NavigationLink {
                         // Hvor kommer man når man trykker på student?
-                        // StudentDetailView(student: student)
+                         StudentDetailView(student: student)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(student.name)
